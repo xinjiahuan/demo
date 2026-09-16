@@ -11,7 +11,17 @@
       <meta name="description" content="{{ page_description | escape }}">
     {%- endif -%}
 
-    <link rel="canonical" href="{{ canonical_url }}">
+    {%- comment -%}dl-bc-v3{%- endcomment -%}
+{%- if template contains 'product' and product.metafields.deeplumen.ap_deployed.value == true -%}
+  <link rel="canonical" href="https://{{ request.host }}/a/shop/products/{{ product.handle }}">
+{%- elsif template contains 'collection' and collection.metafields.deeplumen.ap_deployed.value == true -%}
+  <link rel="canonical" href="https://{{ request.host }}/a/shop/collections/{{ collection.handle }}">
+{%- elsif template contains 'article' and article.metafields.deeplumen.ap_deployed.value == true -%}
+  <link rel="canonical" href="https://{{ request.host }}/a/shop/blogs/{{ article.handle }}">
+{%- else -%}
+  <link rel="canonical" href="{{ canonical_url }}">
+{%- endif -%}
+{%- comment -%}/dl-bc{%- endcomment -%}
 
     {%- if settings.favicon -%}
       <link rel="shortcut icon" href="{{ settings.favicon | image_url: width: 96 }}">
