@@ -1,0 +1,83 @@
+{% comment %}
+  ----------------------------------------------------------------------------------------------------------------------
+  Image Snippet
+  ----------------------------------------------------------------------------------------------------------------------
+
+  This code block acts as a public image reference block
+
+  ********************************************
+  Supported parameters
+  ********************************************
+
+  * img_class: { String } class for image
+  * img: { Object } This is the image to render on the pc side.
+  * img_mobile: { Object } This is the image to render on the mobile side.
+  * is_lazy: { Boolean } Whether to use lazy loading.
+  * show_placeholder: { Boolean } Whether to display alternative images when no images have been uploaded.
+  * aspect_ratio: { String:[16 / 9, 4 / 3, 1 / 1, 3 / 4] } This is the aspect ratio of the image on the pc.
+  * aspect_ratio_mobile: { String:[4 / 3, 1 / 1, 3 / 4, 3 / 5] } This is the aspect ratio of the mobile image.
+  * preload: { Boolean } Whether images should be loaded first.
+{% endcomment %}
+
+{% liquid
+  if img != blank
+    assign img_alt = img.alt | default: shop.name
+    assign img_mobile_alt = img_mobile.alt | default: shop.name
+
+    assign img_class = img_class | append: ' yg-image-box'
+    assign preload = preload | default: false
+
+    capture img_style
+      assign aspect_ratio = aspect_ratio | default: img.aspect_ratio
+      echo '--aspect-ratio: [[style]];' | replace: '[[style]]', aspect_ratio
+    endcapture
+
+    if is_no_lazy
+      assign width = img.width
+      assign width_mobile = img_mobile.width
+    else
+      assign src = img | image_url: width: img.width
+      assign src_mobile = img_mobile | image_url: width: img_mobile.width
+      assign width = img.width | divided_by: 20
+      assign width_mobile = img_mobile.width | divided_by: 20
+    endif
+
+    if img_mobile != blank
+      capture img_style
+        assign aspect_ratio_mobile = aspect_ratio_mobile | default: img_mobile.aspect_ratio
+
+        echo img_style
+        echo '--aspect-ratio-mobile: [[style]];' | replace: '[[style]]', aspect_ratio_mobile
+      endcapture
+
+      capture img_html
+        echo img | image_url: width: width | image_tag: class: 'hide-mobile yg-image', alt: img_alt, preload: preload, loading: 'lazy', data-src: src
+        echo img_mobile | image_url: width: width_mobile | image_tag: class: 'hide-pc yg-image', alt: img_mobile_alt, preload: preload, loading: 'lazy', data-src: src_mobile
+      endcapture
+    else
+      capture img_html
+        echo img | image_url: width: img.width | image_tag: class: 'yg-image', alt: img_alt, preload: preload, loading: loading, data-src: src
+      endcapture
+    endif
+  elsif show_placeholder
+    assign img_class = img_class | append: ' yg-loading-image'
+
+    capture img_style
+      assign aspect_ratio = aspect_ratio | default: '16 / 9'
+      assign aspect_ratio_mobile = aspect_ratio_mobile | default: '3 / 4'
+
+      echo '--aspect-ratio: [[style]];' | replace: '[[style]]', aspect_ratio
+      echo '--aspect-ratio-mobile: [[style]];' | replace: '[[style]]', aspect_ratio_mobile
+    endcapture
+
+    capture img_html
+      echo 'lifestyle-1' | placeholder_svg_tag: 'placeholder'
+    endcapture
+  endif
+%}
+
+{% if img_html != blank %}
+  <yg-image class="{{ img_class }}" style="{{ img_style }}">
+    {{ img_html }}
+  </yg-image>
+{% endif %}

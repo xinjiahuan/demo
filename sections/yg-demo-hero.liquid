@@ -1,0 +1,230 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    position: relative;
+    overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .demo-hero-section {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 80px 20px;
+  }
+
+  #shopify-section-{{ section.id }} .demo-hero-content {
+    max-width: 900px;
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 2;
+  }
+
+  #shopify-section-{{ section.id }} .demo-hero-title {
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 700;
+    margin-bottom: 24px;
+    line-height: 1.1;
+  }
+
+  #shopify-section-{{ section.id }} .demo-hero-subtitle {
+    font-size: clamp(18px, 2.5vw, 24px);
+    margin-bottom: 40px;
+    opacity: 0.95;
+    line-height: 1.5;
+  }
+
+  #shopify-section-{{ section.id }} .demo-hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  #shopify-section-{{ section.id }} .demo-button {
+    padding: 16px 40px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  #shopify-section-{{ section.id }} .demo-button--primary {
+    background: #ffc000;
+    color: #212121;
+  }
+
+  #shopify-section-{{ section.id }} .demo-button--primary:hover {
+    background: #ffcd33;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255, 192, 0, 0.3);
+  }
+
+  #shopify-section-{{ section.id }} .demo-button--secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+  }
+
+  #shopify-section-{{ section.id }} .demo-button--secondary:hover {
+    background: white;
+    color: #212121;
+    transform: translateY(-2px);
+  }
+
+  /* 背景动画圆圈 */
+  #shopify-section-{{ section.id }} .demo-hero-bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    animation: float 20s infinite ease-in-out;
+  }
+
+  #shopify-section-{{ section.id }} .circle-1 {
+    width: 300px;
+    height: 300px;
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+  }
+
+  #shopify-section-{{ section.id }} .circle-2 {
+    width: 200px;
+    height: 200px;
+    bottom: 15%;
+    right: 10%;
+    animation-delay: 5s;
+  }
+
+  #shopify-section-{{ section.id }} .circle-3 {
+    width: 150px;
+    height: 150px;
+    top: 50%;
+    right: 20%;
+    animation-delay: 10s;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+    }
+    25% {
+      transform: translate(30px, -30px) scale(1.1);
+    }
+    50% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+    75% {
+      transform: translate(40px, 10px) scale(1.05);
+    }
+  }
+
+  @media (max-width: 768px) {
+    #shopify-section-{{ section.id }} .demo-hero-buttons {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    #shopify-section-{{ section.id }} .demo-button {
+      justify-content: center;
+    }
+  }
+</style>
+
+<div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
+  <section class="demo-hero-section">
+    {%- comment -%} 背景动画元素 {%- endcomment -%}
+    <div class="demo-hero-bg-circle circle-1"></div>
+    <div class="demo-hero-bg-circle circle-2"></div>
+    <div class="demo-hero-bg-circle circle-3"></div>
+
+    <div class="demo-hero-content">
+      {%- if section.settings.title != blank -%}
+        <h1 class="demo-hero-title">{{ section.settings.title }}</h1>
+      {%- endif -%}
+
+      {%- if section.settings.subtitle != blank -%}
+        <p class="demo-hero-subtitle">{{ section.settings.subtitle }}</p>
+      {%- endif -%}
+
+      <div class="demo-hero-buttons">
+        {%- if section.settings.button_primary_text != blank -%}
+          <a href="{{ section.settings.button_primary_link }}" class="demo-button demo-button--primary">
+            {{ section.settings.button_primary_text }}
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M2.5 8H13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M9 3.5L13.5 8L9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </a>
+        {%- endif -%}
+
+        {%- if section.settings.button_secondary_text != blank -%}
+          <a href="{{ section.settings.button_secondary_link }}" class="demo-button demo-button--secondary">
+            {{ section.settings.button_secondary_text }}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "YG Demo Hero",
+  "class": "shopify-section--yg-demo-hero",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "配色方案",
+      "default": "scheme-1"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "标题",
+      "default": "Demo 演示页面"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "副标题",
+      "default": "这是一个演示页面，展示自定义 Section 的效果"
+    },
+    {
+      "type": "text",
+      "id": "button_primary_text",
+      "label": "主按钮文字",
+      "default": "立即开始"
+    },
+    {
+      "type": "url",
+      "id": "button_primary_link",
+      "label": "主按钮链接"
+    },
+    {
+      "type": "text",
+      "id": "button_secondary_text",
+      "label": "次按钮文字",
+      "default": "了解更多"
+    },
+    {
+      "type": "url",
+      "id": "button_secondary_link",
+      "label": "次按钮链接"
+    }
+  ],
+  "presets": [
+    {
+      "name": "YG Demo Hero"
+    }
+  ]
+}
+{% endschema %}

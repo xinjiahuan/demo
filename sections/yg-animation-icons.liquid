@@ -1,0 +1,754 @@
+<style>
+  #shopify-section-{{ section.id }} .yg-animation-icons-container {
+    display: block;
+    margin-block-start: 3.75rem;
+  }
+
+  #shopify-section-{{ section.id }} .yg-animation-icons-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.875rem 4rem;
+    justify-content: center;
+    z-index: 1;
+  }
+
+  #shopify-section-{{ section.id }} .yg-animation-icons-items.active {
+    z-index: -1;
+  }
+
+  #shopify-section-{{ section.id }} .yg-animation-icons-item {
+    max-width: max-content;
+  }
+
+  #shopify-section-{{ section.id }} .yg-animation-icon-image,
+  #shopify-section-{{ section.id }} .yg-animation-icon-image img {
+    width: auto;
+    height: 3rem;
+  }
+
+  #shopify-section-{{ section.id }} .yg-animation-text-items {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    opacity: 0;
+    background-color: rgb(var(--background));
+    background-image: var(--background-gradient);
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  #shopify-section-{{ section.id }} .yg-animation-text-items.active {
+    opacity: 1;
+  }
+
+  #shopify-section-{{ section.id }} .yg-animation-text-item .yg-animation-icon {
+    max-width: 3.5rem;
+  }
+
+  #shopify-section-{{ section.id }} .yg-animation-text-item {
+    flex: 1;
+    transition-property: opacity, width, transform;
+    transition-duration: 0.5s, 0.3s, 0.5s;
+    transition-delay: 0.2s, 0s, 0.2s;
+    transition-timing-function: ease;
+  }
+
+  #shopify-section-{{ section.id }} .yg-animation-text-list {
+    display: grid;
+    gap: 2.25rem;
+    margin-block-start: 3rem;
+  }
+
+  #shopify-section-{{ section.id }} .yg-animation-text-inner {
+    font-size: 1.625rem;
+    font-weight: 500;
+  }
+
+  #shopify-section-{{ section.id }} .yg-animation-icons-item {
+    transform: translate(0, 0);
+    transition-property: opacity, transform;
+    transition-duration: 0.3s, 0.5s;
+    transition-delay: 0s, 0.2s;
+    transition-timing-function: ease;
+  }
+
+  @media (min-width: 1024px) {
+    #shopify-section-{{ section.id }} .yg-animation-icons-items {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      transition: all ease-in-out 0.5s
+    }
+
+    #shopify-section-{{ section.id }} .yg-animation-icons-items.active .yg-animation-icons-item.animation-top-left {
+      transform: translate(-25%, -100%);
+    }
+
+    #shopify-section-{{ section.id }} .yg-animation-icons-items.active .yg-animation-icons-item.animation-top-right {
+      transform: translate(25%, -100%);
+    }
+
+    #shopify-section-{{ section.id }} .yg-animation-icons-items.active .yg-animation-icons-item.animation-bottom-left {
+      transform: translate(-25%, 100%);
+    }
+
+    #shopify-section-{{ section.id }} .yg-animation-icons-items.active .yg-animation-icons-item.animation-bottom-right {
+      transform: translate(25%, 100%);
+    }
+
+    #shopify-section-{{ section.id }} .yg-animation-text-item:first-child {
+      transform: translate(100%, 100%);
+      width: 0;
+      opacity: 0;
+    }
+
+    #shopify-section-{{ section.id }} .yg-animation-text-item:nth-child(3),
+    #shopify-section-{{ section.id }} .yg-animation-text-item:nth-child(4),
+    #shopify-section-{{ section.id }} .yg-animation-text-item:nth-child(5) {
+      transform: translate(-100%, 100%);
+      width: 0;
+      opacity: 0;
+    }
+
+    #shopify-section-{{ section.id }} .yg-animation-text-item:nth-child(4),
+    #shopify-section-{{ section.id }} .yg-animation-text-item:nth-child(5) {
+      transition-property: opacity, width, transform;
+      transition-duration: 0.4s, 0.4s, 0.4s;
+      transition-delay: 0.2s, 0s, 0.2s;
+      transition-timing-function: ease;
+    }
+
+    #shopify-section-{{ section.id }} .yg-animation-text-items.active .yg-animation-text-item:not(:nth-child(2)) {
+      transform: translate(0);
+      width: 100%;
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    #shopify-section-{{ section.id }} .yg-animation-icons-items {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      transition: all ease-in-out 0.5s;
+      background-color: #fff;
+    }
+
+    #shopify-section-{{ section.id }} .yg-animation-icons-container {
+      margin-block-start: 1.875rem;
+    }
+
+    #shopify-section-{{ section.id }} .yg-animation-icons-items {
+      gap: 1.25rem;
+    }
+
+    #shopify-section-{{ section.id }} .yg-animation-icon-image,
+    #shopify-section-{{ section.id }} .yg-animation-icon-image img {
+      height: 1.625rem;
+    }
+
+    #shopify-section-{{ section.id }} .yg-animation-text-items {
+      /*opacity: 1;*/
+    }
+
+    #shopify-section-{{ section.id }} .yg-animation-icons-container {
+      margin-block-start: 1.875rem;
+    }
+
+    #shopify-section-{{ section.id }} .yg-animation-icons-items {
+      gap: 1.25rem;
+    }
+
+    #shopify-section-{{ section.id }} .yg-animation-text-items.active .yg-animation-text-item {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    #shopify-section-{{ section.id }} .yg-animation-text-items {
+      flex-direction: column;
+      gap: 1rem;
+      overflow-x: auto;
+    }
+
+    #shopify-section-{{ section.id }} .yg-animation-text-item {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: nowrap;
+    }
+
+    #shopify-section-{{ section.id }} .yg-animation-text-list {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: nowrap;
+      margin-block-start: 0;
+    }
+
+    #shopify-section-{{ section.id }} .yg-animation-text-inner {
+      white-space: nowrap;
+      font-size: 1.25rem;
+    }
+
+    #shopify-section-{{ section.id }} .yg-animation-text-item .yg-animation-icon {
+      position: sticky;
+      left: 0;
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+</style>
+
+<div class="color-scheme relative color-scheme--{{ section.settings.color_scheme.id }}">
+	{%- assign alignment = section.settings.text_alignment | replace: 'left', 'start' | replace: 'right', 'end' -%}
+	<div class="container section-spacing">
+		{%- if section.settings.subheading != blank or section.settings.heading != blank or section.settings.content != blank -%}
+			<yg-animation-item class="section-header">
+				<div class="prose prose-justify-{{ alignment }}">
+					<div class="max-w-lg">
+						{%- render 'subheading', content: section.settings.subheading -%}
+						{%- render 'heading', content: section.settings.title, balance_text: true, class: 'yg-animation-icons-heading', style: section.settings.heading_tag, html_tag: 'h2' -%}
+					</div>
+					
+					{%- if section.settings.content != blank -%}
+						<div class="max-w-sm">
+							{{- section.settings.content -}}
+						</div>
+					{%- endif -%}
+					{% if section.settings.text != blank and section.settings.url != blank %}
+						{%- render 'button',
+							content: section.settings.text,
+							href: section.settings.url,
+							button_icon: section.settings.button_icon,
+							style: section.settings.style,
+							background: section.settings.background,
+							text_color: section.settings.text_color,
+							external: section.settings.open_in_new_tab,
+							block: section
+						-%}
+					{% endif %}
+				</div>
+			</yg-animation-item>
+		{%- endif -%}
+		<yg-animation-icons class="yg-animation-icons-container relative">
+			<div class="yg-animation-icons-items">
+				{% for block in section.blocks %}
+					{% for i in (1..5) %}
+						{% liquid
+							assign select_animationi = 'select_animation' | append: i
+							assign imagei = 'image' | append: i
+							assign select_animation = block.settings[select_animationi]
+							assign image = block.settings[imagei]
+						%}
+						{% if image != blank %}
+							<yg-animation-item
+								class="yg-animation-icons-item relative {% if select_animation == 'top_left' %}animation-top-left{% elsif select_animation == 'top_right' %}animation-top-right{% elsif select_animation == 'bottom_left' %}animation-bottom-left{% elsif select_animation == 'bottom_right' %}animation-bottom-right{% endif %}">
+								{% render 'yg-image',
+									img: image,
+									img_class: "yg-animation-icon-image",
+									show_placeholder: false,
+									is_no_lazy: true,
+									is_lazy: false
+								%}
+							</yg-animation-item>
+						{% endif %}
+					{% endfor %}
+				
+				{% endfor %}
+			</div>
+			<div class="yg-animation-text-items">
+				{% for block in section.blocks %}
+					<div class="yg-animation-text-item">
+						{% if block.settings.icon != blank %}
+							{% render 'yg-image',
+								img: block.settings.icon,
+								img_class: "yg-animation-icon",
+								show_placeholder: false,
+								is_no_lazy: true,
+								is_lazy: false
+							%}
+						{% endif %}
+						<div class="yg-animation-text-list">
+							{% for i in (1..5) %}
+								{% liquid
+									assign texti = 'text' | append: i
+									assign text = block.settings[texti]
+								%}
+								{% if text != blank %}
+									<div class="yg-animation-text-inner">{{ text }}</div>
+								{% endif %}
+							{% endfor %}
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</yg-animation-icons>
+	</div>
+</div>
+<script>
+  class YGAnimationIcons extends HTMLElement {
+    constructor() {
+      super()
+      this.handleContainerHover = this.handleContainerHover.bind(this)
+      this.updateHeight = this.updateHeight.bind(this)
+    }
+
+    connectedCallback() {
+      this.container = this
+      this.iconItem = this.container.querySelector('.yg-animation-icons-items')
+      this.textItem = this.container.querySelector('.yg-animation-text-items')
+
+      if (this.container) {
+        this.container.addEventListener('mouseenter', this.handleContainerHover)
+        this.container.addEventListener('mouseleave', this.handleContainerHover)
+      }
+
+      // 初次设置高度
+      this.updateHeight()
+
+      // 监听窗口大小变化，动态更新高度
+      window.addEventListener('resize', this.updateHeight)
+    }
+
+    disconnectedCallback() {
+      if (this.container) {
+        this.container.removeEventListener('mouseenter', this.handleContainerHover)
+        this.container.removeEventListener('mouseleave', this.handleContainerHover)
+      }
+
+      window.removeEventListener('resize', this.updateHeight)
+    }
+
+    handleContainerHover(e) {
+      const type = e.type
+
+      if (type === 'mouseenter') {
+        this.iconItem?.classList.add('active')
+        this.textItem?.classList.add('active')
+      } else if (type === 'mouseleave') {
+        this.iconItem?.classList.remove('active')
+        this.textItem?.classList.remove('active')
+      }
+    }
+
+    updateHeight() {
+      if (this.iconItem) {
+        if (window.innerWidth < 767) {
+          const height = this.iconItem.offsetHeight
+          this.style.height = `${height}px`
+        } else {
+          // 屏幕大于等于 767 时，清除高度
+          this.style.height = ''
+        }
+      }
+    }
+
+  }
+
+  if (!window.customElements.get('yg-animation-icons')) {
+    customElements.define('yg-animation-icons', YGAnimationIcons)
+  }
+
+
+</script>
+{% schema %}
+{
+  "name": "YG  animation icons",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:global.colors.scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subheading",
+      "label": "t:global.text.subheading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "t:global.text.heading",
+      "default": "Text with icons"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "t:global.text.content",
+      "default": "<p>Use this section to build trust with your customers, or showcase product features with text and icons.</p>"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "t:global.text.heading_size",
+      "options": [
+        {
+          "value": "display-xl",
+          "label": "Display XL"
+        },
+        {
+          "value": "display-l",
+          "label": "Display L"
+        },
+        {
+          "value": "display-m",
+          "label": "Display M"
+        },
+        {
+          "value": "h1",
+          "label": "XX-Large"
+        },
+        {
+          "value": "h2",
+          "label": "X-Large"
+        },
+        {
+          "value": "h3",
+          "label": "Large"
+        },
+        {
+          "value": "h4",
+          "label": "Medium"
+        },
+        {
+          "value": "h5",
+          "label": "Small"
+        },
+        {
+          "value": "h6",
+          "label": "X-Small"
+        },
+        {
+          "value": "h7",
+          "label": "XX-Small"
+        }
+      ],
+      "default": "h3"
+    },
+    {
+      "type": "text_alignment",
+      "id": "text_alignment",
+      "label": "t:global.text.alignment",
+      "default": "center"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "t:global.text.text",
+      "default": "Button text"
+    },
+    {
+      "type": "textarea",
+      "id": "button_icon",
+      "label": "Button icon"
+    },
+    {
+      "type": "url",
+      "id": "url",
+      "label": "t:global.text.link"
+    },
+    {
+      "type": "checkbox",
+      "id": "open_in_new_tab",
+      "label": "t:global.text.open_in_new_tab",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "style",
+      "label": "t:global.text.style",
+      "options": [
+        {
+          "value": "outline",
+          "label": "t:global.text.button_style_options.outline"
+        },
+        {
+          "value": "solid",
+          "label": "t:global.text.button_style_options.solid"
+        },
+        {
+          "value": "link",
+          "label": "t:global.text.button_style_options.link"
+        }
+      ],
+      "default": "solid"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "t:global.colors.background"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:global.text.text"
+    },
+    {
+      "type": "range",
+      "min": 1,
+      "max": 8,
+      "step": 1,
+      "id": "columns",
+      "label": "Columns",
+      "default": 5
+    },
+    {
+      "type": "range",
+      "min": 1,
+      "max": 8,
+      "step": 1,
+      "id": "columns_mobile",
+      "label": "Columns mobile",
+      "default": 3
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "header",
+          "content": "Image1"
+        },
+        {
+          "type": "select",
+          "id": "select_animation1",
+          "options": [
+            {
+              "value": "top_left",
+              "label": "Top left"
+            },
+            {
+              "value": "top_right",
+              "label": "Top right"
+            },
+            {
+              "value": "bottom_left",
+              "label": "Bottom left"
+            },
+            {
+              "value": "bottom_right",
+              "label": "Bottom right"
+            },
+            {
+              "value": "none",
+              "label": "None"
+            }
+          ],
+          "label": "Select animation",
+          "default": "none"
+        },
+        {
+          "type": "image_picker",
+          "id": "image1",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "text1",
+          "label": "Text"
+        },
+        {
+          "type": "header",
+          "content": "Image2"
+        },
+        {
+          "type": "select",
+          "id": "select_animation2",
+          "options": [
+            {
+              "value": "top_left",
+              "label": "Top left"
+            },
+            {
+              "value": "top_right",
+              "label": "Top right"
+            },
+            {
+              "value": "bottom_left",
+              "label": "Bottom left"
+            },
+            {
+              "value": "bottom_right",
+              "label": "Bottom right"
+            },
+            {
+              "value": "none",
+              "label": "None"
+            }
+          ],
+          "label": "Select animation",
+          "default": "none"
+        },
+        {
+          "type": "image_picker",
+          "id": "image2",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "text2",
+          "label": "Text"
+        },
+        {
+          "type": "header",
+          "content": "Image3"
+        },
+        {
+          "type": "select",
+          "id": "select_animation3",
+          "options": [
+            {
+              "value": "top_left",
+              "label": "Top left"
+            },
+            {
+              "value": "top_right",
+              "label": "Top right"
+            },
+            {
+              "value": "bottom_left",
+              "label": "Bottom left"
+            },
+            {
+              "value": "bottom_right",
+              "label": "Bottom right"
+            },
+            {
+              "value": "none",
+              "label": "None"
+            }
+          ],
+          "label": "Select animation",
+          "default": "none"
+        },
+        {
+          "type": "image_picker",
+          "id": "image3",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "text3",
+          "label": "Text"
+        },
+        {
+          "type": "header",
+          "content": "Image4"
+        },
+        {
+          "type": "select",
+          "id": "select_animation4",
+          "options": [
+            {
+              "value": "top_left",
+              "label": "Top left"
+            },
+            {
+              "value": "top_right",
+              "label": "Top right"
+            },
+            {
+              "value": "bottom_left",
+              "label": "Bottom left"
+            },
+            {
+              "value": "bottom_right",
+              "label": "Bottom right"
+            },
+            {
+              "value": "none",
+              "label": "None"
+            }
+          ],
+          "label": "Select animation",
+          "default": "none"
+        },
+        {
+          "type": "image_picker",
+          "id": "image4",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "text4",
+          "label": "Text"
+        },
+        {
+          "type": "header",
+          "content": "Image5"
+        },
+        {
+          "type": "select",
+          "id": "select_animation5",
+          "options": [
+            {
+              "value": "top_left",
+              "label": "Top left"
+            },
+            {
+              "value": "top_right",
+              "label": "Top right"
+            },
+            {
+              "value": "bottom_left",
+              "label": "Bottom left"
+            },
+            {
+              "value": "bottom_right",
+              "label": "Bottom right"
+            },
+            {
+              "value": "none",
+              "label": "None"
+            }
+          ],
+          "label": "Select animation",
+          "default": "none"
+        },
+        {
+          "type": "image_picker",
+          "id": "image5",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "text5",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "YG  animation icons",
+      "blocks": [
+        {
+          "type": "item"
+        },
+        {
+          "type": "item"
+        },
+        {
+          "type": "item"
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": [
+      "footer",
+      "header",
+      "custom.overlay"
+    ]
+  }
+}
+{% endschema %}

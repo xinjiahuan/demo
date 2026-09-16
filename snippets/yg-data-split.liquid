@@ -1,0 +1,46 @@
+{%- doc -%}
+  @description Split data into columns
+
+  @param {object} data - Data to split
+  @param {number} col - Number of columns
+
+  @example {%- render 'yg-data-split' data: data, col: 3 %}
+{%- enddoc -%}
+
+{% liquid
+  assign rows = data | split: '</p>'
+
+  if col == 2
+    for row in rows
+      assign columns = row | split: '</strong>'
+      assign first_content = columns[0] | strip_html
+      assign last_content = columns[1] | strip_html | default: '-'
+
+      if first_content != blank
+        assign row_html = '<div class="yg-row"><span class="yg-col-first">[[firstContent]]</span><span class="yg-col-last">[[lastContent]]</span></div>' | replace: '[[firstContent]]', first_content
+        assign row_html = row_html | replace: '[[lastContent]]', last_content
+
+        echo row_html
+      endif
+    endfor
+  elsif col > 2
+    for row in rows
+      assign columns = row | split: '||'
+      assign row_html = '<div class="yg-row">[[col_html]]</div>'
+      assign col_html = null
+      if columns[0] != blank
+        if forloop.first
+          assign col_number = columns.size | minus: 1
+        endif
+
+        for i in (0..col_number)
+          assign col_content = columns[i] | strip_html | default: '-'
+
+          assign col_html = col_html | append: "<span class='yg-col-[[number]]'>[[content]]</span>" | replace: '[[number]]', i | replace: '[[content]]', col_content
+        endfor
+
+        echo row_html | replace: '[[col_html]]', col_html
+      endif
+    endfor
+  endif
+%}

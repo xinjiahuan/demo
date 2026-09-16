@@ -1,0 +1,145 @@
+{%- if block.settings.text != blank -%}
+  {% liquid
+    capture block_style
+      if block.settings.enable_custom_margin
+        echo '--margin-top: [[margin_top]]px;' | replace: '[[margin_top]]', block.settings.margin_top
+        echo '--margin-top-mobile: [[margin_top_mobile]]px;' | replace: '[[margin_top_mobile]]', block.settings.margin_top_mobile
+      endif  
+      if block.settings.font_size
+        echo '--font-size: [[font_size]]px;' | replace: '[[font_size]]', block.settings.font_size
+      endif
+      if block.settings.font_size_mobile
+        echo '--font-size-mobile: [[font_size_mobile]]px;' | replace: '[[font_size_mobile]]', block.settings.font_size_mobile
+      endif
+      if block.settings.color
+        echo '--text-color: [[color]];' | replace: '[[color]]', block.settings.color
+      endif
+    endcapture
+  %}
+  <div class="{% if block.settings.content_width != 'full' %}max-w-{{ block.settings.content_width }}{% endif %} yg-custom-block {% if block.settings.enable_custom_margin %} yg-custom-margin {% endif %}" style="{{ block_style }}" {{ block.shopify_attributes }}>
+    {{- block.settings.text -}}
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .yg-custom-block {
+    font-size: var(--font-size, currentColor);
+    color: var(--text-color, currentColor);
+  }
+
+  .yg-custom-margin {
+    margin-top: var(--margin-top);
+  }
+
+  .yg-custom-margin>p:first-child {
+    margin-top: 0;
+  }
+
+  @media (max-width: 699px) {
+    .yg-custom-block {
+      font-size: var(--font-size-mobile, currentColor);
+    }
+    .yg-custom-margin {
+      margin-top: var(--margin-top-mobile);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:blocks.rich_text.name",
+  "tag": null,
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:global.text.content",
+      "default": "<p>Write some text about your products or your brand.</p>"
+    },
+    {
+      "type": "select",
+      "id": "content_width",
+      "label": "t:global.sizes.content_width",
+      "options": [
+        {
+          "value": "xs",
+          "label": "t:global.sizes.x_small"
+        },
+        {
+          "value": "sm",
+          "label": "t:global.sizes.small"
+        },
+        {
+          "value": "md",
+          "label": "t:global.sizes.medium"
+        },
+        {
+          "value": "lg",
+          "label": "t:global.sizes.large"
+        },
+        {
+          "value": "full",
+          "label": "t:global.sizes.full_width"
+        }
+      ],
+      "default": "sm"
+    },        
+    {
+      "type": "range",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "id": "font_size",
+      "label": "Font size",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "id": "font_size_mobile",
+      "label": "Font size mobile",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "color",
+      "label": "Color"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_custom_margin",
+      "label": "Enable custom margin",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "label": "Margin Top",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "label": "Margin Top Mobile",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "default": 28
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:blocks.rich_text.name"
+    }
+  ]
+}
+{% endschema %}

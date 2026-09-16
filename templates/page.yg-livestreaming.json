@@ -1,0 +1,690 @@
+{
+    "sections": {
+        "main": {
+            "type": "main-page",
+            "disabled": true,
+            "settings": {
+                "color_scheme": "",
+                "show_title": true,
+                "content_width": "md"
+            }
+        },
+        "slideshow_y4DqxX": {
+            "type": "slideshow",
+            "blocks": {
+                "slideshow_image_slide_yFcebU": {
+                    "type": "_slideshow-image-slide",
+                    "settings": {
+                        "color_scheme": "scheme-b0c55133-1661-4c3b-97ba-562c13eb8785",
+                        "image": "shopify:\/\/shop_images\/Frame_2147236625_1.png",
+                        "mobile_image": "shopify:\/\/shop_images\/Frame_2147236624.png",
+                        "slide_link": "",
+                        "content_max_width": 660,
+                        "mobile_content_position": "place-self-start",
+                        "desktop_content_position": "sm:place-self-center-start",
+                        "overlay_color": "#000000",
+                        "overlay_opacity": 0
+                    },
+                    "blocks": {
+                        "rich_text_LHyB7e": {
+                            "type": "rich-text",
+                            "name": "t:blocks.rich_text.name",
+                            "settings": {
+                                "text": "<p><em><strong>Who are we<\/strong><\/em><\/p>",
+                                "content_width": "lg",
+                                "font_size": 20,
+                                "font_size_mobile": 16,
+                                "color": "#ffc000",
+                                "enable_custom_margin": false,
+                                "margin_top": 28,
+                                "margin_top_mobile": 28
+                            },
+                            "blocks": {}
+                        },
+                        "heading_HqjJzh": {
+                            "type": "heading",
+                            "settings": {
+                                "text": "Your Performance-driven TikTok Shop Livestreaming partner.",
+                                "heading_size": "h3",
+                                "html_tag": "h2",
+                                "indent": "none",
+                                "highlight_effect": "default",
+                                "highlight_accent_color": "",
+                                "highlight_text_color": ""
+                            },
+                            "blocks": {}
+                        },
+                        "rich_text_JwKWNn": {
+                            "type": "rich-text",
+                            "name": "t:blocks.rich_text.name",
+                            "settings": {
+                                "text": "<p>Ready to scale up? Our mission is to empower growth-ready brands by driving success through shoppable live-streaming, providing full support from strategy to execution.\"<\/p>",
+                                "content_width": "sm",
+                                "font_size": 15,
+                                "font_size_mobile": 14,
+                                "color": "",
+                                "enable_custom_margin": true,
+                                "margin_top": 24,
+                                "margin_top_mobile": 16
+                            },
+                            "blocks": {}
+                        }
+                    },
+                    "block_order": [
+                        "rich_text_LHyB7e",
+                        "heading_HqjJzh",
+                        "rich_text_JwKWNn"
+                    ]
+                },
+                "slideshow-controls": {
+                    "type": "_slideshow-controls",
+                    "disabled": true,
+                    "static": true,
+                    "settings": {
+                        "controls_style": "line",
+                        "controls_color": "#ffffff"
+                    },
+                    "blocks": {}
+                }
+            },
+            "block_order": [
+                "slideshow_image_slide_yFcebU"
+            ],
+            "name": "t:sections.slideshow.name",
+            "settings": {
+                "allow_transparent_header": false,
+                "image_size": "fill",
+                "transition_type": "curtain",
+                "autoplay": true,
+                "pause_auto_rotate_on_hover": false,
+                "cycle_speed": 6,
+                "background": "#fdfdfd"
+            }
+        },
+        "text_with_media_3zKdfr": {
+            "type": "text-with-media",
+            "blocks": {
+                "richtext_ykCKFf": {
+                    "type": "richtext",
+                    "settings": {
+                        "text": "<p><em><strong>Who are we<\/strong><\/em><\/p>",
+                        "position": "middle_left",
+                        "font_size": 20,
+                        "font_size_mobile": 16,
+                        "color": "#ffc000",
+                        "enable_custom_margin": true,
+                        "margin_top": 0,
+                        "margin_top_mobile": 0
+                    }
+                },
+                "heading_nyUwra": {
+                    "type": "heading",
+                    "settings": {
+                        "text": "Your Performance-driven TikTok Shop Livestreaming partner.",
+                        "heading_tag": "h3",
+                        "html_tag": "h2",
+                        "position": "middle_left",
+                        "highlight_effect": "none",
+                        "highlight_accent_color": "",
+                        "highlight_text_color": ""
+                    }
+                },
+                "richtext_NVtk8C": {
+                    "type": "richtext",
+                    "settings": {
+                        "text": "<p>Ready to scale up? Our mission is to empower growth-ready brands by driving success through shoppable live-streaming, providing full support from strategy to execution.\"<\/p>",
+                        "position": "middle_left",
+                        "font_size": 15,
+                        "font_size_mobile": 14,
+                        "color": "",
+                        "enable_custom_margin": true,
+                        "margin_top": 24,
+                        "margin_top_mobile": 16
+                    }
+                },
+                "yg_accordion_xcxVjg": {
+                    "type": "yg_accordion",
+                    "disabled": true,
+                    "settings": {
+                        "content": "<p><strong>Influencer Matchmaking<\/strong>Match with the right creators to spark engagement and drive results.<\/p><p><strong>Campaign Management<\/strong>We guide creators to craft content that works—built with structure, boosted by organic and paid reach.<br\/><br\/><\/p><p><strong>Track the measurable roadmap<\/strong>Track every creator, every dollar, every result — ensuring and maximizing ROI.<\/p>",
+                        "position": "middle_left",
+                        "margin_top": 48,
+                        "margin_top_mobile": 40
+                    }
+                }
+            },
+            "block_order": [
+                "richtext_ykCKFf",
+                "heading_nyUwra",
+                "richtext_NVtk8C",
+                "yg_accordion_xcxVjg"
+            ],
+            "disabled": true,
+            "name": "t:sections.text_with_media.name",
+            "settings": {
+                "full_width": false,
+                "color_scheme": "scheme-1",
+                "content_position_y": "start",
+                "content_position": "start",
+                "content_percentage_width": 50,
+                "overlay_color": "#000000",
+                "overlay_opacity": 0,
+                "add_media_spacing": true,
+                "primary_video": "shopify:\/\/files\/videos\/video(4).mp4",
+                "primary_media_width": 40,
+                "primary_media_mobile_width": 40,
+                "secondary_video": "shopify:\/\/files\/videos\/video(11).mp4",
+                "secondary_media_width": 30,
+                "secondary_media_mobile_width": 30,
+                "third_media_width": 60,
+                "third_media_mobile_width": 60,
+                "rotate": false,
+                "secondary_media_alignment": "in-right",
+                "show_dynamic": false,
+                "show_show_separator": false,
+                "mask_video_inline": 0,
+                "enable_custom_padding": true,
+                "padding_top": 0,
+                "padding_bottom": 60,
+                "padding_top_mobile": 0,
+                "padding_bottom_mobile": 48
+            }
+        },
+        "yg_authentication_79DKrH": {
+            "type": "yg-authentication",
+            "blocks": {
+                "item_data_jht47z": {
+                    "type": "item_data",
+                    "settings": {
+                        "data": "1M GMV",
+                        "title": "Single Shop Live GMV Record",
+                        "content": "TOP 1  Shop Ranking"
+                    }
+                },
+                "item_data_rwcTPE": {
+                    "type": "item_data",
+                    "settings": {
+                        "data": "1,000 Hrs",
+                        "title": "Monthly Live Hours",
+                        "content": "12+ Live Studios in US"
+                    }
+                },
+                "item_data_iXBVn7": {
+                    "type": "item_data",
+                    "settings": {
+                        "data": "Top 1",
+                        "title": "4 Clients reaching Top 1",
+                        "content": "Live Ranking with LiveLab US"
+                    }
+                },
+                "image_JB3nXL": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/Frame_2147236568.png"
+                    }
+                },
+                "image_mxV33b": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/Frame_2147236569.png"
+                    }
+                },
+                "image_CffBjL": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/Frame_2147236570.png"
+                    }
+                },
+                "image_7Wewfj": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/Frame_2147236571.png"
+                    }
+                },
+                "image_BFDhQE": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/Frame_2147236572.png"
+                    }
+                },
+                "video_3KyJ9r": {
+                    "type": "video",
+                    "settings": {
+                        "video": "shopify:\/\/files\/videos\/video(3).mp4"
+                    }
+                },
+                "video_YDkeaF": {
+                    "type": "video",
+                    "settings": {
+                        "video": "shopify:\/\/files\/videos\/video(2)_3832531b-186b-496b-81fa-914f9fc7e7d8.mp4"
+                    }
+                },
+                "video_KHNYAd": {
+                    "type": "video",
+                    "settings": {
+                        "video": "shopify:\/\/files\/videos\/video(5).mp4"
+                    }
+                },
+                "video_Uh3gdw": {
+                    "type": "video",
+                    "settings": {
+                        "video": "shopify:\/\/files\/videos\/video(4)_27412b57-e20f-44e8-a2a2-1aff9c1359a7.mp4"
+                    }
+                },
+                "video_WGrkRR": {
+                    "type": "video",
+                    "settings": {
+                        "video": "shopify:\/\/files\/videos\/video(2)_fee07020-6a90-4429-bd1f-c14ee2a17b3b.mp4"
+                    }
+                },
+                "video_FFTbCp": {
+                    "type": "video",
+                    "settings": {
+                        "video": "shopify:\/\/files\/videos\/video(3)_4afb8f76-fd20-4c53-9340-3788c62308f1.mp4"
+                    }
+                },
+                "video_NPD9VF": {
+                    "type": "video",
+                    "settings": {
+                        "video": "shopify:\/\/files\/videos\/wavy sample.mp4"
+                    }
+                }
+            },
+            "block_order": [
+                "item_data_jht47z",
+                "item_data_rwcTPE",
+                "item_data_iXBVn7",
+                "image_JB3nXL",
+                "image_mxV33b",
+                "image_CffBjL",
+                "image_7Wewfj",
+                "image_BFDhQE",
+                "video_3KyJ9r",
+                "video_YDkeaF",
+                "video_KHNYAd",
+                "video_Uh3gdw",
+                "video_WGrkRR",
+                "video_FFTbCp",
+                "video_NPD9VF"
+            ],
+            "name": "YG Authentication",
+            "settings": {
+                "color_scheme": "",
+                "background_image": "shopify:\/\/shop_images\/Frame_2147236579_1.png",
+                "logo_image": "shopify:\/\/shop_images\/Group_1077.png",
+                "subheading": "",
+                "title": "",
+                "content": "",
+                "heading_tag": "h3",
+                "text_alignment": "center",
+                "enable_custom_padding": true,
+                "padding_top": 140,
+                "padding_bottom": 100,
+                "padding_top_mobile": 0,
+                "padding_bottom_mobile": 60
+            }
+        },
+        "rich_text_PaNDGP": {
+            "type": "rich-text",
+            "blocks": {
+                "image_TNrjVg": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/Our_Approach.svg",
+                        "width_mode": "full_width",
+                        "max_width": 1000,
+                        "mobile_max_width": 400,
+                        "show_dynamic": false
+                    }
+                }
+            },
+            "block_order": [
+                "image_TNrjVg"
+            ],
+            "name": "t:sections.rich_text.name",
+            "settings": {
+                "color_scheme": "",
+                "content_width": "full",
+                "text_alignment": "center",
+                "remove_padding_mobile": false,
+                "enable_custom_padding": false,
+                "padding_top": 0,
+                "padding_bottom": 0,
+                "padding_top_mobile": 0,
+                "padding_bottom_mobile": 0
+            }
+        },
+        "text_with_media_RmbqaA": {
+            "type": "text-with-media",
+            "blocks": {
+                "yg_accordion_A6aVwP": {
+                    "type": "yg_accordion",
+                    "settings": {
+                        "content": "<p><strong>The 3 Essentials of our Host Competency Model<\/strong>Charisma, sales skills, and hard work—our perfect recipe for livestreaming success.<\/p><p><strong>Full-Time Hosts, Tailored to Your Brand<\/strong>We guide creators to craft content that works—built with structure, boosted by organic and paid reach.<\/p><p><strong>Experienced LIVE Operators, Always On<\/strong>Track every creator, every dollar, every result — ensuring and maximizing ROI.<\/p>",
+                        "position": "middle_left",
+                        "margin_top": 48,
+                        "margin_top_mobile": 40
+                    }
+                }
+            },
+            "block_order": [
+                "yg_accordion_A6aVwP"
+            ],
+            "name": "t:sections.text_with_media.name",
+            "settings": {
+                "full_width": true,
+                "color_scheme": "scheme-1",
+                "content_position_y": "start",
+                "content_position": "end",
+                "content_percentage_width": 50,
+                "overlay_color": "#000000",
+                "overlay_opacity": 0,
+                "add_media_spacing": false,
+                "primary_image": "shopify:\/\/shop_images\/Frame_2147236580.png",
+                "primary_media_width": 40,
+                "primary_media_mobile_width": 40,
+                "secondary_media_width": 30,
+                "secondary_media_mobile_width": 30,
+                "third_media_width": 60,
+                "third_media_mobile_width": 60,
+                "rotate": false,
+                "secondary_media_alignment": "in-right",
+                "show_dynamic": false,
+                "show_show_separator": false,
+                "mask_image": "shopify:\/\/shop_images\/Frame_2147236544_1f64c992-1ad8-4ca9-a603-34df5e34e4ea.png",
+                "mask_video": "shopify:\/\/files\/videos\/video-4_ykkufyhj.mp4",
+                "mask_video_inline": 0,
+                "enable_custom_padding": true,
+                "padding_top": 0,
+                "padding_bottom": 0,
+                "padding_top_mobile": 0,
+                "padding_bottom_mobile": 0
+            }
+        },
+        "text_with_media_HDyA7H": {
+            "type": "text-with-media",
+            "blocks": {
+                "heading_QJddTM": {
+                    "type": "heading",
+                    "disabled": true,
+                    "settings": {
+                        "text": "Marketing Combo!",
+                        "heading_tag": "h3",
+                        "html_tag": "h2",
+                        "position": "middle_left",
+                        "highlight_effect": "none",
+                        "highlight_accent_color": "",
+                        "highlight_text_color": ""
+                    }
+                },
+                "heading_RHcEEf": {
+                    "type": "heading",
+                    "settings": {
+                        "text": "Marketing Combo! Paid Media to Supercharge Your LIVE Room",
+                        "heading_tag": "h3",
+                        "html_tag": "h2",
+                        "position": "middle_left",
+                        "highlight_effect": "default",
+                        "highlight_accent_color": "",
+                        "highlight_text_color": ""
+                    }
+                },
+                "richtext_JwB9qq": {
+                    "type": "richtext",
+                    "settings": {
+                        "text": "<p>Ready to scale up? Our mission is to empower growth-ready brands by driving success through shoppable live-streaming, providing full support from strategy to execution.\"<\/p>",
+                        "position": "middle_left",
+                        "font_size": 15,
+                        "font_size_mobile": 14,
+                        "color": "",
+                        "enable_custom_margin": true,
+                        "margin_top": 24,
+                        "margin_top_mobile": 16
+                    }
+                },
+                "yg_accordion_rYaDwi": {
+                    "type": "yg_accordion",
+                    "disabled": true,
+                    "settings": {
+                        "content": "<p><strong>Influencer Matchmaking<\/strong>Match with the right creators to spark engagement and drive results.<\/p><p><strong>Campaign Management<\/strong>We guide creators to craft content that works—built with structure, boosted by organic and paid reach.<br\/><br\/><\/p><p><strong>Track the measurable roadmap<\/strong>Track every creator, every dollar, every result — ensuring and maximizing ROI.<\/p>",
+                        "position": "middle_left",
+                        "margin_top": 48,
+                        "margin_top_mobile": 40
+                    }
+                }
+            },
+            "block_order": [
+                "heading_QJddTM",
+                "heading_RHcEEf",
+                "richtext_JwB9qq",
+                "yg_accordion_rYaDwi"
+            ],
+            "name": "t:sections.text_with_media.name",
+            "settings": {
+                "full_width": false,
+                "color_scheme": "scheme-1",
+                "content_position_y": "start",
+                "content_position": "start",
+                "content_percentage_width": 55,
+                "overlay_color": "#000000",
+                "overlay_opacity": 0,
+                "add_media_spacing": true,
+                "primary_image": "shopify:\/\/shop_images\/Frame_2147236627_687488f7-178b-4683-bd93-b1832ef7747d.png",
+                "primary_media_width": 40,
+                "primary_media_mobile_width": 40,
+                "secondary_media_width": 30,
+                "secondary_media_mobile_width": 30,
+                "third_media_width": 60,
+                "third_media_mobile_width": 60,
+                "rotate": false,
+                "secondary_media_alignment": "in-right",
+                "show_dynamic": false,
+                "show_show_separator": false,
+                "mask_video": "shopify:\/\/files\/videos\/4.mp4",
+                "mask_video_inline": 5,
+                "enable_custom_padding": true,
+                "padding_top": 0,
+                "padding_bottom": 0,
+                "padding_top_mobile": 0,
+                "padding_bottom_mobile": 0
+            }
+        },
+        "yg_cooperative_partner_XRaD6p": {
+            "type": "yg-cooperative-partner",
+            "blocks": {
+                "image_7iRyfi": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/Frame_73_3a8e4416-6ea9-45be-bb30-afa516e88d94.png"
+                    }
+                },
+                "image_L4XgNE": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/Frame_69_ec36b695-e8bd-41fc-9c9b-12cd2c321c1e.png"
+                    }
+                },
+                "image_kDy9b6": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/Frame_76_d8331dfb-2244-455c-be07-69d520fc0f29.png"
+                    }
+                },
+                "image_WpwzzP": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/Frame_68_72a9a8c6-16b1-437b-97f2-d184c1a48314.png"
+                    }
+                },
+                "image_fwYExh": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/Frame_74_378e556e-68c3-4aca-bcf0-660ad28865c3.png"
+                    }
+                },
+                "image_z86WtQ": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/Frame_77_7e491b23-5541-44fb-84f2-4b64f770db7a.png"
+                    }
+                },
+                "image_qn79T9": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/Frame_78_0a124d4c-4993-4e1a-b3a9-11dba517e999.png"
+                    }
+                },
+                "image_w3xXx8": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/Frame_75_978e3f23-aee4-42fe-9f00-9294d69c2a51.png"
+                    }
+                },
+                "image_6ndQCq": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/Frame_79_036bb429-1286-474a-8be8-f17cd925de60.png"
+                    }
+                }
+            },
+            "block_order": [
+                "image_7iRyfi",
+                "image_L4XgNE",
+                "image_kDy9b6",
+                "image_WpwzzP",
+                "image_fwYExh",
+                "image_z86WtQ",
+                "image_qn79T9",
+                "image_w3xXx8",
+                "image_6ndQCq"
+            ],
+            "name": "YG cooperative partner",
+            "settings": {
+                "color_scheme": "scheme-1",
+                "subheading": "",
+                "title": "",
+                "content": "",
+                "heading_tag": "h4",
+                "text_alignment": "center",
+                "duration": 5,
+                "enable_custom_padding": false,
+                "padding_top": 0,
+                "padding_bottom": 0,
+                "padding_top_mobile": 0,
+                "padding_bottom_mobile": 0
+            }
+        },
+        "yg_gallery_item_FJhYck": {
+            "type": "yg-gallery-item",
+            "blocks": {
+                "item_yUw9dz": {
+                    "type": "item",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/2a.jpg",
+                        "icon": "shopify:\/\/shop_images\/1_eaf79b86-8d6c-4356-957d-e5d3097e0864.png",
+                        "icon_mobile": "shopify:\/\/shop_images\/1_4bfa89d7-c967-42cd-ae2e-91ea0e1ad467.png",
+                        "title1": "Top 1 ",
+                        "label1": "TikTok Shop Fashion Category",
+                        "title2": "",
+                        "label2": "",
+                        "title3": "",
+                        "label3": "",
+                        "link": "#"
+                    }
+                },
+                "item_6HVBAA": {
+                    "type": "item",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/1f80135d-310f-4b46-8be7-9d252cc6668b.jpg",
+                        "image_mobile": "shopify:\/\/shop_images\/1f80135d-310f-4b46-8be7-9d252cc6668b_8e0e5ba9-1fde-44ce-81b2-4e9601640b62.jpg",
+                        "icon": "shopify:\/\/shop_images\/2_275b5605-1358-4f58-810e-24d1b8763360.png",
+                        "icon_mobile": "shopify:\/\/shop_images\/2_55ec2b9c-ee78-41a3-8155-fbb103de0794.png",
+                        "title1": "Top 5",
+                        "label1": "TikTok Shop Shoe Category",
+                        "title2": "",
+                        "label2": "",
+                        "title3": "",
+                        "label3": "",
+                        "link": "#"
+                    }
+                },
+                "item_P9PKzc": {
+                    "type": "item",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/Steam_Hair_Straightening_Game-Changing_Tools_for_Smooth_Shiny_Hair_at_df0ba7db-b063-45a4-8264-b98fead23b0c.jpg",
+                        "icon": "shopify:\/\/shop_images\/3_060a4bc5-49c0-4189-80ee-1e91493701d0.png",
+                        "icon_mobile": "shopify:\/\/shop_images\/3_b58c99f0-6977-4808-9729-3e91d6c2fa7c.png",
+                        "title1": "TOP2",
+                        "label1": "TikTok Shop Big Box Category",
+                        "title2": "300K+",
+                        "label2": "TikTok Shop Big Box Category",
+                        "title3": "",
+                        "label3": "",
+                        "link": "#"
+                    }
+                },
+                "item_cff6ng": {
+                    "type": "item",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/12.jpg",
+                        "icon": "shopify:\/\/shop_images\/4_606a804c-292e-434a-9751-1c617f5f5c83.png",
+                        "icon_mobile": "shopify:\/\/shop_images\/4_ba163390-12df-43b1-af7d-51c550d2f76d.png",
+                        "title1": "TOP1",
+                        "label1": "TikTok Shop Big Box Category",
+                        "title2": "300K+",
+                        "label2": "LIVE GMV in 59 days period",
+                        "title3": "",
+                        "label3": "",
+                        "link": "#"
+                    }
+                },
+                "item_fArKRY": {
+                    "type": "item",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/3s.jpg",
+                        "icon": "shopify:\/\/shop_images\/4-1_7c8948af-e5fa-4c13-903f-6a146c476153.png",
+                        "icon_mobile": "shopify:\/\/shop_images\/4-1_c3de80d0-29b0-47d7-8f27-c12b6f0cf201.png",
+                        "title1": "10000 USD+",
+                        "label1": "GMV First Live Session",
+                        "title2": "",
+                        "label2": "",
+                        "title3": "",
+                        "label3": "",
+                        "link": "#"
+                    }
+                }
+            },
+            "block_order": [
+                "item_yUw9dz",
+                "item_6HVBAA",
+                "item_P9PKzc",
+                "item_cff6ng",
+                "item_fArKRY"
+            ],
+            "name": "YG gallery tem",
+            "settings": {
+                "color_scheme": "scheme-5",
+                "subheading": "",
+                "title": "",
+                "content": "",
+                "heading_tag": "h4",
+                "text_alignment": "center",
+                "title_color": "#1a1a1a",
+                "color": "#1a1a1a",
+                "remove_padding_top": true,
+                "remove_padding_bottom": true
+            }
+        }
+    },
+    "order": [
+        "main",
+        "slideshow_y4DqxX",
+        "text_with_media_3zKdfr",
+        "yg_authentication_79DKrH",
+        "rich_text_PaNDGP",
+        "text_with_media_RmbqaA",
+        "text_with_media_HDyA7H",
+        "yg_cooperative_partner_XRaD6p",
+        "yg_gallery_item_FJhYck"
+    ]
+}

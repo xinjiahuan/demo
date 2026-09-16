@@ -1,0 +1,65 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "settings": {
+        "color_scheme": "",
+        "enable_sticky": false,
+        "autoplay": false,
+        "cycle_speed": 5
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "enable_sticky": true,
+        "hide_on_scroll": true,
+        "hide_on_cart": true,
+        "hide_on_search": true,
+        "hide_on_account": true,
+        "text": "GET IN TOUCH",
+        "button_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewbox=\"0 0 16 16\" fill=\"none\">\n  <path d=\"M2.5 8H13.5\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  <path d=\"M9 3.5L13.5 8L9 12.5\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
+        "url": "shopify://pages/contact",
+        "open_in_new_tab": false,
+        "style": "outline",
+        "background": "#ffc000",
+        "text_color": "#212121",
+        "mobile_layout": "logo_center_navigation_split",
+        "desktop_layout": "logo_left_navigation_center",
+        "logo": "shopify://shop_images/logo_black.svg",
+        "logo_max_width": 115,
+        "logo_mobile_max_width": 100,
+        "menu": "main-menu",
+        "drawer_menu": "",
+        "secondary_menu": "",
+        "desktop_dropdown_menu_style": "below",
+        "menu_open_trigger": "hover",
+        "desktop_icon_size": 16,
+        "drawer_show_nested_menu_indicator": false,
+        "show_country_selector": true,
+        "show_country_name": false,
+        "show_country_flag": false,
+        "show_locale_selector": false,
+        "transparent_header_text_color": "#212121",
+        "custom_transparent_header_text_color": "#ffffff",
+        "custom_transparent_logo": "shopify://shop_images/Frame_2.png"
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}

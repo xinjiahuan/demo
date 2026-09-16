@@ -1,0 +1,512 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "color_scheme": "",
+        "show_title": true,
+        "content_width": "md"
+      }
+    },
+    "yg_marketing_data_MBLeQU": {
+      "type": "yg-marketing-data",
+      "blocks": {
+        "data_FTMEK8": {
+          "type": "data",
+          "settings": {
+            "title": "10+",
+            "title_size": 44,
+            "title_size_mobile": 32,
+            "content": "<p>Years of experience in paid Social</p>"
+          }
+        },
+        "data_Q6yctn": {
+          "type": "data",
+          "settings": {
+            "title": "10,000+",
+            "title_size": 44,
+            "title_size_mobile": 32,
+            "content": "<p>Clients from various industries</p>"
+          }
+        },
+        "data_JqkKgC": {
+          "type": "data",
+          "settings": {
+            "title": "TOP 1",
+            "title_size": 44,
+            "title_size_mobile": 32,
+            "content": "<p>TOP 1 annual Ad Spend on TikTok</p>"
+          }
+        },
+        "data_DJVmXf": {
+          "type": "data",
+          "settings": {
+            "title": "$3B+",
+            "title_size": 44,
+            "title_size_mobile": 32,
+            "content": "<p>Paid Social Spend on Meta</p>"
+          }
+        }
+      },
+      "block_order": [
+        "data_FTMEK8",
+        "data_Q6yctn",
+        "data_JqkKgC",
+        "data_DJVmXf"
+      ],
+      "name": "YG marketing data",
+      "settings": {
+        "color_scheme": "",
+        "background_image": "shopify://shop_images/Frame_2147236439.png",
+        "background_image_mobile": "shopify://shop_images/2_69411eb9-cf7e-4d9d-9a13-8baa5f312002.png",
+        "subheading": "",
+        "title": "Paid Media Alchemy:  Turning Creatives and Data into Game-Changing Campaigns",
+        "content": "<p>Adyssey is the matchmaker of your brand message. Our data-driven strategies are tailored to address customer demand at every stage. We maximize ROAS, ensuring every dollar spent fuels growth.</p>",
+        "text_alignment": "left",
+        "text": "GET IN TOUCH",
+        "button_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"17\" viewbox=\"0 0 16 17\" fill=\"none\">\n<path d=\"M2.5 8.5H13.5\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M9 4L13.5 8.5L9 13\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
+        "url": "",
+        "open_in_new_tab": false,
+        "style": "solid",
+        "background": "#ffc000",
+        "text_color": "#212121",
+        "image": "shopify://shop_images/Frame_130.png",
+        "image_mobile": "shopify://shop_images/Frame_2147236453_1.png"
+      }
+    },
+    "text_with_media_i4jqTW": {
+      "type": "text-with-media",
+      "blocks": {
+        "heading_GHDCYB": {
+          "type": "heading",
+          "settings": {
+            "text": "Our Philosophy Performance Darwinism",
+            "heading_tag": "h4",
+            "html_tag": "h2",
+            "position": "middle_left",
+            "highlight_effect": "default",
+            "highlight_accent_color": "",
+            "highlight_text_color": ""
+          }
+        },
+        "richtext_4dRQAh": {
+          "type": "richtext",
+          "settings": {
+            "text": "<p>It’s the lens through which we view success and growth in paid social. Just as in nature, only the strongest strategies and campaigns survive and thrive. We believe in constantly iterating our approach to stay ahead of the competition.</p>",
+            "position": "middle_left",
+            "font_size": 15,
+            "font_size_mobile": 14,
+            "color": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_GHDCYB",
+        "richtext_4dRQAh"
+      ],
+      "name": "t:sections.text_with_media.name",
+      "settings": {
+        "full_width": false,
+        "color_scheme": "",
+        "content_position_y": "start",
+        "content_position": "end",
+        "content_percentage_width": 55,
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "add_media_spacing": false,
+        "primary_image": "shopify://shop_images/Frame_2147236398.png",
+        "secondary_media_width": 60,
+        "secondary_media_mobile_width": 60,
+        "secondary_media_alignment": "place-self-center",
+        "show_dynamic": true,
+        "show_show_separator": false
+      }
+    },
+    "yg_approach_animation_hrheqR": {
+      "type": "yg-approach-animation",
+      "blocks": {
+        "item_x9Y7jY": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/Frame_2147236420.png",
+            "title": "Omnichannel Services",
+            "title_size": 36,
+            "title_size_mobile": 28,
+            "content": "<p>Leveraging platforms like TikTok, Meta, and Google, we reach your audience wherever they are, delivering consistent results across all touchpoints.</p>"
+          }
+        },
+        "item_Xfn6f7": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/Frame_2147236420_1.png",
+            "title": "Target Audiences",
+            "title_size": 36,
+            "title_size_mobile": 28,
+            "content": "<p>With advanced audience segmentation, we pinpoint the most relevant consumer groups, ensuring your message resonates with the right people.</p>"
+          }
+        },
+        "item_EH8adA": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/Frame_2147236420_2.png",
+            "title": "Message",
+            "title_size": 36,
+            "title_size_mobile": 28,
+            "content": "<p>Our in-house tools analyze customer behavior and preferences, creating tailored messages that drive conversions.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_x9Y7jY",
+        "item_Xfn6f7",
+        "item_EH8adA"
+      ],
+      "name": "YG approach animation",
+      "settings": {
+        "color_scheme": "",
+        "subheading": "",
+        "title": "Our approach",
+        "content": "<p>We are the <strong>\"Cyber Delivery Buddy\"</strong>，delivering the right messages to the right audiences through the right channels.</p>",
+        "start_image": "shopify://shop_images/ea3a3c6b-1633-42fa-9fad-5aed34e798b7.png",
+        "end_image": "shopify://shop_images/ce58a1b5-8479-40e1-b15e-7a805561bf83.png",
+        "background_image": "shopify://shop_images/Component_64_1.png",
+        "background_image_mobile": "shopify://shop_images/Frame_2147236454.png"
+      }
+    },
+    "yg_cooperative_partner_XRaD6p": {
+      "type": "yg-cooperative-partner",
+      "blocks": {
+        "image_7iRyfi": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147236446.png"
+          }
+        },
+        "image_wWHtzk": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147236447.png"
+          }
+        },
+        "image_Et6gC9": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147236448.png"
+          }
+        },
+        "image_xRAaP8": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_74_1c598c0a-df24-4305-b6c1-50a194f61050.png"
+          }
+        },
+        "image_i9WLbQ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_75_23847392-bfe0-4bd7-ac14-ff5d88e7f2ef.png"
+          }
+        },
+        "image_tJxDTK": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_76.png"
+          }
+        },
+        "image_XEXNHa": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_77.png"
+          }
+        },
+        "image_YxGadt": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_78.png"
+          }
+        },
+        "image_j6CG7H": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_79.png"
+          }
+        },
+        "image_Dw8bH3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_80.png"
+          }
+        },
+        "image_43dDax": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_81.png"
+          }
+        },
+        "image_zNqQNQ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_82.png"
+          }
+        },
+        "image_3RdFnp": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_83.png"
+          }
+        },
+        "image_Gt3yBm": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_84.png"
+          }
+        },
+        "image_rmUJpw": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_85.png"
+          }
+        }
+      },
+      "block_order": [
+        "image_7iRyfi",
+        "image_wWHtzk",
+        "image_Et6gC9",
+        "image_xRAaP8",
+        "image_i9WLbQ",
+        "image_tJxDTK",
+        "image_XEXNHa",
+        "image_YxGadt",
+        "image_j6CG7H",
+        "image_Dw8bH3",
+        "image_43dDax",
+        "image_zNqQNQ",
+        "image_3RdFnp",
+        "image_Gt3yBm",
+        "image_rmUJpw"
+      ],
+      "name": "YG cooperative partner",
+      "settings": {
+        "color_scheme": "scheme-2",
+        "subheading": "",
+        "title": "Global Digital Media Resources",
+        "content": "",
+        "heading_tag": "h4",
+        "text_alignment": "center",
+        "image_1": "shopify://shop_images/Frame_68_ca6a0ea2-65dd-4848-b800-b4ffa455a6dd.png",
+        "image_mobile_1": "shopify://shop_images/Frame_68_1.png",
+        "image_2": "shopify://shop_images/Frame_73_fd6f93a7-f6ba-4d4f-9f6d-da3131ce2340.png",
+        "image_mobile_2": "shopify://shop_images/Frame_73_1.png",
+        "image_3": "shopify://shop_images/Frame_69_afcaaed5-f040-4251-956a-b427f8127eda.png",
+        "image_mobile_3": "shopify://shop_images/Frame_69_1.png",
+        "duration": 5
+      }
+    },
+    "yg_flow_z86pgE": {
+      "type": "yg-flow",
+      "blocks": {
+        "item_PbbnBF": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147236423_1.jpg",
+            "title": "<strong>Discover What Matters</strong>",
+            "content": "<p>Discover What Matters</p>",
+            "text_with_image": "<strong>Understand</strong>"
+          }
+        },
+        "item_piLrKd": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147236449.jpg",
+            "title": "<strong>Plan with Precision</strong>",
+            "content": "<p>Backed by data. Tuned for impact. Designed for real acquisition.</p>",
+            "text_with_image": "<strong>Plan</strong>"
+          }
+        },
+        "item_NULYzN": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147236450.jpg",
+            "title": "<strong>Test What Works</strong>",
+            "content": "<p>Agile content and audience tests that adapt in real time.</p>",
+            "text_with_image": "<strong>Test</strong>"
+          }
+        },
+        "item_6t9MFc": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147236451.jpg",
+            "title": "<strong>Scale What Wins</strong>",
+            "content": "<p>Sync with the Moment. Ride the wave before it peaks.</p>",
+            "text_with_image": "<strong>Optimize</strong>"
+          }
+        },
+        "item_bYnyi9": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147236452.jpg",
+            "title": "<strong>Sync with the Moment</strong>",
+            "content": "<p>Festivals. Sales. Launches. We ride the wave before it crests.</p>",
+            "text_with_image": "<strong>Dominate</strong>"
+          }
+        }
+      },
+      "block_order": [
+        "item_PbbnBF",
+        "item_piLrKd",
+        "item_NULYzN",
+        "item_6t9MFc",
+        "item_bYnyi9"
+      ],
+      "name": "YG flow",
+      "settings": {
+        "color_scheme": "",
+        "subheading": "",
+        "title": "Always-evolving campaigns",
+        "content": "<p>From viral TikTok hooks to SEO-optimized product pages, we evolve at the speed of consumer attention spans.</p>",
+        "heading_tag": "h4",
+        "text_alignment": "left"
+      }
+    },
+    "media_blocks_dezE8g": {
+      "type": "media-blocks",
+      "blocks": {
+        "image_with_text_AydAfL": {
+          "type": "image_with_text",
+          "settings": {
+            "change_color_scheme_on_hover": false,
+            "color_scheme": "",
+            "color_scheme_hover": "",
+            "image": "shopify://shop_images/Frame_2147236456.png",
+            "icon": "none",
+            "icon_width": 32,
+            "mobile_icon_width": 24,
+            "icon_position": "middle_center",
+            "subheading": "",
+            "subheading_position": "middle_center",
+            "title": "",
+            "heading_tag": "h4",
+            "heading_position": "middle_center",
+            "scrolling_title": false,
+            "scrolling_title_separator": "none",
+            "show_text_vertically": false,
+            "text": "",
+            "text_position": "middle_center",
+            "button_style": "solid",
+            "link_url": "",
+            "link_text": "",
+            "link_position": "middle_center"
+          }
+        }
+      },
+      "block_order": [
+        "image_with_text_AydAfL"
+      ],
+      "name": "t:sections.media_blocks.name",
+      "settings": {
+        "color_scheme": "",
+        "allow_transparent_header": true,
+        "subheading": "",
+        "title": "AI-Powered Omnichannel Paid Ads Campaign Control",
+        "content": "<p>Adyssey's Media buyers manage hundreds of paid ad campaigns — across TikTok, Facebook, and Google — all in one seamless workflow.<br/>Built for speed, powered by insight, ready for incremental growth.</p>",
+        "heading_tag": "h4",
+        "text_alignment": "center",
+        "scrolling_title": false,
+        "scrolling_title_separator": "circle",
+        "stack_on_mobile": true,
+        "add_horizontal_spacing": true,
+        "add_border": false,
+        "column_spacing": "none",
+        "items_per_row": 1,
+        "block_size": "auto"
+      }
+    },
+    "yg_gallery_item_FJhYck": {
+      "type": "yg-gallery-item",
+      "blocks": {
+        "item_yUw9dz": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147236429.jpg",
+            "icon": "shopify://shop_images/EcoFlow_CN_EcoFlow-_1.svg",
+            "icon_mobile": "shopify://shop_images/EcoFlow_CN_EcoFlow-_1_1.svg",
+            "title1": "40%",
+            "label1": "GMV",
+            "title2": "120%",
+            "label2": "Sales",
+            "title3": "+$80",
+            "label3": "Average order",
+            "link": "shopify://pages/paid-social"
+          }
+        },
+        "item_UGPAND": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147236430.jpg",
+            "icon": "shopify://shop_images/Fanttik_Ideas_for_Fantastic_Life_1_08fc7ba1-0c5a-4aa9-bb3d-31bc7190d24f.png",
+            "icon_mobile": "shopify://shop_images/EcoFlow_CN_EcoFlow-_1_1.svg",
+            "title1": "40%",
+            "label1": "GMV",
+            "title2": "120%",
+            "label2": "Sales",
+            "title3": "+$80",
+            "label3": "Average order",
+            "link": "shopify://pages/paid-social"
+          }
+        },
+        "item_P9PKzc": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147236431.jpg",
+            "icon": "shopify://shop_images/Fanttik_Ideas_for_Fantastic_Life_1_08fc7ba1-0c5a-4aa9-bb3d-31bc7190d24f.png",
+            "icon_mobile": "shopify://shop_images/EcoFlow_CN_EcoFlow-_1_1.svg",
+            "title1": "40%",
+            "label1": "GMV",
+            "title2": "120%",
+            "label2": "Sales",
+            "title3": "+$80",
+            "label3": "Average order",
+            "link": "shopify://pages/paid-social"
+          }
+        }
+      },
+      "block_order": [
+        "item_yUw9dz",
+        "item_UGPAND",
+        "item_P9PKzc"
+      ],
+      "name": "YG gallery tem",
+      "settings": {
+        "color_scheme": "scheme-5",
+        "subheading": "",
+        "title": "Case Study",
+        "content": "",
+        "heading_tag": "h4",
+        "text_alignment": "center",
+        "title_color": "#1a1a1a",
+        "color": "#1a1a1a",
+        "remove_padding_top": true,
+        "remove_padding_bottom": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "yg_marketing_data_MBLeQU",
+    "text_with_media_i4jqTW",
+    "yg_approach_animation_hrheqR",
+    "yg_cooperative_partner_XRaD6p",
+    "yg_flow_z86pgE",
+    "media_blocks_dezE8g",
+    "yg_gallery_item_FJhYck"
+  ]
+}

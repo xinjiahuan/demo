@@ -1,0 +1,477 @@
+<style>
+  #shopify-section-{{ section.id }} .section-spacing {
+    {% if section.settings.enable_custom_padding %}
+      padding-block: {{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px;
+    {% endif %}
+  }
+
+  #shopify-section-{{ section.id }} .section-content {
+    --main-width: min(480px, 100%) ;
+    position: relative;
+    z-index: 1;
+  }
+
+  #shopify-section-{{ section.id }} .funnel-content {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 12px;
+    border-radius: 12px;
+    border: 1.5px solid rgba(0, 0, 0, 0.10);
+    background: #FFF;
+    padding: 28px 24px;
+    color: rgba(33, 33, 33, 0.70);
+  }
+
+  #shopify-section-{{ section.id }} .funnel-content::before {
+    content: '';
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    width: 86px;
+    height: 2px;
+    background: rgba(0, 0, 0, 0.10);
+  }
+
+  #shopify-section-{{ section.id }} .funnel-content::after {
+    content: '';
+    position: absolute;
+    left: calc(100% + 86px);
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    z-index: 1;
+    border: 3px solid rgba(0, 0, 0, 0.10);
+  }
+
+  #shopify-section-{{ section.id }} .funnel-content .yg-content-title {
+    color: #000;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  #shopify-section-{{ section.id }} .funnel-content-list .content-item-title {
+    display: none;
+  }
+
+  #shopify-section-{{ section.id }} .funnel-content:first-child {
+    position: absolute;
+    z-index: 1;
+    right: calc(50% + (min(480px, 100%) / 2) + 60px);
+    top: 4%;
+    width: min(320px, calc((100% - min(480px, 100%) - 120px) / 2));
+  }
+
+  #shopify-section-{{ section.id }} .funnel-content:nth-of-type(2) {
+    display: none;
+  }
+
+  #shopify-section-{{ section.id }} .funnel-content:nth-of-type(3) {
+    position: absolute;
+    left: calc(50% + (min(480px, 100%) / 2) + 60px);
+    top: 87%;
+    z-index: 1;
+    transform: translateY(-50%);
+    width: min(320px, calc((100% - min(480px, 100%) - 120px) / 2));
+  }
+
+  #shopify-section-{{ section.id }} .funnel-content:nth-of-type(3)::before {
+    left: auto;
+    right: 100%;
+    width: 230px;
+  }
+
+  #shopify-section-{{ section.id }} .funnel-content:nth-of-type(3)::after {
+    left: auto;
+    right: calc(100% + 230px);
+    transform: translate(50%, -50%);
+  }
+
+  #shopify-section-{{ section.id }} .funnel-item-list {
+    width: min(480px, 100%);
+    margin-inline: auto;
+  }
+
+  #shopify-section-{{ section.id }} .funnel-item {
+    position: relative;
+    z-index: 1;
+    margin-inline: auto;
+    transform-style: preserve-3d;
+    cursor: pointer;
+  }
+
+  #shopify-section-{{ section.id }} .funnel-item .funnel-item-title {
+    position: absolute;
+    z-index: 3;
+    top: 72%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateZ(10px);
+    color: #000;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    transition: opacity 0.6s ease-in-out;
+  }
+
+  #shopify-section-{{ section.id }} .funnel-item .yg-image-box {
+    transition: opacity 0.6s ease-in-out;
+  }
+
+  #shopify-section-{{ section.id }} .funnel-item .yg-content-image {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+
+  #shopify-section-{{ section.id }} .funnel-item .yg-ornament-image {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: calc(100% + 40px);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+  }
+
+  #shopify-section-{{ section.id }} .funnel-item:hover .yg-ornament-image {
+    opacity: 1;
+  }
+
+  #shopify-section-{{ section.id }} .funnel-item:hover .yg-cover-image {
+    opacity: 0.4;
+  }
+
+  #shopify-section-{{ section.id }} .funnel-item:hover .funnel-item-title {
+    opacity: 0;
+  }
+
+  #shopify-section-{{ section.id }} .funnel-item:first-child .yg-content-image {
+    transform: rotateX(358deg);
+    transform-origin: 100px 40px;
+  }
+
+  #shopify-section-{{ section.id }} .funnel-item:nth-of-type(2) {
+    width: 67%;
+    margin-top: -5.7%;
+  }
+
+  #shopify-section-{{ section.id }} .funnel-item:nth-of-type(2) .funnel-item-title {
+    top: 65%;
+  }
+
+  #shopify-section-{{ section.id }} .funnel-item:nth-of-type(3) {
+    width: 42%;
+    margin-top: -3.7%;
+  }
+
+  #shopify-section-{{ section.id }} .funnel-item:nth-of-type(3) .funnel-item-title {
+    top: 59%;
+    font-size: 22px;
+  }
+
+  @media (max-width: 1000px) {
+    #shopify-section-{{ section.id }} .section-spacing {
+      {% if section.settings.enable_custom_padding %}
+        padding-block: {{ section.settings.padding_top_mobile }}px {{ section.settings.padding_bottom_mobile }}px;
+      {% endif %}
+    }
+
+    #shopify-section-{{ section.id }} .funnel-item .funnel-item-title {
+      font-size: 16px;
+    }
+
+    #shopify-section-{{ section.id }} .funnel-content-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 48px;
+    }
+
+    #shopify-section-{{ section.id }} .funnel-content-list .funnel-content {
+      position: static;
+      width: 100%;
+      transform: none;
+      padding: 24px 17px;
+    }
+
+    #shopify-section-{{ section.id }} .funnel-content::before,
+    #shopify-section-{{ section.id }} .funnel-content::after {
+      display: none;
+    }
+
+    #shopify-section-{{ section.id }} .funnel-content .yg-content-title {
+      font-size: 18px;
+    }
+
+    #shopify-section-{{ section.id }} .funnel-content .content-item-title {
+      display: inline;
+    }
+  }
+
+  @media (max-width: 550px) {
+    #shopify-section-{{ section.id }} .funnel-content-list {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
+  {%- assign alignment = section.settings.text_alignment | replace: 'left', 'start' | replace: 'right', 'end' -%}
+
+  <div class="container section-spacing">
+    <div class="section-stack">
+      {%- if section.settings.title != blank
+        or section.settings.heading != blank
+        or section.settings.content != blank
+      -%}
+        <yg-animation-item class="section-header">
+          <div class="prose prose-justify-{{ alignment }}">
+            <div class="max-w-lg">
+              {%- render 'subheading', content: section.settings.subheading -%}
+              {%- render 'heading',
+                content: section.settings.title,
+                balance_text: true,
+                style: section.settings.heading_tag,
+                html_tag: 'h2'
+              -%}
+            </div>
+
+            {%- if section.settings.content != blank -%}
+              <div class="max-w-sm">
+                {{- section.settings.content -}}
+              </div>
+            {%- endif -%}
+          </div>
+        </yg-animation-item>
+      {%- endif -%}
+
+      {% if section.blocks.size > 0 %}
+        <div class="section-content">
+          <div class="funnel-item-list">
+            {% for block in section.blocks %}
+              <div class="funnel-item">
+                {% render 'yg-image',
+                  img: block.settings.cover_image,
+                  img_class: 'yg-cover-image',
+                  show_placeholder: true
+                %}
+                {% render 'yg-image',
+                  img: block.settings.content_image,
+                  img_class: 'yg-content-image',
+                  show_placeholder: true
+                %}
+                {% render 'yg-image',
+                  img: block.settings.ornament_image,
+                  img_class: 'yg-ornament-image',
+                  show_placeholder: false
+                %}
+                {% if block.settings.title != blank %}
+                  <div class="funnel-item-title">{{ block.settings.title }}</div>
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+          <div class="funnel-content-list">
+            {% for block in section.blocks %}
+              <yg-animation-item class="funnel-content {% if block.settings.content == blank %} hide {% endif %}">
+                <div class="yg-content-title">
+                  {% if block.settings.title != blank %}
+                    <div class="content-item-title">{{ block.settings.title | append: ' - ' }}</div>
+                  {% endif -%}
+                  {{- block.settings.content_title }}
+                </div>
+                {{ block.settings.content }}
+              </yg-animation-item>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "YG Funnel",
+  "class": "shopify-section--yg-section",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:global.colors.scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subheading",
+      "label": "t:global.text.subheading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "t:global.text.heading",
+      "default": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "t:global.text.content",
+      "default": "<p>Use this section to build trust with your customers, or showcase product features with text and icons.</p>"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "t:global.text.heading_size",
+      "options": [
+        {
+          "value": "display-xl",
+          "label": "Display XL"
+        },
+        {
+          "value": "display-l",
+          "label": "Display L"
+        },
+        {
+          "value": "display-m",
+          "label": "Display M"
+        },
+        {
+          "value": "h1",
+          "label": "XX-Large"
+        },
+        {
+          "value": "h2",
+          "label": "X-Large"
+        },
+        {
+          "value": "h3",
+          "label": "Large"
+        },
+        {
+          "value": "h4",
+          "label": "Medium"
+        },
+        {
+          "value": "h5",
+          "label": "Small"
+        },
+        {
+          "value": "h6",
+          "label": "X-Small"
+        },
+        {
+          "value": "h7",
+          "label": "XX-Small"
+        }
+      ],
+      "default": "h3"
+    },
+    {
+      "type": "text_alignment",
+      "id": "text_alignment",
+      "label": "t:global.text.alignment",
+      "default": "center"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_custom_padding",
+      "label": "Enable custom padding",
+      "default": false
+    },
+    {
+      "type": "range",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "id": "padding_top",
+      "label": "Padding top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "id": "padding_top_mobile",
+      "label": "Padding top mobile",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "id": "padding_bottom_mobile",
+      "label": "Padding bottom mobile",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "yg_funnel",
+      "name": "YG Funnel",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "cover_image",
+          "label": "Cover Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "content_image",
+          "label": "Content image"
+        },
+        {
+          "type": "image_picker",
+          "id": "ornament_image",
+          "label": "Ornament image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "content_title",
+          "label": "Content title"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "YG Funnel"
+    }
+  ]
+}
+{% endschema %}

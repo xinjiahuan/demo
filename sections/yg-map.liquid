@@ -1,0 +1,792 @@
+<style>
+  #shopify-section-{{ section.id }} h2{
+    letter-spacing: -0.56px;
+  }
+  #shopify-section-{{ section.id }} .max-w-sm p {
+    margin-top: 16px;
+  }
+
+  #shopify-section-{{ section.id }} .yg-map {
+    width: 100%;
+    height: auto;
+    -webkit-mask-image: url('https://cdn.shopify.com/s/files/1/0928/8882/6153/files/1_1_e7dde348-82fe-4e5c-ab25-91c45664017d.png?v=1753254731');
+    -webkit-mask-size: 100% 100%;
+    mask-image: url('https://cdn.shopify.com/s/files/1/0928/8882/6153/files/1_1_e7dde348-82fe-4e5c-ab25-91c45664017d.png?v=1753254731') ;
+    mask-size: 100% 100%;
+  }
+
+  #shopify-section-{{ section.id }} .yg-map-path {
+    transition: fill 0.3s ease-in-out;
+  }
+
+  #shopify-section-{{ section.id }} .yg-map-path:hover {
+    fill: #D68A0A;
+  }
+
+  #shopify-section-{{ section.id }} .section-content {
+    display: block;
+    position: relative;
+    z-index: 1;
+  }
+
+  #shopify-section-{{ section.id }} .yg-dot {
+    position: absolute;
+    top: var(--top);
+    left: var(--left);
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    padding: 4px 14px 4px 4px;
+    border-radius: 50px;
+    background-color: #2B2A29;
+    border: 1px solid #2B2A29;
+    color: #E8E4DA;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.32px;
+    pointer-events: none;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  }
+
+  #shopify-section-{{ section.id }} .yg-dot-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+
+  #shopify-section-{{ section.id }} .yg-dot .yg-dot-title {
+    margin-left: 8px;
+  }
+
+  #shopify-section-{{ section.id }} .data-blocks {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 1240px;
+    margin: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(var(--col), 1fr);
+    /* padding-block: var(--blocks-padding-block, 40px); */
+    gap: 60px;
+  }
+
+  #shopify-section-{{ section.id }} .data-blocks .yg-text-rows-item:not(:last-child) {
+    padding-right: 60px;
+    border-right: 1px solid rgba(0,0,0,0.1);
+  }
+
+  #shopify-section-{{ section.id }} .data-blocks .yg-line {
+    width: 1px;
+    height: 90%;
+    background-color: #000;
+    opacity: 0.1;
+  }
+
+  #shopify-section-{{ section.id }} .yg-text-rows-title {
+    font-size: var(--font-size);
+    font-weight: 500;
+  }
+
+  #shopify-section-{{ section.id }} .yg-text-rows-content {
+    font-size: var(--block-content-size, 14px);
+    line-height: 1.6;
+    font-weight: 500;
+    opacity: 0.7;
+  }
+
+  #shopify-section-{{ section.id }} .map-button-list,
+  #shopify-section-{{ section.id }} .yg-dots-list {
+    display: none;
+  }
+
+  @media(max-width: 980px) {
+    #shopify-section-{{ section.id }} {
+      --col: 1;
+      --title-size: 28px;
+      --title-line-height: 1.15em;
+      --title-letter-spacing: -.56px;
+      --title-margin-bottom: 24px;
+      --content-size: 14px;
+      --button-margin-top: 36px;
+      --block-content-size: 13px;
+    }
+    #shopify-section-{{ section.id }} .yg-map-path.active {
+      fill: #D68A0A;
+    }
+
+    #shopify-section-{{ section.id }} .yg-dot:not(.active) {
+      color: #2B2A29;
+      background-color: transparent;
+    }
+
+    #shopify-section-{{ section.id }} .yg-dots-list {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+      margin-bottom: 48px;
+    }
+
+    #shopify-section-{{ section.id }} .yg-dots-list .yg-dot-button {
+      font-size: 12px;
+      color: #2B2A29;
+      border: 1px solid #2B2A29;
+      padding: 4px 8px;
+      border-radius: 24px;
+      text-align: center;
+      min-width: 60px;
+      white-space: nowrap;
+      transition: color 0.3s ease-in-out, background 0.3s ease-in-out;
+    }
+
+    #shopify-section-{{ section.id }} .yg-dots-list .yg-dot-button.active {
+      background: #2B2A29;
+      color: #E8E4DA;
+    }
+
+    #shopify-section-{{ section.id }} .map-button-list {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+      margin-top: 24px;
+      margin-bottom: 48px;
+    }
+
+    #shopify-section-{{ section.id }} .map-button-list.singular .yg-map-button:nth-of-type(n + 3) {
+      grid-column: 2 span;
+    }
+
+    #shopify-section-{{ section.id }} .map-button-list .yg-map-button {
+      display: flex;
+      padding: 16px 12px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      border-radius: 4px;
+      border: 1px solid rgba(0, 0, 0, 0.10);
+      grid-column: 3 span;
+    }
+
+    #shopify-section-{{ section.id }} .map-button-list .yg-map-button .yg-continent-title {
+      color: #000;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 115%;
+      letter-spacing: -0.3px;
+    }
+
+    #shopify-section-{{ section.id }} .map-button-list .yg-map-button .yg-continent-content {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    #shopify-section-{{ section.id }} .map-button-list .yg-map-button .yg-continent-content p {
+      display: flex;
+      padding: 4px 8px;
+      justify-content: center;
+      align-items: center;
+      color: #2B2A29;
+      border-radius: 24px;
+      border: 1px solid #2B2A29;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: normal;
+      letter-spacing: -0.24px;
+      transition: color 0.3s ease-in-out, background 0.3s ease-in-out;
+    }
+
+    #shopify-section-{{ section.id }} .map-button-list .yg-map-button.active {
+      border-color: #2B2A29;
+    }
+    #shopify-section-{{ section.id }} .map-button-list .yg-map-button.active .yg-continent-content p {
+      background: #2B2A29;
+      color: #E8E4DA;
+    }
+
+    #shopify-section-{{ section.id }} .yg-map-path:hover {
+      color: #f3e4b9;
+    }
+
+    #shopify-section-{{ section.id }} .data-blocks {
+      position: static;
+      overflow-x: auto;
+      width: auto;
+      gap: 12px;
+      transform: none;
+      grid-template-columns: repeat(var(--col), var(--col-width, 35%));
+      margin-inline: -20px;
+      padding-inline: max(var(--container-gutter-context),50% - var(--container-max-width) / 2);
+      -ms-overflow-style: none;     /* IE 和 Edge */
+      scrollbar-width: none;        /* Firefox */
+    }
+
+    #shopify-section-{{ section.id }} .yg-text-rows-title {
+      font-size: var(--font-size-mobile);
+    }
+
+    #shopify-section-{{ section.id }} .data-blocks .yg-text-rows-item:not(:last-child) {
+      padding-right: 0;
+      border-right: none;
+    }
+
+    #shopify-section-{{ section.id }} .yg-map-container {
+      overflow: hidden;
+      scrollbar-width: none;
+      width: 100%;
+      aspect-ratio: 4/3;
+      mask: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    }
+
+    #shopify-section-{{ section.id }} .scroll-container {
+      position: relative;
+      z-index: 1;
+      min-width: 900px;
+    }
+  }
+
+  @media(max-width: 600px) {
+    #shopify-section-{{ section.id }} .data-blocks {
+      grid-template-columns: repeat(var(--col), var(--col-width, 60%));
+    }
+
+    #shopify-section-{{ section.id }} .yg-map-container {
+      aspect-ratio: 4/3;
+    }
+
+    #shopify-section-{{ section.id }} .map-button-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    #shopify-section-{{ section.id }} .map-button-list.singular .yg-map-button:first-child {
+      grid-column: 2 span;
+    }
+
+    #shopify-section-{{ section.id }} .map-button-list.singular .yg-map-button:nth-of-type(n + 2) {
+      grid-column: 1 span;
+    }
+  }
+</style>
+
+<div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
+  {%- assign alignment = section.settings.text_alignment | replace: 'left', 'start' | replace: 'right', 'end' -%}
+
+  <div class="container section-spacing">
+    <div class="section-stack">
+      {%- if section.settings.title != blank
+        or section.settings.heading != blank
+        or section.settings.content != blank
+      -%}
+        <yg-animation-item class="section-header">
+          <div class="prose prose-justify-{{ alignment }}">
+            <div class="max-w-lg">
+              {%- render 'subheading', content: section.settings.subheading -%}
+              {%- render 'heading',
+                content: section.settings.title,
+                balance_text: true,
+                style: section.settings.heading_tag,
+                html_tag: 'h2'
+              -%}
+            </div>
+
+            {%- if section.settings.content != blank -%}
+              <div class="max-w-sm">
+                {{- section.settings.content -}}
+              </div>
+            {%- endif -%}
+          </div>
+        </yg-animation-item>
+      {%- endif -%}
+
+      {% assign dots = section.blocks | where: 'type', 'dot' %}
+      {% assign data_list = section.blocks | where: 'type', 'data' %}
+      {% assign continent_block = section.blocks | where: 'type', 'continent' | first %}
+      <yg-map class="section-content">
+        <div class="yg-map-container">
+          <div class="scroll-container">
+            <svg
+              class="yg-map"
+              width="1240"
+              height="708"
+              viewBox="0 0 1240 708"
+              fill="#FCD560"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g class="yg-map-path continent_5">
+                <path d="M247.5 348.5V341.5L253 326L253.5 321L272.5 308.5H283.5L299 316.5H308.5L314.5 315L334.5 330.5L341 335L359.5 351.5L356 358L350 357V360.5L353 363L362.5 360.5L370 356L386.5 365.5L393 370.5L410.5 383L412.5 396L405.5 401L401.5 406L396 407.5L395 414.5L390 441.5L381.5 446L378 451L374 452.5L370 456.5L364 461.5L361.5 465.5L356 472L352.5 474L349.5 478L345 485L339 486.5L337 494.5L330 495.5L327 504L326.5 509L318 513L314 520L307.5 522.5L306.5 533L300.5 536.5L296 539.5L291 543.5L285 545L282.5 552.5L275.5 556L274 569H265.5V573L269 584L264.5 595L261 619L270.5 645L242 642.5L218.5 606L222 583.5L226.5 579L233 575L226.5 566.5L236 511.5L243.5 508.5L249 503.5L240 499.5L241.5 490.5L250.5 480L258.5 442L247.5 432.5L241.5 429.5L235.5 427L231.5 422V410.5L228 406L226 389L222 384L226.5 364.5L234.5 361.5L238 350L247.5 348.5Z"/>
+                <path d="M279.5 627L285 608H304L296 622.5L279.5 627Z"/>
+              </g>
+              <g class="yg-map-path continent_3">
+                <path d="M639.5 516.5L630 518.5L617 509L615.5 480.5L608.5 476V459L603 452.5L596.5 442L593.5 437L589 418.5L595.5 407.5L598 381L593.5 379L584 374.5L581.5 371L580 345L570.5 343.5L563 339H559L549.5 345L536 343L525.5 342L512.5 343.5L497 331L482.5 314L484.5 303.5L488 288L484.5 281.5V274L489 266.5L494 259.5L500 256.5V251L502 249L507 246.5L509 242.5L513 235.5L520.5 232L525.5 229L534 228L549.5 224L563 218.5L574 216H580L587 219.5L590.5 222.5L595.5 230.5L605 235.5L613 237H620L623.5 233.5L650 237L659.5 238L665.5 246.5L670.5 255.5L674.5 259L678 266.5L682 271L687 278.5L690.5 283.5L695.5 290.5L699 294L704.5 302L710.5 308.5L715.5 319L735.5 318L749 316L753 330L750.5 339L746.5 346.5L740.5 354L714 373L710.5 395.5L714 402.5L720 417L712.5 434.5L696 439V445.5L697.5 466L689.5 471.5L687.5 487.5L665 511.5L639.5 516.5Z"/>
+                <path d="M731 414C728.833 416.333 726.3 425 725.5 425L724.5 447L720 459L731 477L741 473L747.5 465.5L746.5 450L759 425L761.5 413.5L744.5 398.5L739 411.5L731 414Z"/>
+              </g>
+              <g class="yg-map-path continent_6">
+                <path d="M1170.5 575.5L1156.5 565L1167.5 549.5L1186 555.5L1170.5 575.5Z"  />
+                <path d="M1021.5 452.5L1012.5 462L1016 480.5L1028 505L1024.5 516.5L1041 526.5L1050.5 522H1067L1074 514L1080.5 516L1091.5 512L1097.5 505L1098.5 500.5L1102 503.5L1103 510L1110 511L1117 518.5L1130.5 522.5L1135.5 535.5L1150.5 544.5H1162.5L1175.5 543L1194 519.5L1195.5 505L1201 500.5L1189 462L1180 457.5L1175.5 453.5L1167.5 450L1164 447L1160 443.5L1154.5 440L1147 423L1138.5 420.5L1130 392.5L1135.5 394L1139.5 401.5L1161.5 411.5L1168.5 391L1166 379L1131.5 374.5L1122 374L1115.5 370L1107.5 367.5L1105.5 356.5H1081L1080.5 374L1101 391L1117.5 394L1127.5 427L1130 434L1127.5 435.5H1119L1117 431L1109 407.5L1097.5 409L1087 405L1078 413V421.5L1081 427L1078 429L1067 420.5L1060.5 424L1058 430L1054 433.5L1052 436.5L1051 442L1044 443.5L1035.5 445L1028 448.5L1021.5 452.5Z"  />
+              </g>
+              <g class="yg-map-path continent_4">
+                <path d="M268.5 58V73.5L264 83.5L277.5 77L286.5 81L286 86L289 87.5L296 89.5L298 94.5L302.54 99.04L303 98.5L304 96.5L313 88.5H347.5L355.5 91L364 94.5L376.5 110.5L371.5 121.5L360.5 112.5L354 109.5V115.5L355.5 119L359 119.5L360.5 130.5L365.5 136.5L368 147L369 151.5L368 157L370 160L374.5 164L379 174V180L386 185.5L379 191L370 189.5L357 182.5L355.5 173L330 172L327 181L331 180L336.5 177L341 178.5L354 179L355.5 196.5L344.5 197.5L333.5 200.5L329 195.5L326 197.5L321 202L300 215L291.5 217L291 221L287 235L274.5 236L268.5 240.5L264.5 240L263.5 245.5L271.5 257L263.5 265L251 258.5V249.5L243.5 248L236 251.5L225 254L221.5 252.5H216.5L211.5 253.5L210.5 257L205 260L200.5 262L200 267.5L194.5 278.5L186.5 276.5L186 282L191.5 283.5H208.5L215.5 275.5L241 270H263.5L279.5 276.5L303.5 280.5L307 295.5L297 294L273 291L268 294L259 295.5L260.5 282.5L258 277.5H243L242 279.5L226.5 286L222 295.5L223.5 302L234.5 298V316.5L251 327.5L247.5 337L229 330L199.5 299L177.5 298L163.5 285L160.5 278.5L158.5 272L154 265L154.5 251.5L150 245.5V271L138 268.5L135 257.5L132 250L133 237.5L126 228.5L125 221L122 214.5L129 194L136.5 193.5L138 188L145 188.5L147.5 185.5L148.5 180.5L137.5 169L140.5 159.5L117.5 134L91.5 135.5L85 138L65 148.5L44 160.5L36 162L27 158.5C29.5 154.833 34.5 147.7 34.5 148.5C34.5 149.3 43.5 144.167 50.5 142L47 132L51 127L58 109.5L98.5 88.5H123L127.5 94H154.5L159.5 96.5L169 97.5H174.5L176.5 92.5L213.5 93.5L218.5 97.5H225L231 102.5L248.972 103.831L247.5 95L229.5 94.5L230 87.5L228.5 85L220 85.5L216.5 90.5L204 89.5L205.5 82L215.5 75.5L230 65.5L238.5 60.5L264 51.5L268.5 58ZM320 108.5L312 118L313 144.5L300 146L298 124.5L293 119L294.5 108.5L296.654 105.965L292.982 107.61L291.5 117.5L265.5 135L261 134L262.5 138L264.5 141.5L270.5 143H282.5L296.5 157V162.5L299 164H301.5L304 156L313 150.5L317 120.5L333.5 114.5L337.5 113.5V105L333.5 104L327 100.5L320 108.5ZM483 29.5V34.5L479 37L475.5 39.5L470 42L457 42.5L456 46L459 46.5L461 44L464.5 43.5L476 43L482 39H489L490 42L494 41.5L495 46L495.5 39L505.5 38L509.5 41.5L517 37.5L528 43.5V50.5L510.5 58.5L507 73L499 89.5L494.5 89L489 86.5L483.5 85.5L478.5 87.5L491 90L492.5 96.5L486.5 98.5L483 101.5L479 104L467.5 107.5L457 109.5L451.5 112.5L444 114.5L439 118L435.5 123.5L430.5 127L426 139L415.5 138L413 134.5L407.5 129L404.5 124.5L399.5 120L400.5 104L404.5 99L409 95.5L402.5 93.5L404.5 83.5L400.5 82L399.5 77L396 72.5L364 70L363.5 56.5L372 56L377 54L380 51.5L384.5 48L395.5 47L398 45L402 41L405.5 38.5L422 39H425.5L426 42L430.5 38L436 38.5L438 42.5V35L458 29L483 29.5ZM399 37.5L398.5 44.5L385.5 46.5L380 48L377.5 52H358L357.5 59.5L349.5 65.5H336L338 71.5L349 84L323 84.5L307 89.5L303 84L305.5 81H299.5L293.5 85.5L282 75L274.5 70L279 56.5L297.5 55.5L308 48L312 45L317.5 43H324L329.5 42L333.5 39H339L343 40.5L346 42L347.5 38.5L376.5 38L384.5 32.5L399 37.5Z"/>
+              </g>
+              <g class="yg-map-path continent_2">
+                <path d="M499.5 124L482.5 116.5L485 109L500 107.5L531.5 85L536 95.5L520 112L499.5 124Z"/>
+                <path d="M585 66.5V53L602 49.5L611 47L615 45L629.5 42L630.5 49.5L628.5 61.5L616.5 68L611 64.5L604 68L590 65.5L585 66.5Z"  />
+                <path d="M614 213L615.5 222L603 229L595 217.5C592.667 215.333 592 210.5 589.5 207.5C588.732 206.578 584 202.833 582 200.5L570 206L559.5 211.5L555.5 218L548.5 223H541.5L536.5 226.5H527L522 227.5L514 226.5L506.5 221L512.5 210L519 200L525 194.5L529.5 200.5L537.5 196.5L541.5 193.5V182.5L552.5 177L561 175L565.5 170.5L567 167L572 165L574 160.5H580.5L612 154L622 144.5L630.5 147L632.5 144.5L636.5 141L639 137L643 134L649 135.5V130.5L647 127.5L643 130.5L639 134L628 141L623.5 136L620 134V127L629.5 118.5L630.5 114.5L623.5 116.5H618L614 124L615 141.5C610.167 145.167 596.8 150.6 596 151C595.2 151.4 590.333 143 591 137H587L577 141L567 137L563 125.5L582 119.5L589.5 109L595 105L598 102L600 101L605 99L604.5 95L610.5 94.5L614 90L621.5 88.5L642 90H649V95.5H656.5L663.5 94.5L664.5 98.5L673 96L690 99.5L675 110.5L663.5 107.844L659.5 114.844L666.5 114.5L664.5 117.5H670.5L672.5 114.5H677.5L679 111.5L683 109L685.5 106.5L690 105L696 99H706.5L711 155.5H716.5H719.5L721 170.5L708 172L707 173L699.5 180L701 194L701.5 200.5L693.5 209.5L688 211.5L683 217L677.5 222L671.5 221L663.5 219L656.5 222L648 224.5L644 213L662 196.5L663.5 187.5L661 188L656.5 192.5L651.5 194.5L649.5 200.5L644 200L641 209.5L636.5 226.5L625.5 220L621.5 215L618 208.5L600 193.5L595 192.5L592 196L614 213Z"  />
+                <path d="M521 160.5L520 170.5L544 177L550.5 175L555.5 170.5L557 162L554 156.5L548.5 151.5L539.5 145L531.5 144.5L525.5 150L523 156.5L521 160.5Z"/>
+              </g>
+              <g class="yg-map-path continent_1">
+                <path d="M860.5 342L861.5 320.5H878.5L879.5 339.5L860.5 342Z"  />
+                <path d="M919 350.5L917.5 334L969.5 354.5L978.5 350L999 328L1012 329L1020 349.5H1041.5L1042.5 356.5L1034 360L1046 365.5L1052.5 381.5L1035 387.5L1031 380L1024.5 388L1020 391L995.5 395L981.5 390.5L973 383L965.5 382.5L963.5 376.5L957 375L951.5 370L937.5 359.5L919 350.5Z"  />
+                <path d="M696 275L694.5 272L689.5 265.5L686 262.5L673 251.5L666.5 243C667 241.667 667.9 238.9 667.5 238.5C667.1 238.1 670.333 233 672 230.5L677.5 222.5L683.5 217L688 212L693.5 210L702 200.5L700 180L708 172.5L721.5 171L720 157C719.833 156.167 719.9 155 719.5 155C719.1 155 713 154.833 711 155V152.5L707 99L711 91L701.5 87C698.834 85.1667 693.8 81.4 695 81C696.5 80.5 703.5 73.5 704 73C704.4 72.6 714.167 66.8333 719 64L731 63L739 59C741.167 59.3333 745.6 60.2 746 61C746.4 61.8 745.834 66.6667 745.5 69L726 76C723 77.6667 717.2 81 718 81C719 81 724 87 725 87C725.8 87 732.667 89 736 90L741 93L745.5 82.5L749.5 73C750.334 70.8333 752.2 66.5 753 66.5C753.8 66.5 757.667 70.8333 759.5 73L762 87C763 86.5 765 85.4 765 85C765 84.6 764.334 76.8333 764 73H772.5L774 78L781.5 75L785 69L793.5 65.5H800L807.5 64L808.5 57L804.5 51.5L786.5 38H803L833 57.5L841 55L844 57.5L847 55H856L859 57.5L863 59L866 61L871.5 64L870.5 65.5V68L873 70.5H880.5H886H899H906H915L919.5 75L922.5 79.5H924.5L925.5 80.5L932 81L934.5 79.5L940 78L938.5 74.5L925.5 69.5L926.5 61H944.5L953.5 64H979L981.5 76.5H989L992 81L1011 84.5H1015H1017L1028 83L1034.5 83.5L1033 89.5L1044.5 84.5H1050.5L1072.5 79L1077.5 85L1071.5 89.5H1079.5L1088 90.5L1094.5 94H1104.5L1117 99L1123.5 104V113L1118 117L1107 113L1092.5 106L1095.5 110L1107 114L1108 121L1099 124.5L1092 127.5L1083 130.5L1070 124.5H1066.5V130.5L1062 135L1067.5 138L1070 139.5L1077.5 146.5L1066.5 161L1052.5 161.5L1044.5 150.5L1043 137L1058 121L1057 119H1053L1051.5 122.5L1048 124.5L1041 126L1036 128.5L1034.5 136.5L1017 135L995 136V139L996.5 142L998 146.5L1015 161L1019.5 177.5L1021.5 182L1018.5 185L1017 189L1015.5 199.5H1009L997.5 199L1018.5 221L1025.5 222L1031.5 219L1034.5 214.5L1030.5 195L1030 185L1024 170L1011 150.5L1018.5 149L1026.5 155L1036 161L1048 186.5L1049 192.5L1051.5 201.5L1053.5 210.5L1055 218L1052 224L1048 232H1038.5L1028.5 244L1021.5 247L1015.5 240.5L1008 238L1001.5 229L998 223L989 216.5L988.5 211H968L965.5 215.5H981L985 222L983.5 228L988.5 232L992.5 235L998 247L997.5 252.5L995 256L997.5 258L1008 267L1001.5 272L989.5 269L967.5 282.5L962.5 284L952.5 278.5L955.5 285.5L958 294.5L965.5 294L969.5 309L966.5 318.5L962.5 326.5L960.5 350L943 343L940.5 334.5L933.5 330.5L928.5 313.5L922 310L916.5 303L912.5 297L907 291.5L900 289.5L898 279.5H892L889 274L888.5 268L859.5 299.269V329H844.5L843.5 309.5L835 308.5L833 296H824.5L820.5 277.5L808.5 277L798.5 270L793 264.5L776.5 264L773.5 259.5H770L761 258L755.5 252.5L736 252L735 249L733 246L727.5 245L726.5 248L729.5 255.5L741 258L744.5 257H747L757 258.5L779 269.5L775.5 280L767.5 288.5L756 295L750.5 298.5L747 302.5L723.5 304.5L716 302.5L711 297.5L704 291.5L703 286L699 279L696 275Z"  />
+                <path d="M1003.5 284L998.5 297.5L1001 320L1013.5 325.5L1033.5 331.5L1045 339L1047.5 319L1029.5 303.5L1022.5 295.5L1015.5 282L1003.5 284Z"  />
+              </g>
+            </svg>
+            {% for dot in dots %}
+              <yg-animation-item
+                class="yg-dot"
+                data-index="{{ forloop.index0 }}"
+                style="--top: {{ dot.settings.top -}}%;--left: {{ dot.settings.left -}}%"
+              >
+                {% render 'yg-image',
+                  img: dot.settings.icon,
+                  img_class: 'yg-dot-icon',
+                  show_placeholder: false,
+                  aspect_ratio: '1'
+                %}
+                <div class="yg-dot-title">{{ dot.settings.text }}</div>
+              </yg-animation-item>
+            {% endfor %}
+          </div>
+        </div>
+
+        {% if section.settings.mobile_style == 'style-1' %}
+          {% if dots.size > 0 %}
+            <div class="yg-dots-list">
+              {% for dot in dots %}
+                <yg-animation-item
+                  class="yg-map-button yg-dot-button"
+                  data-index="{{ forloop.index0 }}"
+                  data-class="{{ dot.settings.continent }}"
+                >
+                  <div class="yg-dot-title">{{ dot.settings.bottom_text | default: dot.settings.text }}</div>
+                </yg-animation-item>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% else %}
+          {% liquid
+            assign show_continent = false
+            assign container_num = 0
+
+            if continent_block != blank
+              for i in (1..6)
+                assign continent_handle = 'continent_' | append: i
+
+                if continent_block.settings[continent_handle] != blank
+                  assign show_continent = true
+                  assign container_num = container_num | plus: 1
+                endif
+              endfor
+            endif
+
+            assign container_num = container_num | modulo: 2
+          %}
+
+          {% if show_continent %}
+            <div class="map-button-list {% unless container_num == 0 %} singular {% endunless %}">
+              {% for i in (1..6) %}
+                {% liquid
+                  assign continent_handle = 'continent_' | append: i
+                  assign continent_content_handle = 'continent_content_' | append: i
+                  assign continent = continent_block.settings[continent_handle]
+                  assign continent_content = continent_block.settings[continent_content_handle]
+                %}
+
+                {% if continent != blank %}
+                  <yg-animation-item class="yg-map-button" data-class="{{ continent_handle }}">
+                    <div class="yg-continent-title">{{ continent }}</div>
+                    <div class="yg-continent-content">{{ continent_content }}</div>
+                  </yg-animation-item>
+                {% endif %}
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endif %}
+
+        {% if data_list.size > 0 %}
+          <div class="container data-blocks" style="--col: {{ data_list.size }};">
+            {% for data in data_list %}
+              <yg-animation-item class="yg-text-rows-item">
+                {% if data.settings.title != blank %}
+                  <div
+                    class="yg-text-rows-title"
+                    style="--font-size: {{ data.settings.title_size | divided_by: 16.0 | append: 'rem' }};--font-size-mobile: {{ data.settings.title_size_mobile | divided_by: 16.0 | append: 'rem' }}"
+                  >
+                    {{ data.settings.title }}
+                  </div>
+                {% endif %}
+                {% if data.settings.content != blank %}
+                  <div class="yg-text-rows-content">
+                    {{ data.settings.content }}
+                  </div>
+                {% endif %}
+              </yg-animation-item>
+              {% unless forloop.last %}
+                {% comment %} <div class="yg-line"></div> {% endcomment %}
+              {% endunless %}
+            {% endfor %}
+          </div>
+        {% endif %}
+      </yg-map>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "YG Map",
+  "class": "shopify-section--yg-section",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:global.colors.scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subheading",
+      "label": "t:global.text.subheading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "t:global.text.heading",
+      "default": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "t:global.text.content",
+      "default": "<p>Use this section to build trust with your customers, or showcase product features with text and icons.</p>"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "t:global.text.heading_size",
+      "options": [
+        {
+          "value": "display-xl",
+          "label": "Display XL"
+        },
+        {
+          "value": "display-l",
+          "label": "Display L"
+        },
+        {
+          "value": "display-m",
+          "label": "Display M"
+        },
+        {
+          "value": "h1",
+          "label": "XX-Large"
+        },
+        {
+          "value": "h2",
+          "label": "X-Large"
+        },
+        {
+          "value": "h3",
+          "label": "Large"
+        },
+        {
+          "value": "h4",
+          "label": "Medium"
+        },
+        {
+          "value": "h5",
+          "label": "Small"
+        },
+        {
+          "value": "h6",
+          "label": "X-Small"
+        },
+        {
+          "value": "h7",
+          "label": "XX-Small"
+        }
+      ],
+      "default": "h3"
+    },
+    {
+      "type": "text_alignment",
+      "id": "text_alignment",
+      "label": "t:global.text.alignment",
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "mobile_style",
+      "label": "Mobile style",
+      "options": [
+        {
+          "value": "style-1",
+          "label": "Style 1"
+        },
+        {
+          "value": "style-2",
+          "label": "Style 2"
+        }
+      ],
+      "default": "style-1"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_custom_padding",
+      "label": "Enable custom padding",
+      "default": false
+    },
+    {
+      "type": "range",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "id": "padding_top",
+      "label": "Padding top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "id": "padding_top_mobile",
+      "label": "Padding top mobile",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "id": "padding_bottom_mobile",
+      "label": "Padding bottom mobile",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "dot",
+      "name": "Dot",
+      "settings": [
+        {
+          "type": "select",
+          "id": "continent",
+          "label": "Continent",
+          "options": [
+            {
+              "value": "continent_1",
+              "label": "Asia"
+            },
+            {
+              "value": "continent_2",
+              "label": "Europe"
+            },
+            {
+              "value": "continent_3",
+              "label": "Africa"
+            },
+            {
+              "value": "continent_4",
+              "label": "North America"
+            },
+            {
+              "value": "continent_5",
+              "label": "South America"
+            },
+            {
+              "value": "continent_6",
+              "label": "Oceania"
+            }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "text",
+          "id": "bottom_text",
+          "label": "Bottom text"
+        },
+        {
+          "type": "range",
+          "id": "top",
+          "label": "Top",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "left",
+          "label": "Left",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 50
+        }
+      ]
+    },
+    {
+      "name": "Continent",
+      "type": "continent",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "continent_1",
+          "label": "Asia",
+          "default": "Asia"
+        },
+        {
+          "type": "richtext",
+          "id": "continent_content_1",
+          "label": "Asia content"
+        },
+        {
+          "type": "text",
+          "id": "continent_2",
+          "label": "Europe",
+          "default": "Europe"
+        },
+        {
+          "type": "richtext",
+          "id": "continent_content_2",
+          "label": "Europe content"
+        },
+        {
+          "type": "text",
+          "id": "continent_3",
+          "label": "Africa",
+          "default": "Africa"
+        },
+        {
+          "type": "richtext",
+          "id": "continent_content_3",
+          "label": "Africa content"
+        },
+        {
+          "type": "text",
+          "id": "continent_4",
+          "label": "North America",
+          "default": "North America"
+        },
+        {
+          "type": "richtext",
+          "id": "continent_content_4",
+          "label": "North America content"
+        },
+        {
+          "type": "text",
+          "id": "continent_5",
+          "label": "South America",
+          "default": "South America"
+        },
+        {
+          "type": "richtext",
+          "id": "continent_content_5",
+          "label": "South America content"
+        },
+        {
+          "type": "text",
+          "id": "continent_6",
+          "label": "Oceania",
+          "default": "Oceania"
+        },
+        {
+          "type": "richtext",
+          "id": "continent_content_6",
+          "label": "Oceania content"
+        }
+      ]
+    },
+    {
+      "type": "data",
+      "name": "Data",
+      "limit": 5,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Title"
+        },
+        {
+          "type": "range",
+          "id": "title_size",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "Title size",
+          "default": 52
+        },
+        {
+          "type": "range",
+          "id": "title_size_mobile",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "Title size mobile",
+          "default": 32
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "YG Map"
+    }
+  ]
+}
+{% endschema %}

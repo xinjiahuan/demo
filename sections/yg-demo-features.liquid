@@ -1,0 +1,208 @@
+<style>
+  #shopify-section-{{ section.id }} .demo-features-section {
+    padding: 100px 20px;
+    background: #f9f9f9;
+  }
+
+  #shopify-section-{{ section.id }} .demo-features-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  #shopify-section-{{ section.id }} .demo-features-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  #shopify-section-{{ section.id }} .demo-features-title {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #212121;
+  }
+
+  #shopify-section-{{ section.id }} .demo-features-description {
+    font-size: 18px;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  #shopify-section-{{ section.id }} .demo-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+  }
+
+  #shopify-section-{{ section.id }} .demo-feature-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+
+  #shopify-section-{{ section.id }} .demo-feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  #shopify-section-{{ section.id }} .demo-feature-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 24px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+  }
+
+  #shopify-section-{{ section.id }} .demo-feature-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #212121;
+  }
+
+  #shopify-section-{{ section.id }} .demo-feature-description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+  }
+
+  @media (max-width: 768px) {
+    #shopify-section-{{ section.id }} .demo-features-section {
+      padding: 60px 20px;
+    }
+
+    #shopify-section-{{ section.id }} .demo-features-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+</style>
+
+<div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
+  <section class="demo-features-section">
+    <div class="demo-features-container">
+      {%- if section.settings.title != blank or section.settings.description != blank -%}
+        <div class="demo-features-header">
+          {%- if section.settings.title != blank -%}
+            <h2 class="demo-features-title">{{ section.settings.title }}</h2>
+          {%- endif -%}
+          {%- if section.settings.description != blank -%}
+            <p class="demo-features-description">{{ section.settings.description }}</p>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      <div class="demo-features-grid">
+        {%- for block in section.blocks -%}
+          <div class="demo-feature-card" {{ block.shopify_attributes }}>
+            {%- if block.settings.icon != blank -%}
+              <div class="demo-feature-icon">
+                {{ block.settings.icon }}
+              </div>
+            {%- endif -%}
+
+            {%- if block.settings.title != blank -%}
+              <h3 class="demo-feature-title">{{ block.settings.title }}</h3>
+            {%- endif -%}
+
+            {%- if block.settings.description != blank -%}
+              <p class="demo-feature-description">{{ block.settings.description }}</p>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "YG Demo Features",
+  "class": "shopify-section--yg-demo-features",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "配色方案",
+      "default": "scheme-1"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "标题",
+      "default": "核心特性"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "描述",
+      "default": "这是一些演示特性的描述文字"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "特性卡片",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "图标 Emoji",
+          "default": "🚀"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "标题",
+          "default": "特性标题"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "描述",
+          "default": "这是特性的描述文字，可以详细介绍这个特性的优势。"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "YG Demo Features",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "🚀",
+            "title": "Demo 特性 1",
+            "description": "这是第一个演示特性的描述"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "💡",
+            "title": "Demo 特性 2",
+            "description": "这是第二个演示特性的描述"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "🎯",
+            "title": "Demo 特性 3",
+            "description": "这是第三个演示特性的描述"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

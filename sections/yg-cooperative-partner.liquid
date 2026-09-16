@@ -1,0 +1,382 @@
+<style>
+
+  #shopify-section-{{ section.id }} .container {
+    {% if section.settings.enable_custom_padding %} 
+      padding-block: {{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px;
+    {% endif %}
+  }
+  #shopify-section-{{ section.id }} .carousel-blocks {
+    --col: 6;
+    --gap: 12px;
+  }
+
+  @media (min-width: 1700px) {
+    #shopify-section-{{ section.id }} .carousel-blocks {
+      --col: 9;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    #shopify-section-{{ section.id }} {
+      --hr-margin-block: 21px;
+      --top-image-height: 70px;
+    }
+
+    #shopify-section-{{ section.id }} .carousel-blocks {
+      --col: 4;
+    }
+  }
+
+  @media (max-width: 700px) {
+    #shopify-section-{{ section.id }} {
+      --top-images-flex-direction: column;
+      --top-image-height: 40px;
+    }
+
+    #shopify-section-{{ section.id }} .container {
+      {% if section.settings.enable_custom_padding %} 
+        padding-block: {{ section.settings.padding_top_mobile }}px {{ section.settings.padding_bottom_mobile }}px;
+      {% endif %}
+    }
+  }
+
+  @media (max-width: 550px) {
+    #shopify-section-{{ section.id }} .carousel-blocks {
+      --col: 2.1;
+      --gap: 6px;
+    }
+  }
+
+  #shopify-section-{{ section.id }} {
+    overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .yg-top-images {
+    display: flex;
+    flex-direction: var(--top-images-flex-direction, row);
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  #shopify-section-{{ section.id }} .yg-top-images .yg-top-image {
+    max-height: var(--top-image-height, 100px);
+    height: 100%;
+    width: auto;
+  }
+
+  #shopify-section-{{ section.id }} hr {
+    margin-block: var(--hr-margin-block, 30px);
+  }
+
+  @keyframes carousel {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-1 * var(--transform)));
+    }
+  }
+  #shopify-section-{{ section.id }} .carousel-blocks {
+    display: grid;
+    grid-template-columns: repeat(var(--block-num), calc(100% / var(--col)));
+    text-align: center;
+    align-items: center;
+  }
+
+  #shopify-section-{{ section.id }} .carousel-blocks:hover .carousel-block {
+    /* animation-play-state: paused; */
+  }
+
+  #shopify-section-{{ section.id }} .carousel-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding-inline: calc(var(--gap) / 2);
+    animation: carousel var(--duration) linear infinite;
+  }
+</style>
+
+<div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
+  {%- assign alignment = section.settings.text_alignment | replace: 'left', 'start' | replace: 'right', 'end' -%}
+
+  <div class="container section-spacing">
+    <div class="section-stack">
+      {%- if section.settings.title != blank
+        or section.settings.heading != blank
+        or section.settings.content != blank
+      -%}
+        <div class="section-header">
+          <div class="prose prose-justify-{{ alignment }}">
+            <div class="max-w-lg">
+              {%- render 'subheading', content: section.settings.subheading -%}
+              {%- render 'heading',
+                content: section.settings.title,
+                balance_text: true,
+                style: section.settings.heading_tag,
+                html_tag: 'h2'
+              -%}
+            </div>
+
+            {%- if section.settings.content != blank -%}
+              <div class="max-w-sm">
+                {{- section.settings.content -}}
+              </div>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endif -%}
+      <div class="section-content">
+        {% liquid
+          capture top_image
+            for i in (1..3)
+              assign image_handle = 'image_' | append: i
+              assign image_mobile_handle = 'image_mobile_' | append: i
+
+              render 'yg-image', img: section.settings[image_handle], img_mobile: section.settings[image_mobile_handle], img_class: 'yg-top-image', show_placeholder: false
+            endfor
+          endcapture
+
+          assign limit_num = 20 | divided_by: section.blocks.size | at_least: 3
+
+          assign transform = limit_num | minus: 3 | times: section.blocks.size | times: 100 | append: '%'
+          if section.blocks.size > 5
+            assign transform = limit_num | minus: 1 | times: section.blocks.size | times: 100 | append: '%'
+          endif
+          assign block_num = limit_num | times: section.blocks.size
+          assign duration = block_num | times: section.settings.duration
+
+          capture carousel_content
+            for i in (1..limit_num)
+              for block in section.blocks
+                capture content
+                  assign img = block.settings.image
+
+                  render 'yg-image', img: img, img_class: 'yg-carousel-image', show_placeholder: true
+                endcapture
+
+                echo ' <div class="carousel-block">[[content]]</div>' | replace: '[[content]]', content
+              endfor
+            endfor
+          endcapture
+        %}
+
+        {% if top_image != blank %}
+          <div class="yg-top-images">{{ top_image }}</div>
+        {% endif %}
+
+        {% if top_image != blank and carousel_content != blank %}
+          <hr>
+        {% endif %}
+
+        {% if carousel_content != blank %}
+          <div
+            class="carousel-blocks"
+            style="--transform: {{ transform }}; --block-num: {{ block_num }}; --duration: {{ duration }}s"
+          >
+            {{ carousel_content }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "YG cooperative partner",
+  "class": "shopify-section--yg-section",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:global.colors.scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subheading",
+      "label": "t:global.text.subheading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "t:global.text.heading",
+      "default": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "t:global.text.content",
+      "default": "<p>Use this section to build trust with your customers, or showcase product features with text and icons.</p>"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "t:global.text.heading_size",
+      "options": [
+        {
+          "value": "display-xl",
+          "label": "Display XL"
+        },
+        {
+          "value": "display-l",
+          "label": "Display L"
+        },
+        {
+          "value": "display-m",
+          "label": "Display M"
+        },
+        {
+          "value": "h1",
+          "label": "XX-Large"
+        },
+        {
+          "value": "h2",
+          "label": "X-Large"
+        },
+        {
+          "value": "h3",
+          "label": "Large"
+        },
+        {
+          "value": "h4",
+          "label": "Medium"
+        },
+        {
+          "value": "h5",
+          "label": "Small"
+        },
+        {
+          "value": "h6",
+          "label": "X-Small"
+        },
+        {
+          "value": "h7",
+          "label": "XX-Small"
+        }
+      ],
+      "default": "h3"
+    },
+    {
+      "type": "text_alignment",
+      "id": "text_alignment",
+      "label": "t:global.text.alignment",
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Image list"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile_1",
+      "label": "Image mobile 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile_2",
+      "label": "Image mobile 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_3",
+      "label": "Image 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile_3",
+      "label": "Image mobile 3"
+    },
+    {
+      "type": "range",
+      "id": "duration",
+      "label": "Duration",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "default": 5
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_custom_padding",
+      "label": "Enable custom padding",
+      "default": false
+    },
+    {
+      "type": "range",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "id": "padding_top",
+      "label": "Padding top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "id": "padding_top_mobile",
+      "label": "Padding top mobile",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "id": "padding_bottom_mobile",
+      "label": "Padding bottom mobile",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "YG cooperative partner"
+    }
+  ]
+}
+{% endschema %}

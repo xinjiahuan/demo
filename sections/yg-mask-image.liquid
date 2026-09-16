@@ -1,0 +1,463 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+  }
+  
+  #shopify-section-{{ section.id }} .color-scheme {
+    background: {{ section.settings.background }};
+  }
+
+  #shopify-section-{{ section.id }} > *,
+  #shopify-section-{{ section.id }} .container {
+    height: 100%;
+  }
+  
+  #shopify-section-{{ section.id }} .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 3.75rem;
+    padding-block-end: 0;
+  }
+
+  #shopify-section-{{ section.id }} .yg-mask-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .yg-mask-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+
+    mask-image: url({{ section.settings.mask_image | img_url: '100%' }});
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: 50% 50%;
+
+    -webkit-mask-image: url({{ section.settings.mask_image | img_url: '100%' }});
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: 50% 50%;
+
+    pointer-events: none;
+  }
+
+  #shopify-section-{{ section.id }} .yg-mask-image-video {
+    width: 100%;
+    height: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .yg-mask-image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  #shopify-section-{{ section.id }} .yg-mask-image-header * {
+    font-size: var(--font-size);
+    font-weight: 500;
+    line-height: 1.15;
+  }
+
+  #shopify-section-{{ section.id }} .yg-scrolling-image-container {
+    display: flex;
+    align-items: center;
+    gap: 6.25rem;
+    width: 100%;
+    padding-block: 1.875rem;
+    border-top: 1px solid rgba(33, 33, 33, 0.20)
+  }
+
+  #shopify-section-{{ section.id }} .yg-scrolling-image-wrapper {
+    display: grid;
+    align-items: center;
+    width: min-content;
+    animation: translateFull {{ section.blocks.size | times: 8.5 | append: 's' }} linear infinite;
+    grid: auto / auto-flow max-content;
+    grid-gap: 6.25rem;
+  }
+
+  #shopify-section-{{ section.id }} .yg-scrolling-image-wrapper .yg-scrolling-image,
+  #shopify-section-{{ section.id }} .yg-scrolling-image-wrapper .yg-scrolling-image img {
+    width: auto;
+    height: 2rem;
+  }
+
+  @keyframes translateFull {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-200%);
+    }
+  }
+
+  #shopify-section-{{ section.id }} .dynamic-words-wrapper {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    vertical-align: top;
+    transition: width 0.3s ease,
+    height 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} dynamic-words {
+    position: relative;
+    display: block;
+  }
+
+  #shopify-section-{{ section.id }} .yg-dynamic-text {
+    display: inline-block;
+    white-space: nowrap;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 0.8s ease,
+    opacity 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .yg-dynamic-text.active {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+
+  @media (max-width: 699px) {
+    #shopify-section-{{ section.id }} .yg-mask-image-header * {
+      font-size: var(--font-size-mobile);
+    }
+
+    #shopify-section-{{ section.id }} .yg-scrolling-image-wrapper {
+      animation: translateFull {{ section.blocks.size | times: 10.5 | append: 's' }} linear infinite;
+    }
+    
+    #shopify-section-{{ section.id }} .yg-mask-image-overlay {
+      mask-size: 80% 80%;
+      -webkit-mask-size: 80% 80%;
+    }
+    
+    #shopify-section-{{ section.id }} .yg-scrolling-image-wrapper,
+    #shopify-section-{{ section.id }} .yg-scrolling-image-container {
+      gap: 2.5rem;
+    }
+    
+    #shopify-section-{{ section.id }} .yg-scrolling-image-container {
+      padding-block: 1.5rem;
+    }
+
+    #shopify-section-{{ section.id }} .yg-scrolling-image-wrapper .yg-scrolling-image,
+    #shopify-section-{{ section.id }} .yg-scrolling-image-wrapper .yg-scrolling-image img {
+      height: 1.25rem;
+    }
+    
+    #shopify-section-{{ section.id }} .container {
+      gap: 1.875rem;
+    }
+    
+    #shopify-section-{{ section.id }} .yg-mask-image-video video-media {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+</style>
+
+<div
+	class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}"{% if section.settings.allow_transparent_header %} allow-transparent-header{% endif %}>
+	<div class="yg-mask-image-overlay">
+		{%- if section.settings.video -%}
+			<div class="yg-mask-image-video">
+				{%- assign video_id = 'video-' | append: section.id -%}
+				
+				{%- liquid
+					assign preload = true
+					if section.index > 1
+						assign preload = false
+					endif
+					
+					render 'media' with section.settings.video, mobile_media: section.settings.mobile_video, id: video_id,  poster: section.settings.poster, preload: preload, autoplay: true, controls: false, playsinline: true, loop: true, show_play_button: false
+				%}
+			</div>
+		{% endif %}
+	</div>
+	<div class="yg-mask-image-wrapper">
+		<div class="container section-spacing">
+			<div class="yg-mask-image-content">
+				<div class="yg-mask-image-header"
+						 style="--font-size: {{ section.settings.header_size | divided_by: 16.0 | append: 'rem' }}; --font-size-mobile: {{ section.settings.header_size_mo | divided_by: 16.0 | append: 'rem' }}">
+					{%- if section.settings.title != blank -%}
+						{%- render 'heading', content: section.settings.title, balance_text: true, style: section.settings.heading_tag, html_tag: 'h2' -%}
+					{%- endif -%}
+					{% if section.settings.dynamic_words != blank %}
+						<dynamic-words>
+							<div class="dynamic-words-wrapper">
+								{% liquid
+									assign word_array = section.settings.dynamic_words | split: '/'
+									for word in word_array
+										assign first_word = forloop.first
+										assign class = 'yg-dynamic-text heading'
+										if first_word
+											assign class = class | append: ' active'
+										endif
+										echo '<span class="' | append: class | append: '">' | append: word
+										echo '</span>'
+									endfor
+								%}
+							</div>
+						</dynamic-words>
+					{% endif %}
+				</div>
+			</div>
+			<div class="yg-scrolling-image-container">
+				{% for i in (1..3) %}
+					<scrolling-image class="yg-scrolling-image-wrapper" scrolling-speed="5s">
+						{% for block in section.blocks %}
+							{% render 'yg-image',
+								img: block.settings.image,
+								img_class: "yg-scrolling-image",
+								show_placeholder: false,
+								is_lazy: false
+							%}
+						{% endfor %}
+					</scrolling-image>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    class DynamicWords extends HTMLElement {
+      constructor() {
+        super()
+        this.currentIndex = 0
+        this.interval = null
+        this.wrapper = this.querySelector('.dynamic-words-wrapper')
+        this.handleResize = this.updateWrapperSize.bind(this)
+      }
+
+      connectedCallback() {
+        this.textItems = this.querySelectorAll('.yg-dynamic-text')
+        if (!this.textItems.length) return
+
+        this.textItems.forEach((item) =>
+          item.classList.remove('active')
+        )
+        this.textItems[0].classList.add('active')
+
+        this.updateWrapperSize()
+
+        window.addEventListener('resize', this.handleResize)
+
+        this.startRotation()
+      }
+
+      disconnectedCallback() {
+        this.stopRotation()
+        // 移除 resize 事件
+        window.removeEventListener('resize', this.handleResize)
+      }
+
+      startRotation() {
+        this.interval = setInterval(() => {
+          this.showNext()
+        }, 2500)
+      }
+
+      stopRotation() {
+        clearInterval(this.interval)
+      }
+
+      showNext() {
+        const currentItem = this.textItems[this.currentIndex]
+        currentItem.classList.remove('active')
+
+        this.currentIndex =
+          (this.currentIndex + 1) % this.textItems.length
+        const nextItem = this.textItems[this.currentIndex]
+        nextItem.classList.add('active')
+
+        this.updateWrapperSize()
+      }
+
+      updateWrapperSize() {
+        const activeItem = this.textItems[this.currentIndex]
+        const rect = activeItem.getBoundingClientRect()
+        this.wrapper.style.width = `${rect.width}px`
+        this.wrapper.style.height = `${rect.height}px`
+      }
+    }
+
+    if (!customElements.get('dynamic-words')) {
+      customElements.define('dynamic-words', DynamicWords);
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "YG mask image",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:global.colors.scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+    {
+      "type": "checkbox",
+      "id": "allow_transparent_header",
+      "label": "t:global.section.allow_transparent_header",
+      "info": "t:global.section.allow_transparent_header_info",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "mask_image",
+      "label": "Mask image"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "t:global.video.video",
+      "info": "t:global.video.video_info"
+    },
+    {
+      "type": "video",
+      "id": "mobile_video",
+      "label": "t:global.video.mobile_video"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "t:global.text.heading",
+      "default": "Text with icons"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "t:global.text.heading_size",
+      "options": [
+        {
+          "value": "display-xl",
+          "label": "Display XL"
+        },
+        {
+          "value": "display-l",
+          "label": "Display L"
+        },
+        {
+          "value": "display-m",
+          "label": "Display M"
+        },
+        {
+          "value": "h1",
+          "label": "XX-Large"
+        },
+        {
+          "value": "h2",
+          "label": "X-Large"
+        },
+        {
+          "value": "h3",
+          "label": "Large"
+        },
+        {
+          "value": "h4",
+          "label": "Medium"
+        },
+        {
+          "value": "h5",
+          "label": "Small"
+        },
+        {
+          "value": "h6",
+          "label": "X-Small"
+        },
+        {
+          "value": "h7",
+          "label": "XX-Small"
+        }
+      ],
+      "default": "h3"
+    },
+    {
+      "type": "text",
+      "id": "dynamic_words",
+      "label": "Dynamic Words",
+      "default": "Text1/Text2/Text3",
+      "info": "The text is separated by /"
+    },
+    {
+      "type": "range",
+      "id": "header_size",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading size",
+      "default": 88
+    },
+    {
+      "type": "range",
+      "id": "header_size_mo",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading size mobile",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "YG mask image",
+      "blocks": [
+        {
+          "type": "item"
+        },
+        {
+          "type": "item"
+        },
+        {
+          "type": "item"
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": [
+      "footer",
+      "header",
+      "custom.overlay"
+    ]
+  }
+}
+{% endschema %}

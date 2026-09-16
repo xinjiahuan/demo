@@ -1,0 +1,448 @@
+<style>
+    #shopify-section-{{ section.id }} {
+      --time: 3s;
+    }
+
+    #shopify-section-{{ section.id }} .section-stack {
+      padding-block: var(--header-padding-block, 40px 96px);
+      color: #212121;
+    }
+
+    #shopify-section-{{ section.id }} .section-stack .heading {
+      font-size: var(--title-size, 36px);
+      letter-spacing: var(--title-letter-spacing, -.72px);
+      line-height: 1.2em;
+    }
+
+    #shopify-section-{{ section.id }} .section-stack .max-w-sm {
+      font-size: var(--content-size, 32px);
+      letter-spacing: var(--content-letter-spacing, -.64px);
+      line-height: 1.2em;
+      margin-top: 16px;
+    }
+
+    #shopify-section-{{ section.id }} .section-stack p {
+      margin-top: 0;
+    }
+
+    #shopify-section-{{ section.id }} .section-stack strong {
+      position: relative;
+      z-index: 1;
+    }
+
+    #shopify-section-{{ section.id }} .section-stack strong svg {
+      position: absolute;
+      z-index: -1;
+      left: 0;
+      width: 100%;
+      bottom: -10px;
+      margin: 0;
+    }
+
+    #shopify-section-{{ section.id }} .draw-path {
+      stroke-dasharray: 360;       /* 设置虚线总长 */
+      stroke-dashoffset: 360;      /* 初始状态：未绘制 */
+      transition: stroke-dashoffset 1.5s .4s ease-in-out;
+    }
+
+    #shopify-section-{{ section.id }} .yg-animated .draw-path {
+      stroke-dashoffset: 0;
+    }
+
+    #shopify-section-{{ section.id }} .yg-animation-image {
+      display: grid;
+      grid-template-columns: 1fr;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform: translateY(calc(-100% + 30%));
+      max-width: 25%;
+      transition: right var(--time) 1s cubic-bezier(0.55, 0.25, 1, 1);
+    }
+
+    #shopify-section-{{ section.id }} .yg-animation-image .yg-image {
+      object-fit: contain;
+    }
+
+    #shopify-section-{{ section.id }} .yg-animation-image.yg-animated {
+      right: calc(75%);
+    }
+
+    #shopify-section-{{ section.id }} .yg-animation-image .yg-start-image,
+    #shopify-section-{{ section.id }} .yg-animation-image .yg-end-image {
+      transition: transform var(--time) 1s cubic-bezier(0.56, 0.77, 0.92, 1.18), opacity var(--time) 1s linear;
+    }
+
+
+    #shopify-section-{{ section.id }} .yg-animation-image.yg-animated .yg-start-image,
+    #shopify-section-{{ section.id }} .yg-animation-image.yg-animated .yg-end-image {
+      transform: translateY(calc(100% - 30%));
+    }
+
+    #shopify-section-{{ section.id }} .yg-animation-image.yg-animated .yg-start-image {
+      opacity: 0;
+    }
+
+    #shopify-section-{{ section.id }} .yg-animation-image.yg-animated .yg-end-image {
+      opacity: 1;
+    }
+
+    #shopify-section-{{ section.id }} .yg-animation-image .yg-image-box {
+      grid-area: 1 / 1;
+    }
+
+    #shopify-section-{{ section.id }} .yg-animation-image .yg-end-image {
+      opacity: 0;
+    }
+
+    #shopify-section-{{ section.id }} .yg-animation-image .yg-start-image {
+      opacity: 1;
+    }
+
+    #shopify-section-{{ section.id }} .yg-blocks {
+      /* position: absolute; */
+      top: 52%;
+      left: 0;
+      width: 100%;
+      padding-inline: max(var(--container-gutter),50% - var(--container-max-width) / 2);
+      display: grid;
+      grid-template-columns: repeat(3, 320px);
+      justify-content: space-between;
+      gap: 40px 24px;
+      color: #fff;
+    }
+
+    #shopify-section-{{ section.id }} .yg-blocks .yg-block {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+      align-items: start;
+      color: rgba(255, 255, 255, 0.80);
+      font-size: var(--block-content-size, 18px);
+      font-weight: 400;
+      line-height: 140%; /* 25.2px */
+      letter-spacing: -0.36px;
+      max-width: 320px;
+      opacity: 0;
+    }
+
+    #shopify-section-{{ section.id }} .yg-blocks .yg-block .yg-block-title {
+      font-size: var(--block-title-size, 24px);
+      font-weight: 600;
+      letter-spacing: -0.48px;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    #shopify-section-{{ section.id }} .yg-blocks .yg-block-1 {
+      top: 52%;
+      left: 3rem;
+      transform: translateY(30px);
+      transition: opacity 0.2s 3.7s ease-in-out, transform 0.2s 3.7s ease-in-out;
+    }
+
+    #shopify-section-{{ section.id }} .yg-blocks .yg-block-2 {
+      top: 46%;
+      left: 50%;
+      transform: translateX(-50%) translateY(30px);
+      transition: opacity 0.5s 2.5s ease-in-out, transform 0.5s 2.5s ease-in-out;
+    }
+
+    #shopify-section-{{ section.id }} .yg-blocks .yg-block-3 {
+      top: 26.5%;
+      left: 74%;
+      transform: translateY(30px);
+      transition: opacity 0.5s 1.5s ease-in-out, transform 0.5s 1.5s ease-in-out;
+    }
+
+    #shopify-section-{{ section.id }} .yg-animated + .yg-blocks .yg-block-1,
+    #shopify-section-{{ section.id }} .yg-animated + .yg-blocks .yg-block-3  {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #shopify-section-{{ section.id }} .yg-animated + .yg-blocks .yg-block-2 {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    #shopify-section-{{ section.id }} .yg-blocks .yg-block-icon {
+      max-width: 48px;
+    }
+
+    @media (max-width: 1150px) {
+      #shopify-section-{{ section.id }} {
+        --block-title-size: 20px;
+        --block-content-size: 14px;
+      }
+      #shopify-section-{{ section.id }} .yg-blocks .yg-block {
+        max-width: 220px;
+        gap: 24px;
+      }
+
+  /*
+      #shopify-section-{{ section.id }} .yg-animated + .yg-blocks .yg-block-1,
+      #shopify-section-{{ section.id }} .yg-animated + .yg-blocks .yg-block-2,
+      #shopify-section-{{ section.id }} .yg-animated + .yg-blocks .yg-block-3 {
+        transform: translate(0);
+      } */
+    }
+
+    @media (max-width: 700px) {
+      #shopify-section-{{ section.id }} {
+        --header-padding-block: 64px 20px;
+        --title-size: 28px;
+        --title-letter-spacing: -0.56px;
+        --content-size: 20px;
+        --content-letter-spacing: -0.4px;
+        --time: 1.5s;
+      }
+
+      #shopify-section-{{ section.id }} .yg-animation-image {
+        max-width: 50%;
+      }
+
+      #shopify-section-{{ section.id }} .yg-animation-image.yg-animated {
+        right: 50%;
+      }
+
+      #shopify-section-{{ section.id }} .yg-animation-image.yg-animated .yg-start-image,
+      #shopify-section-{{ section.id }} .yg-animation-image.yg-animated .yg-end-image {
+        transform: translateY(calc(100% - 85%));
+      }
+
+      #shopify-section-{{ section.id }} .yg-section-blocks {
+        display: grid;
+        grid-template-columns: 1fr;
+        margin-top: 100px;
+      }
+
+      #shopify-section-{{ section.id }} .yg-section-blocks .yg-background-image,
+      #shopify-section-{{ section.id }} .yg-section-blocks .yg-blocks  {
+        grid-area: 1 / 1;
+        width: 100vw;
+      }
+
+      #shopify-section-{{ section.id }} .yg-section-blocks .yg-blocks{
+        display: flex;
+        flex-direction: column;
+        margin-block-start: 40%;
+        justify-content: flex-start;
+        z-index: 1;
+      }
+
+      #shopify-section-{{ section.id }} .yg-blocks .yg-block {
+        position: static;
+        transform: none !important;
+        max-width: 100%;
+        flex-direction: row;
+        transition: opacity 0.5s 1.5s ease-in-out, transform 0.5s 1.5s ease-in-out;
+      }
+    }
+</style>
+
+<div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
+  {%- assign alignment = section.settings.text_alignment | replace: 'left', 'start' | replace: 'right', 'end' -%}
+
+  <div class="container">
+    <div class="section-stack">
+      {%- if section.settings.title != blank
+        or section.settings.heading != blank
+        or section.settings.content != blank
+      -%}
+        <yg-animation-item class="section-header">
+          <div class="prose prose-justify-{{ alignment }}">
+            <div class="max-w-lg">
+              {%- render 'subheading', content: section.settings.subheading -%}
+              {%- render 'heading',
+                content: section.settings.title,
+                balance_text: true,
+                style: section.settings.heading_tag,
+                html_tag: 'h2'
+              -%}
+            </div>
+
+            {%- if section.settings.content != blank -%}
+              <div class="max-w-sm">
+                {% capture animation_svg %}
+                  <svg width="375" height="22" viewBox="0 0 375 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path class="draw-path" d="M8.62109 15.4334C37.0586 10.3001 75.9189 7.61674 159.559 6.56674C187.61 6.45007 259.926 5.9834 365.956 10.0667" stroke="#FFC000" stroke-width="7" stroke-linecap="round"/>
+                  </svg>
+                {% endcapture %}
+
+                {% assign animation_svg = animation_svg | append: '</strong>' %}
+
+                {{- section.settings.content | replace: '</strong>', animation_svg -}}
+              </div>
+            {%- endif -%}
+          </div>
+        </yg-animation-item>
+      {%- endif -%}
+    </div>
+  </div>
+  <div class="yg-section-blocks relative">
+    <yg-animation-item class="yg-animation-image">
+      {% render 'yg-image',
+        img: section.settings.start_image,
+        img_class: 'yg-start-image',
+        show_placeholder: false,
+        aspect_ratio: 1,
+        is_no_lazy: true,
+        is_lazy: false
+      %}
+      {% render 'yg-image',
+        img: section.settings.end_image,
+        img_class: 'yg-end-image',
+        show_placeholder: false,
+        aspect_ratio: 1,
+        is_no_lazy: true,
+        is_lazy: false
+      %}
+    </yg-animation-item>
+    {% if section.blocks.size > 0 %}
+      <div class="yg-blocks">
+        {% for block in section.blocks %}
+          <div class="yg-block yg-block-{{ forloop.index }}">
+            {% render 'yg-image',
+              img: block.settings.icon,
+              img_class: 'yg-block-icon',
+              show_placeholder: false,
+              is_no_lazy: true,
+              is_lazy: false
+            %}
+            <div class="yg-block-content">
+              <div
+                class="yg-block-title"
+                style="--font-size: {{ block.settings.title_size | divided_by: 16.0 | append: 'rem' }};--font-size-mobile: {{ block.settings.title_size_mobile | divided_by: 16.0 | append: 'rem' }}"
+              >
+                {{ block.settings.title }}
+              </div>
+              <div class="yg-block-text">
+                {{ block.settings.content }}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+    {% render 'yg-image',
+      img: section.settings.background_image,
+      img_mobile: section.settings.background_image_mobile,
+      img_class: 'yg-background-image',
+      show_placeholder: false,
+      is_no_lazy: true,
+      is_lazy: false
+    %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "YG approach animation",
+  "class": "shopify-section--yg-section",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:global.colors.scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subheading",
+      "label": "t:global.text.subheading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "t:global.text.heading",
+      "default": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "t:global.text.content",
+      "default": "<p>Use this section to build trust with your customers, or showcase product features with text and icons.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "start_image",
+      "label": "Start image"
+    },
+    {
+      "type": "image_picker",
+      "id": "end_image",
+      "label": "End image"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image_mobile",
+      "label": "Background image mobile"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Title"
+        },
+        {
+          "type": "range",
+          "id": "title_size",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "Title size",
+          "default": 36
+        },
+        {
+          "type": "range",
+          "id": "title_size_mobile",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "Title size mobile",
+          "default": 28
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "YG approach animation"
+    }
+  ]
+}
+{% endschema %}

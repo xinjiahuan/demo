@@ -1,0 +1,496 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    position: relative;
+    overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .yg-overlay {
+    position: absolute;
+  }
+
+  #shopify-section-{{ section.id }} .yg-overlay {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    transition: opacity 0.2s ease;
+    opacity: 0;
+    aspect-ratio: 1440 / 490;
+  }
+
+  #shopify-section-{{ section.id }} .yg-background {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: filter 0.2s ease;
+    filter: blur(0px);
+  }
+
+  #shopify-section-{{ section.id }} .container {
+    padding-block-end: 120px;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+  }
+
+  #shopify-section-{{ section.id }} .yg-reviews-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 462px;
+    cursor: pointer;
+  }
+
+  #shopify-section-{{ section.id }} .yg-reviews {
+    display: flex;
+    gap: 30px;
+    animation: "none";
+    will-change: transform;
+  }
+
+  #shopify-section-{{ section.id }} .yg-review {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    flex-shrink: 0;
+    width: 580px;
+    padding: 48px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    background: #fff;
+  }
+
+  #shopify-section-{{ section.id }} .yg-brand {
+    height: 24px;
+    margin-block-end: 30px;
+  }
+
+  #shopify-section-{{ section.id }} .yg-client-comments {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 140%;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    height: 201.6px;
+    color: rgba(0, 0, 0, 0.9);
+    -webkit-line-clamp: 8;
+    margin-block-end: 60px;
+  }
+
+  #shopify-section-{{ section.id }} .yg-client-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  #shopify-section-{{ section.id }} .yg-client-photo {
+    overflow: hidden;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+  }
+
+  #shopify-section-{{ section.id }} .yg-client-name {
+    font-size: 16px;
+    font-weight: 500;
+    color: #000;
+    margin-block-end: 4px;
+  }
+
+  #shopify-section-{{ section.id }} .yg-client-title {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  @media (max-width: 699px) {
+    #shopify-section-{{ section.id }} .yg-overlay {
+      aspect-ratio: 390 / 379;
+    }
+
+    #shopify-section-{{ section.id }} .container {
+      padding-block-end: 48px;
+    }
+
+    #shopify-section-{{ section.id }} .yg-reviews-wrapper {
+      height: 392px;
+    }
+    #shopify-section-{{ section.id }} .yg-reviews {
+      gap: 20px;
+    }
+
+    #shopify-section-{{ section.id }} .yg-review {
+      width: calc(100% - 80px);
+      padding: 28px 20px;
+    }
+
+    #shopify-section-{{ section.id }} .yg-client-comments {
+      font-size: 14px;
+      height: 156.8px;
+      margin-block-end: 38px;
+    }
+  }
+</style>
+
+<div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
+  {%- assign alignment = section.settings.text_alignment | replace: 'left', 'start' | replace: 'right', 'end' -%}
+  <yg-overlay section-id="{{ section.id }}">
+    <div class="yg-background hide-mobile">
+      {% render 'yg-image', img: section.settings.background_desktop, show_placeholder: false, is_lazy: false %}
+    </div>
+    <div class="yg-background hide-pc">
+      {% render 'yg-image', img: section.settings.background_mobile, show_placeholder: false, is_lazy: false %}
+    </div>
+    {% comment %}
+      <svg
+        class="yg-overlay hide-mobile"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 490"
+        fill="none"
+      >
+        <defs>
+          <linearGradient id="fadeGradient" x1="1440" y1="0" x2="0" y2="0" gradientUnits="userSpaceOnUse">
+            <stop class="yg-svg-stop" offset="0%" stop-color="#222" stop-opacity="1" />
+            <stop offset="100%" stop-color="#222" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+        <path d="M0 150L1440 0V490H0V150Z" fill="url(#fadeGradient)" />
+      </svg>
+      <svg
+        class="yg-overlay hide-pc"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 390 379"
+        fill="none"
+      >
+        <defs>
+          <linearGradient id="fadeLeftToRight" x1="390" y1="0" x2="0" y2="0" gradientUnits="userSpaceOnUse">
+            <stop class="yg-svg-stop" offset="0%" stop-color="#222" stop-opacity="1" />
+            <stop offset="100%" stop-color="#222" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+        <path d="M0 40L390 0V379H0V40Z" fill="url(#fadeLeftToRight)"/>
+      </svg>
+    {% endcomment %}
+    <svg class="yg-overlay hide-mobile" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 490" fill="none">
+      <path d="M0 150L1440 0V490H0V150Z" fill="#222"/>
+    </svg>
+    <svg class="yg-overlay hide-pc" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 379" fill="none">
+      <path d="M0 40L390 0V379H0V40Z" fill="#222"/>
+    </svg>
+  </yg-overlay>
+
+  <div class="container section-spacing">
+    <div class="section-stack">
+      {%- if section.settings.title != blank
+        or section.settings.heading != blank
+        or section.settings.content != blank
+      -%}
+        <div class="section-header">
+          <div class="prose prose-justify-{{ alignment }}">
+            <div class="max-w-lg">
+              {%- render 'subheading', content: section.settings.subheading -%}
+              {%- render 'heading',
+                content: section.settings.title,
+                balance_text: true,
+                style: section.settings.heading_tag,
+                html_tag: 'h2'
+              -%}
+            </div>
+
+            {%- if section.settings.content != blank -%}
+              <div class="max-w-sm">
+                {{- section.settings.content -}}
+              </div>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endif -%}
+      <yg-animation section-id="{{ section.id }}">
+        <div class="yg-reviews-wrapper">
+          <div class="yg-reviews">
+            {%- assign reviews = section.blocks | concat: section.blocks | concat: section.blocks -%}
+            {%- for block in reviews -%}
+              <div class="yg-review">
+                <div class="yg-brand" style="width: {{ block.settings.brand.width | append: 'px' }};">
+                  {% render 'yg-image', img: block.settings.brand, show_placeholder: false, is_lazy: false %}
+                </div>
+                <div class="yg-client-comments">{{ block.settings.client_comments }}</div>
+                <div class="yg-client-info">
+                  <div class="yg-client-photo">
+                    {% render 'yg-image', img: block.settings.client_photo, show_placeholder: false, is_lazy: false %}
+                  </div>
+                  <div class="yg-client-identification">
+                    <div class="yg-client-name">{{ block.settings.client_name }}</div>
+                    <div class="yg-client-title">{{ block.settings.client_title }}</div>
+                  </div>
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+      </yg-animation>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    let isMobile = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+    class YGAnimation extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        const sectionId = this.getAttribute('section-id');
+        const groupCount = Number(this.getAttribute('group-count')) || 3;
+        const isMobile = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+        const $wrapper = this.querySelector('.yg-reviews-wrapper');
+        const $reviews = this.querySelector('.yg-reviews');
+
+        if (!$wrapper || !$reviews) return;
+
+        const wrapperWidth = $wrapper.offsetWidth;
+        const reviewsWidth = $reviews.scrollWidth;
+
+        const singleGroupWidth = reviewsWidth / groupCount;
+        const startOffset = reviewsWidth / 2 - wrapperWidth / 2;
+        $reviews.style.transform = `translateX(-${startOffset}px)`;
+
+        const endOffset = startOffset + singleGroupWidth;
+        const speed = isMobile ? 50 : 100;
+        const scrollDistance = singleGroupWidth;
+        const duration = scrollDistance / speed;
+
+        const keyframeName = `dynamic-scroll-${sectionId}`;
+        const styleTag = document.createElement('style');
+        styleTag.textContent = `
+        @keyframes ${keyframeName} {
+          0% {
+            transform: translateX(-${startOffset}px);
+          }
+          100% {
+            transform: translateX(-${endOffset}px);
+          }
+        }
+      `;
+        document.head.appendChild(styleTag);
+
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            $reviews.style.animation = `${keyframeName} ${duration}s linear infinite`;
+          });
+        });
+
+        $wrapper.addEventListener('mouseenter', () => {
+          $reviews.style.animationPlayState = 'paused';
+        });
+        $wrapper.addEventListener('mouseleave', () => {
+          $reviews.style.animationPlayState = 'running';
+        });
+      }
+    }
+
+    if (!window.customElements.get('yg-animation')) {
+      customElements.define('yg-animation', YGAnimation);
+    }
+
+    class YGOverlay extends HTMLElement {
+      constructor() {
+        super();
+        this.updateMask = this.updateMask.bind(this);
+      }
+
+      connectedCallback() {
+        this.isMobile = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        this.$overlay = this.querySelector(this.isMobile ? '.yg-overlay.hide-pc' : '.yg-overlay.hide-mobile');
+        this.$bg = this.querySelector(this.isMobile ? '.yg-background.hide-pc' : '.yg-background.hide-mobile');
+        this.$svgStop = this.querySelector(
+          this.isMobile ? '.yg-overlay.hide-pc .yg-svg-stop' : '.yg-overlay.hide-mobile .yg-svg-stop'
+        );
+
+        if (!this.$overlay || !this.$bg) return;
+
+        requestAnimationFrame(this.updateMask);
+      }
+
+      updateMask() {
+        const sectionId = this.getAttribute('section-id');
+        const $section = document.querySelector(`#shopify-section-${sectionId}`);
+        const rect = $section.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const bottomToViewportBottom = windowHeight - rect.bottom;
+
+        if (rect.top >= windowHeight || rect.bottom <= 0) {
+          // 完全离开视口
+          this.$overlay.style.opacity = 1;
+          this.$bg.style.filter = `blur(50px)`;
+          if (this.$svgStop) this.$svgStop.setAttribute('offset', '100%');
+        } else if (rect.bottom <= windowHeight && rect.bottom >= 0) {
+          // 部分进入
+          const visibleRatio = 1 - (windowHeight - rect.bottom) / rect.height;
+          const clamped = Math.min(Math.max(visibleRatio, 0), 1);
+          this.$overlay.style.opacity = 1 - clamped;
+          this.$bg.style.filter = `blur(${(1 - clamped) * 50}px)`;
+          if (this.$svgStop) this.$svgStop.setAttribute('offset', `${(1 - clamped) * 100}%`);
+        } else {
+          // 还没进入
+          this.$overlay.style.opacity = 0;
+          this.$bg.style.filter = `blur(0px)`;
+          if (this.$svgStop) this.$svgStop.setAttribute('offset', '0%');
+        }
+
+        requestAnimationFrame(this.updateMask);
+      }
+    }
+
+    if (!window.customElements.get('yg-overlay')) {
+      customElements.define('yg-overlay', YGOverlay);
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "YG reviews",
+  "class": "shopify-section--yg-reviews",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_desktop",
+      "label": "Background (desktop)"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_mobile",
+      "label": "Background (mobile)"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:global.colors.scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subheading",
+      "label": "t:global.text.subheading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "t:global.text.heading",
+      "default": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "t:global.text.content",
+      "default": "<p>Use this section to build trust with your customers, or showcase product features with text and icons.</p>"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "t:global.text.heading_size",
+      "options": [
+        {
+          "value": "display-xl",
+          "label": "Display XL"
+        },
+        {
+          "value": "display-l",
+          "label": "Display L"
+        },
+        {
+          "value": "display-m",
+          "label": "Display M"
+        },
+        {
+          "value": "h1",
+          "label": "XX-Large"
+        },
+        {
+          "value": "h2",
+          "label": "X-Large"
+        },
+        {
+          "value": "h3",
+          "label": "Large"
+        },
+        {
+          "value": "h4",
+          "label": "Medium"
+        },
+        {
+          "value": "h5",
+          "label": "Small"
+        },
+        {
+          "value": "h6",
+          "label": "X-Small"
+        },
+        {
+          "value": "h7",
+          "label": "XX-Small"
+        }
+      ],
+      "default": "h3"
+    },
+    {
+      "type": "text_alignment",
+      "id": "text_alignment",
+      "label": "t:global.text.alignment",
+      "default": "center"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "brand",
+          "label": "Brand"
+        },
+        {
+          "type": "richtext",
+          "id": "client_comments",
+          "label": "Client comments",
+          "default": "<p>Use this section to build trust with your customers.</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "client_photo",
+          "label": "Client photo"
+        },
+        {
+          "type": "richtext",
+          "id": "client_name",
+          "label": "Client name",
+          "default": "<p>YIGUO</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "client_title",
+          "label": "Client title",
+          "default": "<p>Head of Social Commerce @yiguo</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "YG reviews"
+    }
+  ]
+}
+{% endschema %}

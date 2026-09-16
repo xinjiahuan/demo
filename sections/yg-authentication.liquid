@@ -1,0 +1,746 @@
+<style>
+  #shopify-section-{{ section.id }} .container {
+    {% if section.settings.enable_custom_padding %}
+      padding-block: {{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px;
+    {% endif %}
+  }
+
+
+  @media (max-width: 700px) {
+    #shopify-section-{{ section.id }} .container {
+      {% if section.settings.enable_custom_padding %}
+        padding-block: {{ section.settings.padding_top_mobile }}px {{ section.settings.padding_bottom_mobile }}px;
+      {% endif %}
+    }
+  }
+
+  #shopify-section-{{ section.id }} {
+    position: relative;
+    overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .yg-background-image {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  #shopify-section-{{ section.id }} .yg-background-image + .color-scheme {
+    background: transparent;
+  }
+
+  #shopify-section-{{ section.id }} .section-content {
+    display: grid;
+    grid-template-columns: 100%;
+    gap: 80px;
+    width: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .section-content .yg-content-data-list {
+    display: grid;
+    grid-template-columns: repeat(min(var(--num), 4), 1fr);
+    gap: 80px;
+    width: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .section-content .yg-content-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+  }
+
+  #shopify-section-{{ section.id }} .section-content .yg-gmv-header {
+    display: grid;
+    grid-template-columns: 36px auto 36px;
+    gap: 12px;
+    align-items: center;
+  }
+
+  #shopify-section-{{ section.id }} .section-content .yg-gmv-amount {
+    font-size: 30px;
+    font-weight: bold;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1), rgba(255, 209, 145, 1) 10%, rgba(196, 140, 55, 1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  #shopify-section-{{ section.id }} .section-content .yg-gmv-title {
+    color: #212121;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 120%; /* 21.6px */
+    letter-spacing: -0.36px;
+  }
+
+  #shopify-section-{{ section.id }} .section-content .yg-gmv-subtitle {
+    margin-top: 8px;
+    opacity: 0.8;
+  }
+
+  #shopify-section-{{ section.id }} .yg-content-image-list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .yg-content-image-item {
+    max-width: 120px;
+  }
+
+  #shopify-section-{{ section.id }} .yg-content-video-list {
+    display: block;
+    width: 100%;
+    overflow: visible;
+  }
+
+  /* #shopify-section-{{ section.id }} .swiper-slide:not(.swiper-slide-prev, .swiper-slide-active, .swiper-slide-next, .swiper-slide-visible) {
+    transform-origin: right top !important;
+  }
+
+  #shopify-section-{{ section.id }} .swiper-slide-active ~ .swiper-slide:not(.swiper-slide-prev, .swiper-slide-active, .swiper-slide-next, .swiper-slide-visible) {
+    transform-origin: left top !important;
+  }
+
+  #shopify-section-{{ section.id }} .swiper-slide.swiper-slide-visible:not(.swiper-slide-prev, .swiper-slide-active, .swiper-slide-next) {
+      transform-origin: center center !important;
+  } */
+
+  #shopify-section-{{ section.id }} .swiper-slide {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #shopify-section-{{ section.id }} .swiper-slide .yg-content-video-container {
+    position: relative;
+    z-index: 1;
+      pointer-events: none;
+      border-radius: 16px;
+      overflow: hidden;
+      width: 100%;
+      height: 80%;
+  }
+
+  #shopify-section-{{ section.id }} .swiper-slide:not(.swiper-slide-prev, .swiper-slide-active, .swiper-slide-next)  .yg-content-video-container {
+    height: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .swiper-slide .yg-content-video-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 2;
+    display: none;
+  }
+
+  #shopify-section-{{ section.id }} .swiper-slide.swiper-slide-active .yg-content-video {
+    mask-image: url({{ 'iphone-mask.png' | asset_url }});
+    -webkit-mask-image: url({{ 'iphone-mask.png' | asset_url }});
+    height: 100%;
+    width: 100%;
+    mask-size: contain;
+    -webkit-mask-size: contain;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-position: center;
+  }
+
+  #shopify-section-{{ section.id }} .swiper-slide.swiper-slide-active .yg-content-video-mask {
+    display: block;
+  }
+
+  #shopify-section-{{ section.id }} video-media::part(play-button) {
+    display: none;
+  }
+
+  #shopify-section-{{ section.id }} .yg-content-video-logo-container {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    top: 6%;
+    right: 10%;
+  }
+
+  #shopify-section-{{ section.id }} .swiper-slide-active .yg-content-video-logo-container {
+    top: 4%;
+    right: 16%;
+  }
+
+  #shopify-section-{{ section.id }} .yg-content-video-logo-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(10px);
+    z-index: -1;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0,0,0,0.5));
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0,0,0,0.5));
+    height: 100%;
+    width: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .yg-content-video-logo {
+    width: 64px;
+    height: 64px;
+  }
+
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} .section-content {
+      gap: 40px;
+    }
+
+    #shopify-section-{{ section.id }} .section-content .yg-content-data-list {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 24px;
+    }
+
+    #shopify-section-{{ section.id }} .section-content .yg-content-data {
+      gap: 12px;
+    }
+
+    #shopify-section-{{ section.id }} .section-content .yg-gmv-header {
+      gap: 6px;
+    }
+
+    #shopify-section-{{ section.id }} .section-content .yg-gmv-amount {
+      font-size: 20px;
+    }
+
+    #shopify-section-{{ section.id }} .section-content .yg-gmv-title {
+      font-size: 14px;
+    }
+
+    #shopify-section-{{ section.id }} .yg-content-image-list {
+      gap: 12px;
+    }
+
+    #shopify-section-{{ section.id }} .yg-content-image-item {
+      max-width: 90px;
+    }
+
+    #shopify-section-{{ section.id }} .yg-content-video-logo-container {
+      position: absolute;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: start;
+    }
+
+    #shopify-section-{{ section.id }} .swiper-slide-active .yg-content-video-logo-container {
+
+    }
+
+    #shopify-section-{{ section.id }} .yg-content-video-logo {
+      width: 48px;
+      height: 48px;
+    }
+  }
+</style>
+{% if section.settings.background_image != blank %}
+  {% render 'yg-image', img: section.settings.background_image, img_class: "yg-background-image" %}
+{% endif %}
+<div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
+  {%- assign alignment = section.settings.text_alignment | replace: 'left', 'start' | replace: 'right', 'end' -%}
+
+  <div class="container section-spacing">
+    <div class="section-stack">
+      {%- if section.settings.title != blank
+        or section.settings.heading != blank
+        or section.settings.content != blank
+      -%}
+        <div class="section-header">
+          <div class="prose prose-justify-{{ alignment }}">
+            <div class="max-w-lg">
+              {%- render 'subheading', content: section.settings.subheading -%}
+              {%- render 'heading',
+                content: section.settings.title,
+                balance_text: true,
+                style: section.settings.heading_tag,
+                html_tag: 'h2'
+              -%}
+            </div>
+
+            {%- if section.settings.content != blank -%}
+              <div class="max-w-sm">
+                {{- section.settings.content -}}
+              </div>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endif -%}
+      {% liquid
+        assign data_blocks = section.blocks | where: 'type', 'item_data'
+        assign image_blocks = section.blocks | where: 'type', 'image'
+        assign video_blocks = section.blocks | where: 'type', 'video'
+      %}
+      <div class="section-content">
+        {% if data_blocks.size > 0 %}
+          <div class="yg-content-data-list" style="--num: {{ data_blocks.size }};">
+            {% for data_block in data_blocks %}
+              <div class="yg-content-data">
+                {% if data_block.settings.data != blank %}
+                  <div class="yg-gmv-header">
+                    <span class="yg-gmv-icon-left">
+                      <svg width="38" height="36" viewBox="0 0 38 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_3151_11485)">
+                        <mask id="mask0_3151_11485" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="38" height="36">
+                        <path d="M37.2857 2.28882e-05H0V36H37.2857V2.28882e-05Z" fill="white"/>
+                        </mask>
+                        <g mask="url(#mask0_3151_11485)">
+                        <path d="M15.4565 28.0608C13.3998 28.1833 12.4499 29.1991 12.7458 29.9362C13.0442 30.6733 15.1406 32.5246 18.6645 33.0192C22.1859 33.5138 25.6724 33.288 27.003 33.288C28.3308 33.288 29.9025 33.1056 29.0919 32.4357C27.2067 30.9538 25.0637 29.8073 22.7628 29.0502C19.6717 28.0585 17.5107 27.9336 15.4565 28.0585V28.0608ZM8.13516 19.2344C8.27442 20.094 9.19706 22.2838 11.858 23.9454C13.9719 25.2708 16.384 26.2193 18.953 26.7283C20.8603 27.1172 22.6633 27.6478 22.0665 26.5675C21.4696 25.4869 19.4503 22.8048 16.5308 20.92C13.6112 19.0352 12.0718 18.8119 10.7737 18.5477C9.47305 18.2836 7.99587 18.3796 8.13512 19.2368L8.13516 19.2344ZM9.03043 10.3504C7.95858 10.3504 8.03072 11.306 8.31673 12.1272C8.60519 12.9435 9.8312 15.3807 11.9475 16.8646C13.36 17.8513 15.1482 18.7087 17.3116 19.4337C16.8292 16.7805 15.7946 14.694 14.208 13.1765C11.8306 10.8978 10.1023 10.3528 9.03043 10.3528V10.3504ZM13.8375 3.27676C13.4924 3.24454 13.1464 3.33037 12.8602 3.51927C12.7291 3.60449 12.6181 3.71548 12.5345 3.84501C12.4509 3.97453 12.3967 4.11964 12.3753 4.27082L12.3305 4.69341C12.2111 6.05241 12.4299 7.41625 12.9696 8.70325C13.7903 10.6481 15.0237 12.192 16.665 13.3254C16.9883 12.2881 17.1897 11.4285 17.2619 10.7418C17.3713 9.70931 17.3713 8.77766 16.665 6.42221C16.3517 5.3753 15.6703 4.42927 14.6259 3.58411C14.4015 3.40673 14.1265 3.29952 13.8375 3.27676Z" fill="url(#paint0_linear_3151_11485)"/>
+                        <path d="M19.2853 0.334484C19.5261 0.338147 19.7706 0.417726 19.9762 0.559329C20.1498 0.675679 20.2869 0.831534 20.3694 1.00613C20.7474 1.82918 20.8653 2.57439 20.7196 3.23996C20.3929 4.7379 20.0889 5.22952 19.6833 5.73486C19.414 6.07122 19.0073 6.45208 18.4663 6.88273C17.8088 5.69216 17.5404 4.43216 17.6616 3.10957C17.7438 2.23558 18.052 1.43691 18.5703 0.762844L18.7363 0.556008C18.799 0.483961 18.8804 0.42698 18.975 0.388804C19.0697 0.350627 19.1754 0.332115 19.2853 0.334484Z" fill="url(#paint1_linear_3151_11485)"/>
+                        </g>
+                        </g>
+                        <defs>
+                        <linearGradient id="paint0_linear_3151_11485" x1="19.9664" y1="67.8007" x2="-3.5733" y2="-11.9878" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="white"/>
+                        <stop offset="0.371018" stop-color="#FFD191"/>
+                        <stop offset="0.870192" stop-color="#CC7A00"/>
+                        </linearGradient>
+                        <linearGradient id="paint1_linear_3151_11485" x1="19.9661" y1="67.8007" x2="-3.57359" y2="-11.9877" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="white"/>
+                        <stop offset="0.371018" stop-color="#FFD191"/>
+                        <stop offset="0.870192" stop-color="#CC7A00"/>
+                        </linearGradient>
+                        <clipPath id="clip0_3151_11485">
+                        <rect width="37.2857" height="36" fill="white"/>
+                        </clipPath>
+                        </defs>
+                      </svg>
+                    </span>
+                    <span class="yg-gmv-amount">{{ data_block.settings.data }}</span>
+                    <span class="yg-gmv-icon-right">
+                      <svg width="38" height="36" viewBox="0 0 38 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_3151_11493)">
+                        <mask id="mask0_3151_11493" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="38" height="37">
+                        <path d="M0.000907898 0.000152588H37.2866V36.0002H0.000907898V0.000152588Z" fill="white"/>
+                        </mask>
+                        <g mask="url(#mask0_3151_11493)">
+                        <path d="M21.8326 28.0608C23.8892 28.1833 24.8392 29.1991 24.5432 29.9362C24.2448 30.6733 22.1485 32.5246 18.6246 33.0192C15.1031 33.5138 11.6166 33.288 10.2861 33.288C8.95819 33.288 7.3865 33.1056 8.19719 32.4357C10.0823 30.9538 12.2253 29.8073 14.5262 29.0502C17.6174 28.0585 19.7784 27.9336 21.8326 28.0585V28.0608ZM29.1539 19.2344C29.0146 20.094 28.0919 22.2838 25.431 23.9454C23.3172 25.2708 20.9051 26.2193 18.3361 26.7283C16.4287 27.1172 14.6258 27.6478 15.2226 26.5675C15.8194 25.4869 17.8388 22.8048 20.7582 20.92C23.6778 19.0352 25.2172 18.8119 26.5154 18.5477C27.816 18.2836 29.2932 18.3796 29.1539 19.2368V19.2344ZM28.2586 10.3504C29.3305 10.3504 29.2583 11.306 28.9723 12.1272C28.6839 12.9435 27.4578 15.3807 25.3415 16.8646C23.9291 17.8513 22.1409 18.7087 19.9774 19.4337C20.4598 16.7805 21.4944 14.694 23.081 13.1765C25.4584 10.8978 27.1868 10.3528 28.2586 10.3528V10.3504ZM23.4515 3.27676C23.7966 3.24454 24.1426 3.33037 24.4288 3.51927C24.56 3.60449 24.6709 3.71548 24.7545 3.84501C24.8381 3.97453 24.8923 4.11964 24.9138 4.27082L24.9585 4.69341C25.0778 6.05241 24.8591 7.41625 24.3194 8.70325C23.4987 10.6481 22.2653 12.192 20.624 13.3254C20.3008 12.2881 20.0993 11.4285 20.0272 10.7418C19.9178 9.70931 19.9178 8.77766 20.624 6.42221C20.9373 5.3753 21.6188 4.42927 22.6631 3.58411C22.8875 3.40673 23.1625 3.29952 23.4515 3.27676Z" fill="url(#paint0_linear_3151_11493)"/>
+                        <path d="M18.0041 0.334476C17.7632 0.338139 17.5187 0.417718 17.3131 0.559322C17.1396 0.675671 17.0024 0.831527 16.9199 1.00612C16.5419 1.82917 16.4241 2.57439 16.5697 3.23995C16.8964 4.7379 17.2004 5.22952 17.606 5.73485C17.8753 6.07121 18.282 6.45208 18.823 6.88273C19.4805 5.69215 19.7489 4.43215 19.6277 3.10957C19.5455 2.23558 19.2373 1.4369 18.719 0.762836L18.553 0.556001C18.4903 0.483953 18.4089 0.426973 18.3143 0.388796C18.2196 0.350619 18.1139 0.332108 18.0041 0.334476Z" fill="url(#paint1_linear_3151_11493)"/>
+                        </g>
+                        </g>
+                        <defs>
+                        <linearGradient id="paint0_linear_3151_11493" x1="19.8154" y1="67.8007" x2="-3.72418" y2="-11.9878" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="white"/>
+                        <stop offset="0.371018" stop-color="#FFD191"/>
+                        <stop offset="0.870192" stop-color="#CC7A00"/>
+                        </linearGradient>
+                        <linearGradient id="paint1_linear_3151_11493" x1="19.816" y1="67.8007" x2="-3.72361" y2="-11.9878" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="white"/>
+                        <stop offset="0.371018" stop-color="#FFD191"/>
+                        <stop offset="0.870192" stop-color="#CC7A00"/>
+                        </linearGradient>
+                        <clipPath id="clip0_3151_11493">
+                        <rect width="37.2857" height="36" fill="white"/>
+                        </clipPath>
+                        </defs>
+                      </svg>
+                    </span>
+                  </div>
+                {% endif %}
+
+                <div class="yg-gmv-info">
+                  {% if data_block.settings.title != blank %}
+                    <div class="yg-gmv-title h6">{{ data_block.settings.title }}</div>
+                  {% endif %}
+                  {% if data_block.settings.content != blank %}
+                    <div class="yg-gmv-subtitle text-sm">{{ data_block.settings.content }}</div>
+                  {% endif %}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+        {% if image_blocks.size > 0 %}
+          <div class="yg-content-image-list">
+            {% for image_block in image_blocks %}
+              {% if image_block.settings.image != blank %}
+                <div class="yg-content-image-item">
+                  {% render 'yg-image', img: image_block.settings.image %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+        {% if video_blocks.size > 0 %}
+          <yg-content-video-list class="yg-content-video-list swiper">
+            <div class="swiper-wrapper">
+              {% for video_block in video_blocks %}
+                {% if video_block.settings.video != blank %}
+                  <div class="swiper-slide">
+                    <div class="yg-content-video-container">
+                      {% if section.settings.logo_image != blank %}
+                        <div class="yg-content-video-logo-container">
+                          <img src="{{ section.settings.logo_image | image_url: width: 100 }}" alt="" class="yg-content-video-logo">
+                        </div>
+                      {% endif %}
+                      <img src="{{ 'iphone.png' | asset_url }}" alt="" class="yg-content-video-mask">
+                      {% render 'media',
+                        media: video_block.settings.video,
+                        poster: video_block.settings.image,
+                        autoplay: false,
+                        muted: true,
+                        loop: true,
+                        class: 'yg-content-video',
+                        style: ''
+                      %}
+                    </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+              {% if video_blocks.size < 8 %}
+                {% for video_block in video_blocks %}
+                  {% if video_block.settings.video != blank %}
+                    <div class="swiper-slide">
+                      <div class="yg-content-video-container">
+                        {% if section.settings.logo_image != blank %}
+                          <div class="yg-content-video-logo-container">
+                            <img src="{{ section.settings.logo_image | image_url: width: 100 }}" alt="" class="yg-content-video-logo">
+                          </div>
+                        {% endif %}
+                        <img src="{{ 'iphone.png' | asset_url }}" alt="" class="yg-content-video-mask">
+                        {% render 'media',
+                          media: video_block.settings.video,
+                          poster: video_block.settings.image,
+                          autoplay: false,
+                          muted: true,
+                          loop: true,
+                          class: 'yg-content-video',
+                          style: ''
+                        %}
+                      </div>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
+            </div>
+          </yg-content-video-list>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  class YGContentVideoList extends HTMLElement {
+    constructor() {
+      super();
+    }
+    connectedCallback() {
+      this.contentVideoList = this.querySelectorAll('.yg-content-video');
+      this.initSwiper();
+    }
+
+    playVideo(activeVideoEl) {
+      this.contentVideoList.forEach(function (videoEl) {
+        videoEl.removeAttribute('playing');
+        videoEl.removeAttribute('loaded');
+        const video = videoEl.querySelector('video');
+        if (video) video.pause();
+      });
+
+      if (activeVideoEl) {
+        if (activeVideoEl) {
+          activeVideoEl.setAttribute('playing', ' ');
+          activeVideoEl.setAttribute('loaded', ' ');
+          const video = activeVideoEl.querySelector('video');
+          if (video) video.play();
+        }
+      }
+    }
+
+    initSwiper() {
+      const swiper = new Swiper(this, {
+        loop: true,
+        // effect: 'creative',
+        effect: 'coverflow',
+        loopedSlides: 9,
+        loopAdditionalSlides: 1,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        slideToClickedSlide: true,
+        coverflowEffect: {
+         rotate: 0,
+         scale: 0.85,
+         stretch: '-10%',
+         depth: 200,
+         modifier: 1,
+         slideShadows: false,
+        },
+        // creativeEffect: {
+        //   limitProgress: 4,
+        //   progressMultiplier: 1.1,
+        //   prev: {
+        //     origin: 'left center',
+        //     scale: 0.8,
+        //     translate: ['-90%', '2%', 0],
+        //   },
+        //   next: {
+        //     origin: 'right center',
+        //     scale: 0.8,
+        //     translate: ['90%', '2%', 0],
+        //   },
+        // },
+        breakpoints: {
+          320: {
+            slidesPerView: 1.2,
+            spaceBetween: 0,
+          },
+          700: {
+            slidesPerView: 2.4,
+            spaceBetween: 0,
+          },
+          1024: {
+            slidesPerView: 4,
+            spaceBetween: 0,
+          },
+          1440: {
+            slidesPerView: 5,
+            spaceBetween: 0,
+          },
+        },
+        on: {
+          // slideChangeTransitionEnd有时监控不到
+          slideChangeTransitionEnd: (e) => {
+            const activeVideoEl = e.slides[e.activeIndex].querySelector('.yg-content-video');
+            this.playVideo(activeVideoEl);
+          },
+          observerUpdate: (e) => {
+            const activeVideoEl = e.slides[e.activeIndex].querySelector('.yg-content-video');
+            this.playVideo(activeVideoEl);
+          },
+          transitionEnd: (e) => {
+            const activeVideoEl = e.slides[e.activeIndex].querySelector('.yg-content-video');
+            this.playVideo(activeVideoEl);
+          },
+        },
+      });
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    if (!customElements.get('yg-content-video-list')) {
+      customElements.define('yg-content-video-list', YGContentVideoList);
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "YG Authentication",
+  "class": "shopify-section--yg-section",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:global.colors.scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_image",
+      "label": "Logo image"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subheading",
+      "label": "t:global.text.subheading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "t:global.text.heading",
+      "default": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "t:global.text.content",
+      "default": "<p>Use this section to build trust with your customers, or showcase product features with text and icons.</p>"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "t:global.text.heading_size",
+      "options": [
+        {
+          "value": "display-xl",
+          "label": "Display XL"
+        },
+        {
+          "value": "display-l",
+          "label": "Display L"
+        },
+        {
+          "value": "display-m",
+          "label": "Display M"
+        },
+        {
+          "value": "h1",
+          "label": "XX-Large"
+        },
+        {
+          "value": "h2",
+          "label": "X-Large"
+        },
+        {
+          "value": "h3",
+          "label": "Large"
+        },
+        {
+          "value": "h4",
+          "label": "Medium"
+        },
+        {
+          "value": "h5",
+          "label": "Small"
+        },
+        {
+          "value": "h6",
+          "label": "X-Small"
+        },
+        {
+          "value": "h7",
+          "label": "XX-Small"
+        }
+      ],
+      "default": "h3"
+    },
+    {
+      "type": "text_alignment",
+      "id": "text_alignment",
+      "label": "t:global.text.alignment",
+      "default": "center"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_custom_padding",
+      "label": "Enable custom padding",
+      "default": false
+    },
+    {
+      "type": "range",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "id": "padding_top",
+      "label": "Padding top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "id": "padding_top_mobile",
+      "label": "Padding top mobile",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "id": "padding_bottom_mobile",
+      "label": "Padding bottom mobile",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item_data",
+      "name": "Item data",
+      "settings": [
+        {
+          "type": "text",
+          "id": "data",
+          "label": "Data"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "content",
+          "label": "Content"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "name": "Video",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "YG Authentication"
+    }
+  ]
+}
+{% endschema %}

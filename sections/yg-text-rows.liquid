@@ -1,0 +1,410 @@
+<style>
+  #shopify-section-{{ section.id }} .yg-text-rows-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  #shopify-section-{{ section.id }} .yg-text-rows-container .container {
+    width: 100%;
+    padding-block: 0;
+  }
+
+  #shopify-section-{{ section.id }} .yg-text-rows-header .button svg {
+    margin-block: 0;
+  }
+
+  #shopify-section-{{ section.id }} .yg-text-rows-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-block: 3rem;
+  }
+
+  #shopify-section-{{ section.id }} .yg-text-rows-items {
+    display: grid;
+    gap: 3.125rem;
+    flex: 1;
+  }
+
+  #shopify-section-{{ section.id }} .yg-text-rows-header {
+    flex: 1;
+  }
+
+  #shopify-section-{{ section.id }} .yg-text-rows-heading {
+    line-height: 1.15;
+  }
+
+  #shopify-section-{{ section.id }} .yg-text-rows-item {
+    position: relative;
+    display: grid;
+    gap: 0.25rem;
+    padding-inline-start: 1.875rem;
+  }
+
+  #shopify-section-{{ section.id }} .yg-text-rows-item:before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 0;
+    background: rgba(88, 88, 88, 0.40);
+    transition: height ease-in-out 0.3s;
+  }
+
+  #shopify-section-{{ section.id }} .yg-text-rows-item.fade-in-on-scroll.yg-animated:before {
+    height: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .yg-text-rows-title {
+    font-size: var(--font-size);
+    font-weight: 500;
+  }
+
+  #shopify-section-{{ section.id }} .yg-text-rows-content {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    font-weight: 500;
+    opacity: 0.7;
+  }
+
+  #shopify-section-{{ section.id }} .yg-text-rows-content a {
+    text-decoration: underline;
+    color: {{ section.settings.link_color }};
+  }
+
+  @media (max-width: 1198px) {
+    #shopify-section-{{ section.id }} .yg-text-rows-title {
+      font-size: calc(var(--font-size) - 0.75rem);
+    }
+
+    #shopify-section-{{ section.id }} .yg-text-rows-items {
+      gap: 1.875rem;
+    }
+  }
+
+  @media (max-width: 1030px) {
+    #shopify-section-{{ section.id }} .yg-text-rows-wrapper {
+      flex-direction: column-reverse;
+      gap: 3rem;
+    }
+
+    #shopify-section-{{ section.id }} .yg-text-rows-image {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    #shopify-section-{{ section.id }} .yg-text-rows-container {
+      position: static;
+    }
+
+    #shopify-section-{{ section.id }} .yg-text-rows-header .prose :where(button,.button-group,.button) {
+      margin-block-start: 1.875rem;
+    }
+
+    #shopify-section-{{ section.id }} .yg-text-rows-item {
+      gap: 0;
+    }
+  }
+
+  @media (max-width: 699px) {
+    #shopify-section-{{ section.id }} .yg-text-rows-title {
+      font-size: var(--font-size-mobile);
+    }
+  }
+
+</style>
+
+<div class="color-scheme relative color-scheme--{{ section.settings.color_scheme.id }}">
+	{%- assign alignment = section.settings.text_alignment | replace: 'left', 'start' | replace: 'right', 'end' -%}
+	<yg-animation-image class="yg-text-rows-image">
+		{% render 'yg-image',
+			img: section.settings.background_image,
+			img_mobile: section.settings.background_image_mobile,
+			img_class: "yg-featured-image",
+			show_placeholder: false,
+			is_no_lazy: true,
+			is_lazy: false
+		%}
+	</yg-animation-image>
+	<div class="yg-text-rows-container">
+		<div class="container section-spacing">
+			<div class="yg-text-rows-wrapper">
+				<div class="yg-text-rows-items">
+					{% for block in section.blocks %}
+						<yg-animation-item class="yg-text-rows-item">
+							{% if block.settings.title != blank %}
+								<yg-number-odometer class="yg-reveal-inner-number yg-text-rows-title"
+                                                     data-duration="1800"
+                                                     data-digit-height="1"
+                                                     data-text="{{- block.settings.title -}}"
+										             style="--font-size: {{ block.settings.title_size | divided_by: 16.0 | append: 'rem' }};--font-size-mobile: {{ block.settings.title_size_mobile | divided_by: 16.0 | append: 'rem' }}">
+									{{- block.settings.title -}}
+								</yg-number-odometer>
+							{% endif %}
+							{% if block.settings.content != blank %}
+								<div class="yg-text-rows-content">
+									{{ block.settings.content }}
+								</div>
+							{% endif %}
+						</yg-animation-item>
+					{% endfor %}
+				</div>
+				<div class="yg-text-rows-header">
+					{%- if section.settings.title != blank or section.settings.heading != blank or section.settings.content != blank -%}
+						<yg-animation-item class="section-header">
+							<div class="prose prose-justify-{{ alignment }}">
+								<div class="max-w-lg">
+									{%- render 'subheading', content: section.settings.subheading -%}
+									{%- render 'heading', content: section.settings.title, balance_text: true, class: 'yg-text-rows-heading', style: section.settings.heading_tag, html_tag: 'h2' -%}
+								</div>
+								
+								{%- if section.settings.content != blank -%}
+									<div class="max-w-sm">
+										{{- section.settings.content -}}
+									</div>
+								{%- endif -%}
+								
+								{%- render 'button',
+									content: section.settings.text,
+									href: section.settings.url,
+									button_icon: section.settings.button_icon,
+									style: section.settings.style,
+									background: section.settings.background,
+									text_color: section.settings.text_color,
+									external: section.settings.open_in_new_tab,
+									block: section
+								-%}
+							</div>
+						</yg-animation-item>
+					{%- endif -%}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% schema %}
+{
+  "name": "YG text rows",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:global.colors.scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image_mobile",
+      "label": "Background image mobile"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subheading",
+      "label": "t:global.text.subheading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "t:global.text.heading",
+      "default": "Text with icons"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "t:global.text.content",
+      "default": "<p>Use this section to build trust with your customers, or showcase product features with text and icons.</p>"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "t:global.text.heading_size",
+      "options": [
+        {
+          "value": "display-xl",
+          "label": "Display XL"
+        },
+        {
+          "value": "display-l",
+          "label": "Display L"
+        },
+        {
+          "value": "display-m",
+          "label": "Display M"
+        },
+        {
+          "value": "h1",
+          "label": "XX-Large"
+        },
+        {
+          "value": "h2",
+          "label": "X-Large"
+        },
+        {
+          "value": "h3",
+          "label": "Large"
+        },
+        {
+          "value": "h4",
+          "label": "Medium"
+        },
+        {
+          "value": "h5",
+          "label": "Small"
+        },
+        {
+          "value": "h6",
+          "label": "X-Small"
+        },
+        {
+          "value": "h7",
+          "label": "XX-Small"
+        }
+      ],
+      "default": "h3"
+    },
+    {
+      "type": "text_alignment",
+      "id": "text_alignment",
+      "label": "t:global.text.alignment",
+      "default": "center"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "t:global.text.text",
+      "default": "Button text"
+    },
+    {
+      "type": "textarea",
+      "id": "button_icon",
+      "label": "Button icon"
+    },
+    {
+      "type": "url",
+      "id": "url",
+      "label": "t:global.text.link"
+    },
+    {
+      "type": "checkbox",
+      "id": "open_in_new_tab",
+      "label": "t:global.text.open_in_new_tab",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "style",
+      "label": "t:global.text.style",
+      "options": [
+        {
+          "value": "outline",
+          "label": "t:global.text.button_style_options.outline"
+        },
+        {
+          "value": "solid",
+          "label": "t:global.text.button_style_options.solid"
+        },
+        {
+          "value": "link",
+          "label": "t:global.text.button_style_options.link"
+        }
+      ],
+      "default": "solid"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "t:global.colors.background"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:global.text.text"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Link Color"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Title"
+        },
+        {
+          "type": "range",
+          "id": "title_size",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "Title size",
+          "default": 52
+        },
+        {
+          "type": "range",
+          "id": "title_size_mobile",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "Title size mobile",
+          "default": 32
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "YG text rows",
+      "blocks": [
+        {
+          "type": "item"
+        },
+        {
+          "type": "item"
+        },
+        {
+          "type": "item"
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": [
+      "footer",
+      "header",
+      "custom.overlay"
+    ]
+  }
+}
+{% endschema %}

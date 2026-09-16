@@ -1,0 +1,149 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "color_scheme": "",
+        "show_title": false,
+        "content_width": "md"
+      }
+    },
+    "demo_hero": {
+      "type": "yg-demo-hero",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "title": "Demo 演示服务",
+        "subtitle": "这是一个完整的演示页面，展示如何创建自定义 Shopify 主题页面",
+        "button_primary_text": "立即咨询",
+        "button_primary_link": "/pages/contact",
+        "button_secondary_text": "了解更多",
+        "button_secondary_link": "#features"
+      }
+    },
+    "demo_features": {
+      "type": "yg-demo-features",
+      "blocks": {
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "icon": "🚀",
+            "title": "快速部署",
+            "description": "Demo 文字：快速响应，高效执行，让您的项目迅速上线并投入使用。"
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "icon": "💡",
+            "title": "创新方案",
+            "description": "Demo 文字：采用前沿技术和创新思维，为您提供最优质的解决方案。"
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "icon": "🎯",
+            "title": "精准定位",
+            "description": "Demo 文字：深入分析市场需求，精准定位目标客户，确保达到预期效果。"
+          }
+        },
+        "feature_4": {
+          "type": "feature",
+          "settings": {
+            "icon": "⚡",
+            "title": "高性能",
+            "description": "Demo 文字：优化的代码结构和高效的执行效率，带来极致的用户体验。"
+          }
+        },
+        "feature_5": {
+          "type": "feature",
+          "settings": {
+            "icon": "🛡️",
+            "title": "安全可靠",
+            "description": "Demo 文字：采用业界标准的安全措施，保障您的数据和业务安全。"
+          }
+        },
+        "feature_6": {
+          "type": "feature",
+          "settings": {
+            "icon": "🎨",
+            "title": "精美设计",
+            "description": "Demo 文字：注重每一个细节，为您打造视觉效果出众的产品界面。"
+          }
+        }
+      },
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3",
+        "feature_4",
+        "feature_5",
+        "feature_6"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "title": "为什么选择我们",
+        "description": "Demo 描述文字：我们提供全方位的专业服务，帮助您的业务快速成长"
+      }
+    },
+    "demo_cta": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "text": "准备开始了吗？",
+            "heading_size": "h2",
+            "html_tag": "h2",
+            "indent": "none",
+            "highlight_effect": "default",
+            "highlight_accent_color": "",
+            "highlight_text_color": ""
+          }
+        },
+        "richtext": {
+          "type": "rich-text",
+          "settings": {
+            "text": "<p>Demo 文字：立即联系我们，获取专业的咨询服务和定制化解决方案</p>",
+            "content_width": "sm"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "text": "联系我们",
+            "url": "/pages/contact",
+            "style": "solid",
+            "background": "#ffc000",
+            "text_color": "#212121"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "richtext",
+        "button"
+      ],
+      "settings": {
+        "color_scheme": "scheme-2",
+        "allow_transparent_header": false,
+        "image_size": "auto",
+        "image": "",
+        "mobile_image": "",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30,
+        "enable_sticky_content": false,
+        "content_width": "md",
+        "desktop_text_position": "sm:place-self-center",
+        "mobile_text_position": "place-self-center"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "demo_hero",
+    "demo_features",
+    "demo_cta"
+  ]
+}

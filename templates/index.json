@@ -1,0 +1,936 @@
+{
+    "sections": {
+        "yg_mask_image_TTintg": {
+            "type": "yg-mask-image",
+            "blocks": {
+                "item_beBgNL": {
+                    "type": "item",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/Frame_59.svg"
+                    }
+                },
+                "item_3DmAm3": {
+                    "type": "item",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/Frame_60.svg"
+                    }
+                },
+                "item_Nc4dde": {
+                    "type": "item",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/Snapchat.svg"
+                    }
+                },
+                "item_JMCjNR": {
+                    "type": "item",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/Frame_62.svg"
+                    }
+                },
+                "item_RKGUqP": {
+                    "type": "item",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/Frame_63.svg"
+                    }
+                },
+                "item_Ltyz6y": {
+                    "type": "item",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/Frame_2147236424_cc2ea94e-0a9c-4f68-8bed-b53eaeabebe6.png"
+                    }
+                }
+            },
+            "block_order": [
+                "item_beBgNL",
+                "item_3DmAm3",
+                "item_Nc4dde",
+                "item_JMCjNR",
+                "item_RKGUqP",
+                "item_Ltyz6y"
+            ],
+            "settings": {
+                "color_scheme": "",
+                "background": "#ffc000",
+                "allow_transparent_header": true,
+                "mask_image": "shopify:\/\/shop_images\/Union.svg",
+                "video": "shopify:\/\/files\/videos\/713_1751010127.mp4",
+                "title": "Always on",
+                "heading_tag": "h3",
+                "dynamic_words": "Social Commerce\/Incremental Growth\/User Acquisition\/Ads Acceleration",
+                "header_size": 88,
+                "header_size_mo": 40
+            }
+        },
+        "yg_section_template_t7NdhM": {
+            "type": "yg-section-template",
+            "blocks": {
+                "item_MppYxL": {
+                    "type": "item",
+                    "settings": {
+                        "text": "Button text",
+                        "button_icon": "",
+                        "url": "",
+                        "open_in_new_tab": false,
+                        "style": "solid",
+                        "background": "",
+                        "text_color": ""
+                    }
+                },
+                "item_dhJbKf": {
+                    "type": "item",
+                    "settings": {
+                        "text": "Button text",
+                        "button_icon": "",
+                        "url": "",
+                        "open_in_new_tab": false,
+                        "style": "solid",
+                        "background": "",
+                        "text_color": ""
+                    }
+                },
+                "item_JmVAWm": {
+                    "type": "item",
+                    "settings": {
+                        "text": "Button text",
+                        "button_icon": "",
+                        "url": "",
+                        "open_in_new_tab": false,
+                        "style": "solid",
+                        "background": "",
+                        "text_color": ""
+                    }
+                },
+                "item_FFztye": {
+                    "type": "item",
+                    "settings": {
+                        "text": "Button text",
+                        "button_icon": "",
+                        "url": "",
+                        "open_in_new_tab": false,
+                        "style": "solid",
+                        "background": "",
+                        "text_color": ""
+                    }
+                }
+            },
+            "block_order": [
+                "item_MppYxL",
+                "item_dhJbKf",
+                "item_JmVAWm",
+                "item_FFztye"
+            ],
+            "disabled": true,
+            "settings": {
+                "color_scheme": "",
+                "subheading": "",
+                "title": "Text with icons",
+                "content": "<p>Use this section to build trust with your customers, or showcase product features with text and icons.<\/p>",
+                "heading_tag": "h3",
+                "html_tag": "h2",
+                "text_alignment": "center"
+            }
+        },
+        "yg_text_rows_gbPm4p": {
+            "type": "yg-text-rows",
+            "blocks": {
+                "item_xePDUX": {
+                    "type": "item",
+                    "settings": {
+                        "title": "$5B+",
+                        "title_size": 52,
+                        "title_size_mobile": 32,
+                        "content": "<p>Annual Budget  Management<\/p>"
+                    }
+                },
+                "item_q6WFAt": {
+                    "type": "item",
+                    "settings": {
+                        "title": "TOP 1",
+                        "title_size": 52,
+                        "title_size_mobile": 32,
+                        "content": "<p>TikTok Marketing partner& TikTok Shop Partner <a href=\"\/pages\/tiktok\" target=\"_blank\" title=\"TikTok\">Learn More &gt;<\/a><\/p>"
+                    }
+                },
+                "item_BwNmtJ": {
+                    "type": "item",
+                    "settings": {
+                        "title": "80%+",
+                        "title_size": 52,
+                        "title_size_mobile": 32,
+                        "content": "<p>Average YoY Revenue Growth<\/p>"
+                    }
+                },
+                "item_XtYcUt": {
+                    "type": "item",
+                    "settings": {
+                        "title": "80,000+",
+                        "title_size": 52,
+                        "title_size_mobile": 32,
+                        "content": "<p>Clients Served<\/p>"
+                    }
+                }
+            },
+            "block_order": [
+                "item_xePDUX",
+                "item_q6WFAt",
+                "item_BwNmtJ",
+                "item_XtYcUt"
+            ],
+            "settings": {
+                "color_scheme": "scheme-1",
+                "background_image": "shopify:\/\/shop_images\/Frame_121.png",
+                "background_image_mobile": "shopify:\/\/shop_images\/9022a705161ff42b7879d88f1fd6d0e8.png",
+                "subheading": "",
+                "title": "<strong>At Adyssey Media, we don’t just follow the benchmark                                                        –we set it.<\/strong>",
+                "content": "",
+                "heading_tag": "h3",
+                "text_alignment": "left",
+                "text": "Get your Proposal",
+                "button_icon": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"20\" height=\"21\" viewbox=\"0 0 20 21\" fill=\"none\">\n  <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M14.7152 5.16162C15.0604 5.16162 15.3402 5.44145 15.3402 5.78662V12.8577C15.3402 13.2028 15.0604 13.4827 14.7152 13.4827C14.37 13.4827 14.0902 13.2028 14.0902 12.8577V7.29551L5.72905 15.6566C5.48498 15.9007 5.08925 15.9007 4.84517 15.6566C4.60109 15.4126 4.60109 15.0168 4.84517 14.7728L13.2063 6.41162H7.64413C7.29896 6.41162 7.01913 6.1318 7.01913 5.78662C7.01913 5.44145 7.29896 5.16162 7.64413 5.16162H14.7152Z\" fill=\"currentColor\"><\/path>\n<\/svg>",
+                "url": "",
+                "open_in_new_tab": false,
+                "style": "solid",
+                "background": "",
+                "text_color": "",
+                "link_color": "#de9813"
+            }
+        },
+        "rich_text_nxyMXP": {
+            "type": "rich-text",
+            "blocks": {
+                "image_jz8Veq": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/Vector.svg",
+                        "width_mode": "full_width",
+                        "max_width": 1000,
+                        "mobile_max_width": 400,
+                        "show_dynamic": true
+                    }
+                }
+            },
+            "block_order": [
+                "image_jz8Veq"
+            ],
+            "settings": {
+                "color_scheme": "scheme-4",
+                "content_width": "full",
+                "text_alignment": "center",
+                "remove_padding_mobile": true,
+                "enable_custom_padding": false,
+                "padding_top": 0,
+                "padding_bottom": 0,
+                "padding_top_mobile": 0,
+                "padding_bottom_mobile": 0
+            }
+        },
+        "text_with_media_6NJ6Ej": {
+            "type": "text-with-media",
+            "blocks": {
+                "subheading_JDDiDj": {
+                    "type": "subheading",
+                    "settings": {
+                        "text": "01\/",
+                        "position": "middle_left",
+                        "hide_icon": true
+                    }
+                },
+                "heading_Gw8hL4": {
+                    "type": "heading",
+                    "settings": {
+                        "text": "Expertise-forward Approach",
+                        "heading_tag": "h4",
+                        "html_tag": "h2",
+                        "position": "middle_left",
+                        "highlight_effect": "default",
+                        "highlight_accent_color": "",
+                        "highlight_text_color": ""
+                    }
+                },
+                "richtext_H9znm6": {
+                    "type": "richtext",
+                    "settings": {
+                        "text": "<p>Our team is obsessed with the art of performance. With <strong>over 10 years<\/strong> of dive-in Social Ads, we have an outperforming Media Buying team with more than <strong>200 experts.<\/strong><br\/><br\/>We know how to craft content that resonates with audiences and drives conversions. On average, we’re <strong>60%<\/strong> faster at finding the right ad model for your products<br\/><br\/>ensuring every dollar spent drives maximum ROI.<\/p>",
+                        "position": "middle_left",
+                        "font_size": 15,
+                        "font_size_mobile": 14,
+                        "color": "",
+                        "enable_custom_margin": false,
+                        "margin_top": 28,
+                        "margin_top_mobile": 28
+                    }
+                }
+            },
+            "block_order": [
+                "subheading_JDDiDj",
+                "heading_Gw8hL4",
+                "richtext_H9znm6"
+            ],
+            "settings": {
+                "full_width": true,
+                "color_scheme": "scheme-3",
+                "content_position_y": "end",
+                "content_position": "start",
+                "content_percentage_width": 50,
+                "overlay_color": "#000000",
+                "overlay_opacity": 20,
+                "add_media_spacing": false,
+                "primary_image": "shopify:\/\/shop_images\/12_f3d85303-28ca-44bc-8031-a3aa50021e6b.jpg",
+                "primary_media_width": 60,
+                "primary_media_mobile_width": 60,
+                "secondary_media_width": 60,
+                "secondary_media_mobile_width": 60,
+                "third_media_width": 60,
+                "third_media_mobile_width": 60,
+                "rotate": false,
+                "secondary_media_alignment": "place-self-center",
+                "show_dynamic": true,
+                "show_show_separator": true,
+                "enable_custom_padding": false,
+                "padding_top": 0,
+                "padding_bottom": 0,
+                "padding_top_mobile": 0,
+                "padding_bottom_mobile": 0
+            }
+        },
+        "yg_text_item_QGJykF": {
+            "type": "yg-text-item",
+            "blocks": {
+                "item_TjMYVj": {
+                    "type": "item",
+                    "settings": {
+                        "title": "Strategize Smarter",
+                        "content": "<p><strong>No fluff. Just focused, data-backed plans.<\/strong><br\/>With a challenger mindset and deep audits, we set clear goals and carve out your fastest path to growth.<br\/><br\/><\/p><ul><li>Brand & Market Audit<\/li><li>Benchmark & Incremental Growth Path<\/li><li>Strategical Media Plan<br\/><\/li><\/ul>",
+                        "font_size": 15,
+                        "font_size_mobile": 14
+                    }
+                },
+                "item_bn48ad": {
+                    "type": "item",
+                    "disabled": true,
+                    "settings": {
+                        "title": "Create what Converts",
+                        "content": "<p><strong>Not just pretty content--performance content. <\/strong><br\/>Content production is also data science. Every asset we make is backed by millions of creative analysis<br\/><br\/><\/p><ul><li>Massive Content Analysis<\/li><li>aQuality Creative Production<br\/><\/li><\/ul>",
+                        "font_size": 15,
+                        "font_size_mobile": 14
+                    }
+                },
+                "item_iPBDaB": {
+                    "type": "item",
+                    "settings": {
+                        "title": "Create what Converts",
+                        "content": "<p><strong>Not just pretty content--performance content. <\/strong><br\/>Content production is also data science. Every asset we make is backed by millions of creative analysis<br\/><br\/><\/p><ul><li>Massive Content Analysis<\/li><li>Quality Creative Production<br\/><\/li><\/ul>",
+                        "font_size": 15,
+                        "font_size_mobile": 14
+                    }
+                },
+                "item_wDtPBP": {
+                    "type": "item",
+                    "settings": {
+                        "title": "Smart Order Management",
+                        "content": "<p><strong>Measure that Matters Thrive on social, don't just survive. <\/strong><br\/>With a challenger mindset and deep audits, we set clear goals and carve out your fastest path to growth.<br\/><br\/><\/p><ul><li> Real-time Ad Campaign Optimization <\/li><li>Amplify Success with Data<br\/><\/li><\/ul>",
+                        "font_size": 15,
+                        "font_size_mobile": 14
+                    }
+                }
+            },
+            "block_order": [
+                "item_TjMYVj",
+                "item_bn48ad",
+                "item_iPBDaB",
+                "item_wDtPBP"
+            ],
+            "settings": {
+                "color_scheme": "scheme-3",
+                "primary_image": "shopify:\/\/shop_images\/Frame_66_8ab5f26b-199c-48d0-bba5-143eb81c6d76.jpg",
+                "content_position": "end",
+                "content_position_mobile": "top",
+                "content_percentage_width": 50,
+                "subheading": "02\/",
+                "hide_icon": true,
+                "title": "Why Adyssey Media?",
+                "content": "",
+                "heading_tag": "h4",
+                "html_tag": "h2",
+                "text_alignment": "left",
+                "show_dynamic": true,
+                "item_color": "#5e6075",
+                "bold_color": "#212121"
+            }
+        },
+        "text_with_media_qEAini": {
+            "type": "text-with-media",
+            "blocks": {
+                "subheading_DKNEBF": {
+                    "type": "subheading",
+                    "settings": {
+                        "text": "03\/",
+                        "position": "middle_left",
+                        "hide_icon": true
+                    }
+                },
+                "heading_hVQnjR": {
+                    "type": "heading",
+                    "settings": {
+                        "text": "Tech-Forward Approach",
+                        "heading_tag": "h4",
+                        "html_tag": "h2",
+                        "position": "middle_left",
+                        "highlight_effect": "default",
+                        "highlight_accent_color": "",
+                        "highlight_text_color": ""
+                    }
+                },
+                "richtext_aEJ4YH": {
+                    "type": "richtext",
+                    "settings": {
+                        "text": "<p>We make decisions based on data from our in-house tech, analyzing industry-leading content, integrating insights from institutes partners, and leveraging our service records.<br\/><br\/>We make our moves by utilizing in-house tech tools, bulk-creating ads, real-time monitoring, and tapping into vast resources. <br\/><br\/>-- ensuring every minute we fight together is dedicated to driving your growth.<\/p>",
+                        "position": "middle_left",
+                        "font_size": 15,
+                        "font_size_mobile": 14,
+                        "color": "",
+                        "enable_custom_margin": false,
+                        "margin_top": 28,
+                        "margin_top_mobile": 28
+                    }
+                },
+                "double_button_HKAQ9z": {
+                    "type": "double_button",
+                    "settings": {
+                        "text": "Data analysis",
+                        "url": "",
+                        "text2": "Improve efficiency",
+                        "url2": "",
+                        "position": "middle_left",
+                        "style": "outline",
+                        "background": "#ffc000",
+                        "text_color": "#212121"
+                    }
+                }
+            },
+            "block_order": [
+                "subheading_DKNEBF",
+                "heading_hVQnjR",
+                "richtext_aEJ4YH",
+                "double_button_HKAQ9z"
+            ],
+            "settings": {
+                "full_width": true,
+                "color_scheme": "scheme-3",
+                "content_position_y": "end",
+                "content_position": "start",
+                "content_percentage_width": 50,
+                "overlay_color": "#000000",
+                "overlay_opacity": 20,
+                "add_media_spacing": false,
+                "primary_image": "shopify:\/\/shop_images\/Frame_67_1.png",
+                "primary_media_width": 60,
+                "primary_media_mobile_width": 60,
+                "secondary_media_width": 60,
+                "secondary_media_mobile_width": 60,
+                "third_media_width": 60,
+                "third_media_mobile_width": 60,
+                "rotate": false,
+                "secondary_media_alignment": "place-self-center",
+                "show_dynamic": true,
+                "show_show_separator": false,
+                "enable_custom_padding": false,
+                "padding_top": 0,
+                "padding_bottom": 0,
+                "padding_top_mobile": 0,
+                "padding_bottom_mobile": 0
+            }
+        },
+        "yg_stacked_card_hJJDt3": {
+            "type": "yg-stacked-card",
+            "blocks": {
+                "item_q4LPfM": {
+                    "type": "item",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/ShopSync.png",
+                        "title": "Activate - Shop Sync",
+                        "content": "<p>Enabling collaboration with influencers and gain deep insights.<\/p>"
+                    }
+                },
+                "item_nnJzFR": {
+                    "type": "item",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/Influx.png",
+                        "title": "Build - Influx",
+                        "content": "<p>Unlock fast content generation and repurposed high-performing creatives.<\/p>"
+                    }
+                },
+                "item_zEeHaq": {
+                    "type": "item",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/Tec_creative.png",
+                        "title": "Creation - Tec-Creative",
+                        "content": "<p>One-click inventory and data tranfer across muti-platform<\/p>"
+                    }
+                },
+                "item_HMA3X8": {
+                    "type": "item",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/Toptou.png",
+                        "title": "Data & Efficiency - Top Tou",
+                        "content": "<p>Optimize ad deployment at scale, boosting efficiency and maximizing performance.<\/p>"
+                    }
+                }
+            },
+            "block_order": [
+                "item_q4LPfM",
+                "item_nnJzFR",
+                "item_zEeHaq",
+                "item_HMA3X8"
+            ],
+            "settings": {
+                "color_scheme": "",
+                "color": ""
+            }
+        },
+        "yg_animation_icons_Q6xPxG": {
+            "type": "yg-animation-icons",
+            "blocks": {
+                "item_fQbGaq": {
+                    "type": "item",
+                    "settings": {
+                        "icon": "shopify:\/\/shop_images\/download_3.png",
+                        "select_animation1": "none",
+                        "image1": "shopify:\/\/shop_images\/Paid_Social_2.svg",
+                        "text1": "Paid Social",
+                        "select_animation2": "none",
+                        "image2": "shopify:\/\/shop_images\/Affiliate_1.svg",
+                        "text2": "Affiliate",
+                        "select_animation3": "none",
+                        "image3": "shopify:\/\/shop_images\/ASA_1.svg",
+                        "text3": "ASA",
+                        "select_animation4": "none",
+                        "image4": "shopify:\/\/shop_images\/Programmatic_1.svg",
+                        "text4": "Programmatic",
+                        "select_animation5": "none",
+                        "image5": "shopify:\/\/shop_images\/Media_Buy.svg",
+                        "text5": "Media Buy"
+                    }
+                },
+                "item_NjaJhH": {
+                    "type": "item",
+                    "settings": {
+                        "icon": "shopify:\/\/shop_images\/download_2.png",
+                        "select_animation1": "top_left",
+                        "image1": "shopify:\/\/shop_images\/Influencer.svg",
+                        "text1": "Influencer",
+                        "select_animation2": "none",
+                        "image2": "shopify:\/\/shop_images\/Creative_Production_968ef163-fbae-44cc-9eab-25e89a12c26b.svg",
+                        "text2": "Creative Production",
+                        "select_animation3": "none",
+                        "image3": "shopify:\/\/shop_images\/Content_Marketing.svg",
+                        "text3": "Content Marketing",
+                        "select_animation4": "none",
+                        "text4": "",
+                        "select_animation5": "none",
+                        "text5": ""
+                    }
+                },
+                "item_DiGdTk": {
+                    "type": "item",
+                    "settings": {
+                        "icon": "shopify:\/\/shop_images\/download_5.png",
+                        "select_animation1": "none",
+                        "text1": "User Acquisition",
+                        "select_animation2": "none",
+                        "image2": "shopify:\/\/shop_images\/Retargeting.svg",
+                        "text2": "Retargeting",
+                        "select_animation3": "bottom_left",
+                        "image3": "shopify:\/\/shop_images\/Growth.svg",
+                        "text3": "Growth",
+                        "select_animation4": "none",
+                        "text4": "",
+                        "select_animation5": "none",
+                        "text5": ""
+                    }
+                },
+                "item_N7qbjQ": {
+                    "type": "item",
+                    "settings": {
+                        "icon": "shopify:\/\/shop_images\/download_3_1.png",
+                        "select_animation1": "bottom_left",
+                        "image1": "shopify:\/\/shop_images\/Social_Commerce.svg",
+                        "text1": "SocialCommerce",
+                        "select_animation2": "none",
+                        "image2": "shopify:\/\/shop_images\/APP.svg",
+                        "text2": "App",
+                        "select_animation3": "bottom_right",
+                        "image3": "shopify:\/\/shop_images\/Gaming.svg",
+                        "text3": "Gaming",
+                        "select_animation4": "none",
+                        "text4": "",
+                        "select_animation5": "none",
+                        "text5": ""
+                    }
+                },
+                "item_BChQQF": {
+                    "type": "item",
+                    "settings": {
+                        "icon": "shopify:\/\/shop_images\/download_5_1.png",
+                        "select_animation1": "none",
+                        "image1": "shopify:\/\/shop_images\/Martech.svg",
+                        "text1": "Martech",
+                        "select_animation2": "none",
+                        "image2": "shopify:\/\/shop_images\/SaaS.svg",
+                        "text2": "SaaS",
+                        "select_animation3": "none",
+                        "image3": "shopify:\/\/shop_images\/Marketing_Measurement.svg",
+                        "text3": "Marketing Measurement",
+                        "select_animation4": "none",
+                        "text4": "",
+                        "select_animation5": "none",
+                        "text5": ""
+                    }
+                }
+            },
+            "block_order": [
+                "item_fQbGaq",
+                "item_NjaJhH",
+                "item_DiGdTk",
+                "item_N7qbjQ",
+                "item_BChQQF"
+            ],
+            "settings": {
+                "color_scheme": "",
+                "subheading": "OUR SERVICES",
+                "title": "",
+                "content": "",
+                "heading_tag": "h3",
+                "text_alignment": "center",
+                "text": "Button text",
+                "button_icon": "",
+                "url": "",
+                "open_in_new_tab": false,
+                "style": "solid",
+                "background": "",
+                "text_color": "",
+                "columns": 5,
+                "columns_mobile": 3
+            }
+        },
+        "yg_hover_icons_eWBykw": {
+            "type": "yg-hover-icons",
+            "blocks": {
+                "item_MKcGKA": {
+                    "type": "item",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/1_1.png",
+                        "hover_image": "shopify:\/\/shop_images\/1_2.png"
+                    }
+                },
+                "item_QcQHt3": {
+                    "type": "item",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/2_1.png",
+                        "hover_image": "shopify:\/\/shop_images\/2_2.png"
+                    }
+                },
+                "item_EYRpRH": {
+                    "type": "item",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/3_1.png",
+                        "hover_image": "shopify:\/\/shop_images\/3_2.png"
+                    }
+                },
+                "item_ApMrmi": {
+                    "type": "item",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/4_1.png",
+                        "hover_image": "shopify:\/\/shop_images\/4_2.png"
+                    }
+                },
+                "item_nRbVdd": {
+                    "type": "item",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/5_1.png",
+                        "hover_image": "shopify:\/\/shop_images\/5_2.png"
+                    }
+                },
+                "item_cBhXDg": {
+                    "type": "item",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/6_1.png",
+                        "hover_image": "shopify:\/\/shop_images\/6_2.png"
+                    }
+                },
+                "item_jERhhb": {
+                    "type": "item",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/7_1.png",
+                        "hover_image": "shopify:\/\/shop_images\/7_2.png"
+                    }
+                },
+                "item_Rx7yXw": {
+                    "type": "item",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/8_1.png",
+                        "hover_image": "shopify:\/\/shop_images\/8_2.png"
+                    }
+                },
+                "item_N4bQhe": {
+                    "type": "item",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/9_1.png",
+                        "hover_image": "shopify:\/\/shop_images\/9_2.png"
+                    }
+                },
+                "item_z9GQKi": {
+                    "type": "item",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/10_1.png",
+                        "hover_image": "shopify:\/\/shop_images\/10_2.png"
+                    }
+                },
+                "item_Ergp7J": {
+                    "type": "item",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/11_1.png",
+                        "hover_image": "shopify:\/\/shop_images\/11_2.png"
+                    }
+                },
+                "item_kzLqG8": {
+                    "type": "item",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/12_1.png",
+                        "hover_image": "shopify:\/\/shop_images\/12_2.png"
+                    }
+                },
+                "item_WkxKNe": {
+                    "type": "item",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/13_1.png",
+                        "hover_image": "shopify:\/\/shop_images\/13_2.png"
+                    }
+                },
+                "item_EqAeLb": {
+                    "type": "item",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/14_1.png",
+                        "hover_image": "shopify:\/\/shop_images\/14_2.png"
+                    }
+                },
+                "item_pJLiGU": {
+                    "type": "item",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/15_1.png",
+                        "hover_image": "shopify:\/\/shop_images\/15_2.png"
+                    }
+                }
+            },
+            "block_order": [
+                "item_MKcGKA",
+                "item_QcQHt3",
+                "item_EYRpRH",
+                "item_ApMrmi",
+                "item_nRbVdd",
+                "item_cBhXDg",
+                "item_jERhhb",
+                "item_Rx7yXw",
+                "item_N4bQhe",
+                "item_z9GQKi",
+                "item_Ergp7J",
+                "item_kzLqG8",
+                "item_WkxKNe",
+                "item_EqAeLb",
+                "item_pJLiGU"
+            ],
+            "settings": {
+                "color_scheme": "scheme-7",
+                "subheading": "",
+                "title": "Trusted by 8,000+ users worldwide",
+                "content": "",
+                "heading_tag": "h4",
+                "text_alignment": "center",
+                "text": "",
+                "button_icon": "",
+                "url": "",
+                "open_in_new_tab": false,
+                "style": "solid",
+                "background": "",
+                "text_color": "",
+                "columns": 5,
+                "columns_mobile": 3
+            }
+        },
+        "yg_gallery_item_fpwQmW": {
+            "type": "yg-gallery-item",
+            "blocks": {
+                "item_YaC4m8": {
+                    "type": "item",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/hhj.jpg",
+                        "icon": "shopify:\/\/shop_images\/ppo.png",
+                        "icon_mobile": "shopify:\/\/shop_images\/uuy.png",
+                        "title1": "151k+",
+                        "label1": "User Acquisition",
+                        "title2": "10%+",
+                        "label2": "Registration Rate Enhanced",
+                        "title3": "",
+                        "label3": "",
+                        "link": ""
+                    }
+                },
+                "item_gcUxXm": {
+                    "type": "item",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/34s.jpg",
+                        "icon": "shopify:\/\/shop_images\/mi.png",
+                        "icon_mobile": "shopify:\/\/shop_images\/bl.png",
+                        "title1": "50 Million+",
+                        "label1": "Campaign Views",
+                        "title2": "200+",
+                        "label2": "KOLs Partnered",
+                        "title3": "",
+                        "label3": "",
+                        "link": ""
+                    }
+                },
+                "item_cJjeGq": {
+                    "type": "item",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/cccfe4d9-dd23-4ea4-8560-356d315d25bd.png",
+                        "icon": "shopify:\/\/shop_images\/Frame_2147236412_25fb25bb-99fc-4431-bb4b-bc8237c2aabf.png",
+                        "icon_mobile": "shopify:\/\/shop_images\/k.png",
+                        "title1": "TOP 2",
+                        "label1": "TikTok Shop Big Box Cateogry",
+                        "title2": "300k+",
+                        "label2": "TikTok Shop Big Box Cateogry",
+                        "title3": "",
+                        "label3": "",
+                        "link": ""
+                    }
+                },
+                "item_R7XwhR": {
+                    "type": "item",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/12.jpg",
+                        "icon": "shopify:\/\/shop_images\/vevor.png",
+                        "icon_mobile": "shopify:\/\/shop_images\/bla.png",
+                        "title1": "TOP 1",
+                        "label1": "TikTok Shop Big Box Cateogry",
+                        "title2": "300k+",
+                        "label2": "LIVE GMV in 59 days period",
+                        "title3": "",
+                        "label3": "",
+                        "link": ""
+                    }
+                },
+                "item_KAncmG": {
+                    "type": "item",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/gg.jpg",
+                        "icon": "shopify:\/\/shop_images\/Frame_141.png",
+                        "icon_mobile": "shopify:\/\/shop_images\/t.png",
+                        "title1": "TOP 1",
+                        "label1": "TikTok Shop Big Box Cateogry",
+                        "title2": "1929%",
+                        "label2": "GMV Increased Periodically",
+                        "title3": "",
+                        "label3": "",
+                        "link": ""
+                    }
+                }
+            },
+            "block_order": [
+                "item_YaC4m8",
+                "item_gcUxXm",
+                "item_cJjeGq",
+                "item_R7XwhR",
+                "item_KAncmG"
+            ],
+            "settings": {
+                "color_scheme": "scheme-5",
+                "subheading": "",
+                "title": "",
+                "content": "",
+                "heading_tag": "h3",
+                "text_alignment": "center",
+                "title_color": "#1a1a1a",
+                "color": "#1a1a1a",
+                "remove_padding_top": true,
+                "remove_padding_bottom": false
+            }
+        },
+        "yg_reviews_cXkqfm": {
+            "type": "yg-reviews",
+            "blocks": {
+                "review_3GaNWc": {
+                    "type": "review",
+                    "disabled": true,
+                    "settings": {
+                        "brand": "shopify:\/\/shop_images\/wyze_logo_1.svg",
+                        "client_comments": "<p>Adyssey’s services truly bring me peace of mind. Their customer support team is incredibly reliable—always quick to respond and full of valuable insights. This exceptional level of support has really elevated our operations and made a lasting impact!<br\/><br\/><\/p>",
+                        "client_photo": "shopify:\/\/shop_images\/3_67314f79-1a97-4e3c-95ce-f472f06a7fe0.png",
+                        "client_name": "<p>Jimmy Hadden<\/p>",
+                        "client_title": "<p>Head of Social Commerce @ Wyze<\/p>"
+                    }
+                },
+                "review_kPp37L": {
+                    "type": "review",
+                    "settings": {
+                        "brand": "shopify:\/\/shop_images\/Skechers_1_e43c6707-eaef-48cc-b5ec-83900fc9ff39.svg",
+                        "client_comments": "<p>Adyssey helped us break into the market more deeply. During our major promotional campaigns, their TikTok Shop eCommerce services drove significant traffic and awareness. With compelling content and strong value offerings, we saw a major boost in GMV performance.<\/p>",
+                        "client_photo": "shopify:\/\/shop_images\/1.png",
+                        "client_name": "<p>Bernard Yap<\/p>",
+                        "client_title": "<p>Head of eCommerce, Skechers<\/p>"
+                    }
+                },
+                "review_W7VrcT": {
+                    "type": "review",
+                    "settings": {
+                        "brand": "shopify:\/\/shop_images\/xtep.svg",
+                        "client_comments": "<p>Our partnership with Adyssey has spanned several years, covering brand marketing, store operations, and influencer collaboration. They've provided us with strong support that has helped Xtep steadily grow in global market<br\/><br\/><\/p>",
+                        "client_photo": "shopify:\/\/shop_images\/2.png",
+                        "client_name": "<p>Luo<\/p>",
+                        "client_title": "<p>Head of Global Operations, Xtep<\/p>"
+                    }
+                },
+                "review_dKepjF": {
+                    "type": "review",
+                    "disabled": true,
+                    "settings": {
+                        "client_comments": "<p>Use this section to build trust with your customers.<\/p>",
+                        "client_photo": "shopify:\/\/shop_images\/3.png",
+                        "client_name": "<p>YIGUO<\/p>",
+                        "client_title": "<p>Head of Social Commerce @yiguo<\/p>"
+                    }
+                }
+            },
+            "block_order": [
+                "review_3GaNWc",
+                "review_kPp37L",
+                "review_W7VrcT",
+                "review_dKepjF"
+            ],
+            "settings": {
+                "background_desktop": "shopify:\/\/shop_images\/Frame_145_1.png",
+                "background_mobile": "shopify:\/\/shop_images\/Frame_146.png",
+                "color_scheme": "",
+                "subheading": "",
+                "title": "See What Our Clients Say",
+                "content": "",
+                "heading_tag": "h4",
+                "text_alignment": "center"
+            }
+        }
+    },
+    "order": [
+        "yg_mask_image_TTintg",
+        "yg_section_template_t7NdhM",
+        "yg_text_rows_gbPm4p",
+        "rich_text_nxyMXP",
+        "text_with_media_6NJ6Ej",
+        "yg_text_item_QGJykF",
+        "text_with_media_qEAini",
+        "yg_stacked_card_hJJDt3",
+        "yg_animation_icons_Q6xPxG",
+        "yg_hover_icons_eWBykw",
+        "yg_gallery_item_fpwQmW",
+        "yg_reviews_cXkqfm"
+    ]
+}

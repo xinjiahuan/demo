@@ -1,0 +1,228 @@
+<style>
+  #shopify-block-{{ block.id }}  {
+    width: fit-content;
+  }
+  #shopify-section-{{ section.id }} .yg-growth-formula {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    width: fit-content;
+    gap: 10px;
+    padding: 4px;
+    text-align: center;
+    border-radius: 40px;
+    border: none;
+    color: #212121;
+    font-size: 13px;
+    margin-top: var(--margin-top);
+  }
+
+  #shopify-section-{{ section.id }} .yg-growth-formula .yg-growth-list {
+    display: grid;
+    grid-template-columns: 1fr 36px 1fr;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #shopify-section-{{ section.id }} .yg-growth-formula .yg-growth {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    border-radius: 40px;
+    font-weight: 600;
+    padding-inline: 24px;
+    background: #F8F7F7;
+  }
+
+  #shopify-section-{{ section.id }} .yg-growth-formula .yg-symbol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    width: 36px;
+    border: 1.5px dashed #fff;
+    color: #fff;
+    border-radius: 40px;
+  }
+
+  #shopify-section-{{ section.id }} .yg-growth-formula .yg-growth-result {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #shopify-section-{{ section.id }} .yg-growth-formula .yg-result {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    border-radius: 40px;
+    padding-inline: 24px;
+    font-weight: 600;
+    background: #FFC000;
+  }
+  @media (max-width: 1150px) and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .yg-growth-formula {
+      border-radius: 12px;
+    }
+    #shopify-section-{{ section.id }} .yg-growth-formula .yg-growth-list {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      gap: 4px;
+    }
+    #shopify-section-{{ section.id }} .yg-growth-formula .yg-symbol {
+      border: none;
+      height: 16px;
+      width: 16px;
+    }
+    #shopify-section-{{ section.id }} .yg-growth-formula .yg-result {
+      border-radius: 12px;
+      height: 100%;
+    }
+  }
+
+  @media (max-width: 600px) {
+    #shopify-section-{{ section.id }} .yg-growth-formula {
+      border-radius: 28px;
+      border: 1px dashed rgba(255, 255, 255, 0.50);
+      margin-top: var(--margin-top-mobile);
+    }
+    #shopify-section-{{ section.id }} .yg-growth-formula .yg-growth-list {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      gap: 4px;
+    }
+    #shopify-section-{{ section.id }} .yg-growth-formula .yg-symbol {
+      border: none;
+      height: 16px;
+      width: 16px;
+    }
+    #shopify-section-{{ section.id }} .yg-growth-formula .yg-result {
+      border-radius: 28px;
+      height: 100%;
+    }
+  }
+  @media (max-width: 460px) {
+    #shopify-section-{{ section.id }} .yg-growth-formula {
+      width: 100%;
+      grid-template-columns: calc(50% - 28px) calc(50% + 18px);
+    }
+
+    #shopify-section-{{ section.id }} .yg-growth-formula .yg-growth {
+      width: 100%;
+    }
+  }
+</style>
+
+{% capture block_style %}
+  --margin-top: {{ block.settings.margin_top | append: 'px' }};
+  --margin-top-mobile: {{ block.settings.margin_top_mobile | append: 'px' }};
+{% endcapture %}
+<div class="yg-growth-formula yg-block" style="{{ block_style }}">
+  <div class="yg-growth-list">
+    <div class="yg-growth">
+      {{ block.settings.text1 }}
+    </div>
+    <div class="yg-symbol">+</div>
+    <div class="yg-growth">
+      {{ block.settings.text2 }}
+    </div>
+  </div>
+  <div class="yg-growth-result">
+    <div class="yg-symbol result">=</div>
+    <div class="yg-result">{{ block.settings.text3 }}</div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "YG Growth Formula",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text1",
+      "label": "Growth 1"
+    },
+    {
+      "type": "text",
+      "id": "text2",
+      "label": "Growth 2"
+    },
+    {
+      "type": "text",
+      "id": "text3",
+      "label": "Conclusion"
+    },
+    {
+      "type": "select",
+      "id": "position",
+      "label": "t:global.position.alignment",
+      "options": [
+        {
+          "value": "top_left",
+          "label": "t:global.position.top_left"
+        },
+        {
+          "value": "top_center",
+          "label": "t:global.position.top_center"
+        },
+        {
+          "value": "top_right",
+          "label": "t:global.position.top_right"
+        },
+        {
+          "value": "middle_left",
+          "label": "t:global.position.middle_left"
+        },
+        {
+          "value": "middle_center",
+          "label": "t:global.position.middle_center"
+        },
+        {
+          "value": "middle_right",
+          "label": "t:global.position.middle_right"
+        },
+        {
+          "value": "bottom_left",
+          "label": "t:global.position.bottom_left"
+        },
+        {
+          "value": "bottom_center",
+          "label": "t:global.position.bottom_center"
+        },
+        {
+          "value": "bottom_right",
+          "label": "t:global.position.bottom_right"
+        }
+      ],
+      "default": "bottom_left"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "label": "Margin Top",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "label": "Margin Top Mobile",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "default": 30
+    }
+  ],
+  "presets": [
+    {
+      "name": "YG Growth Formula"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,364 @@
+<style>
+  #shopify-section-{{ section.id }} .yg-background-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    min-height: 260px;
+  }
+
+  #shopify-section-{{ section.id }} .yg-background-image .yg-featured-image,
+  #shopify-section-{{ section.id }} .yg-background-image .yg-image {
+    min-height: 260px;
+    object-position: right;
+  }
+
+  #shopify-section-{{ section.id }} .section-stack {
+    grid-template-columns: repeat(var(--col, 2), 1fr);
+    column-gap: 80px;
+    align-items: center;
+  }
+
+  #shopify-section-{{ section.id }} .section-header p {
+    margin: 0;
+  }
+
+  #shopify-section-{{ section.id }} .section-stack h2 {
+    font-size: var(--title-size, 40px);
+    line-height: var(--title-line-height, 1.2em);
+    letter-spacing: var(--title-letter-spacing, -.4px);
+    margin-bottom: var(--title-margin-bottom, 30px);
+  }
+
+  #shopify-section-{{ section.id }} .section-stack .max-w-sm {
+    font-size: var(--content-size, 15px);
+  }
+
+  #shopify-section-{{ section.id }} .section-stack .button {
+    margin-top: var(--button-margin-top, 48px);
+  }
+
+  #shopify-section-{{ section.id }} .yg-main-image {
+    margin-inline: var(--img-margin-inline, 0);
+  }
+
+  #shopify-section-{{ section.id }} .button svg {
+    margin-block: 0;
+  }
+
+  #shopify-section-{{ section.id }} .yg-text-rows-title {
+    font-size: var(--font-size);
+    font-weight: 500;
+  }
+
+  #shopify-section-{{ section.id }} .yg-text-rows-content {
+    font-size: var(--block-content-size, 14px);
+    line-height: 1.6;
+    font-weight: 500;
+    opacity: 0.7;
+  }
+
+  #shopify-section-{{ section.id }} .section-blocks {
+    display: grid;
+    grid-template-columns: repeat(var(--col), 1fr);
+    padding-block: var(--blocks-padding-block, 40px);
+    gap: 60px;
+  }
+
+  #shopify-section-{{ section.id }} .section-blocks .section-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media(max-width: 980px) {
+    #shopify-section-{{ section.id }} {
+      --col: 1;
+      --title-size: 28px;
+      --title-line-height: 1.15em;
+      --title-letter-spacing: -.56px;
+      --title-margin-bottom: 24px;
+      --content-size: 14px;
+      --button-margin-top: 36px;
+      --block-content-size: 13px;
+    }
+
+    #shopify-section-{{ section.id }} .section-spacing {
+      padding-bottom: 0;
+    }
+
+    #shopify-section-{{ section.id }} .section-blocks {
+      overflow-x: auto;
+      width: 100%;
+      gap: 12px;
+      grid-template-columns: repeat(var(--col), var(--col-width, 35%));
+      transform: translateX(max(var(--container-gutter-context), 50% - var(--container-max-width) / 2));
+      margin-inline: calc(-1 * max(var(--container-gutter-context),50% - var(--container-max-width) / 2));
+      padding-inline: max(var(--container-gutter-context),50% - var(--container-max-width) / 2);
+      -ms-overflow-style: none;     /* IE 和 Edge */
+      scrollbar-width: none;        /* Firefox */
+    }
+
+    #shopify-section-{{ section.id }} .scroll-container::-webkit-scrollbar {
+      display: none;                /* Chrome, Safari, Opera */
+    }
+  }
+
+  @media(max-width: 700px) {
+    #shopify-section-{{ section.id }} {
+      --img-margin-inline: -20px;
+      --blocks-padding-block: 64px;
+      --col-width: 65%;
+    }
+
+    #shopify-section-{{ section.id }} .yg-text-rows-title {
+      font-size: var(--font-size-mobile);
+    }
+  }
+</style>
+
+<div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }} relative">
+  {%- assign alignment = section.settings.text_alignment | replace: 'left', 'start' | replace: 'right', 'end' -%}
+  <div class="yg-background-image">
+    {% render 'yg-image',
+      img: section.settings.background_image,
+      img_mobile: section.settings.background_image_mobile,
+      img_class: 'yg-featured-image',
+      show_placeholder: false,
+      is_no_lazy: true,
+      is_lazy: false
+    %}
+  </div>
+  <div class="container section-spacing">
+    <div class="section-stack">
+      {%- if section.settings.title != blank
+        or section.settings.heading != blank
+        or section.settings.content != blank
+      -%}
+        <div class="section-header">
+          <div class="prose prose-justify-{{ alignment }}">
+            <div class="max-w-lg">
+              {%- render 'subheading', content: section.settings.subheading -%}
+              {%- render 'heading',
+                content: section.settings.title,
+                balance_text: true,
+                style: section.settings.heading_tag,
+                html_tag: 'h2'
+              -%}
+            </div>
+
+            {%- if section.settings.content != blank -%}
+              <div class="max-w-sm">
+                {{- section.settings.content -}}
+              </div>
+            {%- endif -%}
+            {%- render 'button',
+              content: section.settings.text,
+              href: section.settings.url,
+              button_icon: section.settings.button_icon,
+              style: section.settings.style,
+              background: section.settings.background,
+              text_color: section.settings.text_color,
+              external: section.settings.open_in_new_tab,
+              block: section
+            -%}
+          </div>
+        </div>
+      {%- endif -%}
+      <div class="yg-main-image">
+        {% render 'yg-image',
+          img: section.settings.image,
+          img_mobile: section.settings.image_mobile,
+          show_placeholder: true,
+          is_no_lazy: true,
+          is_lazy: false
+        %}
+      </div>
+    </div>
+  </div>
+  {% if section.blocks.size > 0 %}
+    <div class="container section-blocks" style="--col: {{ section.blocks.size }};">
+      {% for block in section.blocks %}
+        <yg-animation-item class="yg-text-rows-item">
+          {% if block.settings.title != blank %}
+            <div
+              class="yg-text-rows-title"
+              style="--font-size: {{ block.settings.title_size | divided_by: 16.0 | append: 'rem' }};--font-size-mobile: {{ block.settings.title_size_mobile | divided_by: 16.0 | append: 'rem' }}"
+            >
+              {{ block.settings.title }}
+            </div>
+          {% endif %}
+          {% if block.settings.content != blank %}
+            <div class="yg-text-rows-content">
+              {{ block.settings.content }}
+            </div>
+          {% endif %}
+        </yg-animation-item>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "YG marketing data",
+  "class": "shopify-section--yg-section",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:global.colors.scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image_mobile",
+      "label": "Background image mobile"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subheading",
+      "label": "t:global.text.subheading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "t:global.text.heading",
+      "default": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "t:global.text.content",
+      "default": "<p>Use this section to build trust with your customers, or showcase product features with text and icons.</p>"
+    },
+    {
+      "type": "text_alignment",
+      "id": "text_alignment",
+      "label": "t:global.text.alignment",
+      "default": "center"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "t:global.text.text",
+      "default": "Button text"
+    },
+    {
+      "type": "textarea",
+      "id": "button_icon",
+      "label": "Button icon"
+    },
+    {
+      "type": "url",
+      "id": "url",
+      "label": "t:global.text.link"
+    },
+    {
+      "type": "checkbox",
+      "id": "open_in_new_tab",
+      "label": "t:global.text.open_in_new_tab",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "style",
+      "label": "t:global.text.style",
+      "options": [
+        {
+          "value": "outline",
+          "label": "t:global.text.button_style_options.outline"
+        },
+        {
+          "value": "solid",
+          "label": "t:global.text.button_style_options.solid"
+        },
+        {
+          "value": "link",
+          "label": "t:global.text.button_style_options.link"
+        }
+      ],
+      "default": "solid"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "t:global.colors.background"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:global.text.text"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Image mobile"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "data",
+      "name": "Data",
+      "limit": 5,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Title"
+        },
+        {
+          "type": "range",
+          "id": "title_size",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "Title size",
+          "default": 52
+        },
+        {
+          "type": "range",
+          "id": "title_size_mobile",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "Title size mobile",
+          "default": 32
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "YG marketing data"
+    }
+  ]
+}
+{% endschema %}
