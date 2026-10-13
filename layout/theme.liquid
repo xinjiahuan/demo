@@ -17,6 +17,12 @@
   <link rel="canonical" href="{{ collection.metafields.deeplumen.ap_canonical_url.value | escape }}">
 {%- elsif template contains 'article' and article.metafields.deeplumen.ap_deployed.value == true and article.metafields.deeplumen.ap_canonical_url.value != blank -%}
   <link rel="canonical" href="{{ article.metafields.deeplumen.ap_canonical_url.value | escape }}">
+{%- elsif template contains 'product' and product.metafields.deeplumen.ap_deployed.value == true -%}
+  <link rel="canonical" href="https://{{ request.host }}/a/shop/products/{{ product.handle }}">
+{%- elsif template contains 'collection' and collection.metafields.deeplumen.ap_deployed.value == true -%}
+  <link rel="canonical" href="https://{{ request.host }}/a/shop/collections/{{ collection.handle }}">
+{%- elsif template contains 'article' and article.metafields.deeplumen.ap_deployed.value == true -%}
+  <link rel="canonical" href="https://{{ request.host }}/a/shop/blogs/{{ article.handle }}">
 {%- else -%}
   <link rel="canonical" href="{{ canonical_url }}">
 {%- endif -%}
